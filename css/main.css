@@ -1,0 +1,794 @@
+/*
+=================================================
+Normalize
+=================================================
+*/
+
+body,
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+/*
+=================================================
+Typography
+=================================================
+*/
+
+@font-face {
+    font-family: 'basic_sans_serif_7';
+    src: url('../fonts/basic_sans_serif_7.eot');
+    src: url('../fonts/basic_sans_serif_7.eot') format('embedded-opentype'),
+         url('../fonts/basic_sans_serif_7.woff2') format('woff2'),
+         url('../fonts/basic_sans_serif_7.woff') format('woff'),
+         url('../fonts/basic_sans_serif_7.ttf') format('truetype'),
+         url('../fonts/basic_sans_serif_7.svg#basic_sans_serif_7') format('svg');
+}
+
+h1,
+h2,
+h3,
+p,
+span,
+a,
+li,
+button {
+  font-family: roboto, sans-serif;
+}
+
+h2,
+p {
+  font-weight: 300;
+}
+
+h2 {
+  font-size: 48px;
+  text-align: center;
+}
+
+/*
+=================================================
+-----------------------------Header
+=================================================
+*/
+/*---------------------------Header - topline---------------------------*/
+
+.header-topline {
+  background: #282828;
+  color: #fefefe;
+  padding: 11px 0;
+}
+
+.header-topline span,
+.header-topline a {
+  font-size: 13px;
+}
+
+.header-social,
+.header-contacts {
+  display: inline-block;
+}
+
+.header-social a {
+  margin-right: 3px;
+  color: #fefefe;
+}
+
+.header-contacts {
+  float: right;
+}
+
+.header-contacts a {
+  text-align: right;
+}
+
+.header-contacts a:hover {
+  text-decoration: underline;  
+}
+
+.header-contacts span:nth-child(2),
+.header-contacts a {
+  color: #f0f0f0;
+  font-weight: 300;
+  vertical-align: top;
+}
+
+.header-contacts a {
+  padding-left: 6px;
+}
+
+.header-contacts span:nth-child(2) {
+  padding: 0 33px 0 9px;
+}
+
+/*---------------------------Header - menu---------------------------*/
+
+.header-logo {
+  font-family: "basic_sans_serif_7", sans-serif;
+  font-size: 30px;
+  color: #636666;
+  text-transform: uppercase;
+}
+
+.header-menu {
+  padding: 20px 0 22px 0;
+}
+
+.header-nav {
+  float: right;
+}
+
+.header-nav ul li:first-child {
+  padding-right: 40px;
+}
+
+.header-nav ul li:nth-child(2) {
+  padding-right: 46px;
+}
+
+.header-nav ul li:last-child {
+  padding-right: 45px;
+}
+
+.header-nav {
+  margin-top: 5px;
+}
+
+.header-nav nav,
+.header-nav li {
+  display: inline-block;
+  color: #111;
+  font-size: 14px;
+}
+
+.header-nav button {
+  background: none;
+  color: #5db442;
+  padding: 7px 29px;
+  border: solid 1px #5db442;
+  border-radius: 15px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/*---------------------------Header - slider---------------------------*/
+
+.header-slider {
+  background: #4ca368;
+  text-align: center;
+}
+
+.header-slider h2 {
+  margin: 97px 0 12px 0;
+}
+
+.header-slider p {
+  margin: 0 200px 29px 200px;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.header-slider p:last-child {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 100;
+  margin-bottom: 66px;
+}
+
+.header-img--wrapper {
+  text-align: center;
+  margin-bottom: 77px;
+}
+
+.header-form {
+  display: inline-block;
+  border: solid 2px #37804e;
+  height: 32px;
+  border-radius: 16px;
+  width: 288px;
+  overflow: hidden;
+  background: #37804e;
+  margin-bottom: 8px;
+}
+
+.header-form input {
+  height: 32px;
+  line-height: 32px;
+  padding: 0 0 0 7%;
+  border: none;
+  width: 65.5%;
+  vertical-align: bottom;
+  float: left;
+  font-weight: 300;
+}
+
+.header-form button {
+  border: none;
+  background: #37804e;
+  color: #fff;
+  height: 100%;
+  width: 27.5%;
+  padding: 0;
+  font-weight: 300;
+}
+
+/*
+=================================================
+-----------------------------Community
+=================================================
+*/
+
+.community {
+  background: url(../image/signup-bg.png);
+  text-align: center;
+}
+
+.community h2 {
+  margin: 90px 0 39px 0;
+}
+
+.community-signup {
+  position: relative;
+  background: #fff;
+  width: 50%;
+  margin: 0 auto 42px auto;
+  padding: 0 22px;
+  box-shadow: 0 0 10px #000;
+}
+
+
+.community-signup--wrapper {
+  position: relative;
+  text-align: left;
+  padding: 0 0 58px 237px;
+}
+
+.community-signup--arrows {
+  position: relative;
+}
+
+.community-signup--arrows div {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  left: 6px;
+  display: inline-block;
+  border: solid 1px #d4d4d4;
+  border-right: none;
+  border-bottom: none;
+}
+
+.community-signup--arrows div:hover {
+  cursor: pointer;
+}
+
+.arrow-up {
+  transform: rotate(45deg);
+  top: 34px;
+}
+
+.arrow-up::before,
+.arrow-down::before {
+  content: "";
+  display: block;
+  height: 100%;
+  background: linear-gradient(135deg, #d4d4d4 50%, transparent 50%);
+  transition: opacity 1s;
+  opacity: 0;
+}
+
+.arrow-up:hover::before,
+.arrow-down:hover::before {
+  opacity: 1;
+}
+
+.arrow-down {
+  transform: rotate(-135deg);
+  top: 46px;
+}
+
+.community-signup p {
+  color: #5db442;
+  font-size: 26px;
+  font-weight: 100;
+  padding: 97px 0 0 0;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.community-signup .fa-sign-in {
+  position: absolute;
+  top: 50%;
+  left: 162px;
+  margin-top: -35px;
+  color: #5db442;
+  font-size: 78px;
+}
+
+.community-signup ol {
+  display: inline-block;
+}
+
+.community-signup li {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.8;
+}
+
+.community-buttons {
+  width: 50%;
+  padding: 0 22px;
+  margin: 0 auto 95px;
+}
+
+.community-buttons div {
+  display: inline-block;
+  float: left;
+  width: 30%;
+  text-align: center;
+}
+/* #question I don`t like different margin in this case */
+.community-buttons div:first-child {
+  margin-left: 5px;
+}
+
+.community-buttons div:nth-child(1n+2) {
+  margin-left: 24px;
+}
+
+.community-buttons input {
+  display: none;
+}
+
+.community-button label {
+  display: inline-block;
+  width: 44px;
+  height: 44px;
+  border: solid 1px #5db442;
+  border-radius: 50%;
+  line-height: 44px;
+  vertical-align: middle;
+  background: #fff;
+}
+
+.community-button label:hover {
+  cursor: pointer;
+}
+
+.community-button input:checked ~ label {
+  background: #5db442;
+}
+
+.community-button span {
+  color: #5db442;
+}
+
+.community-button input:checked ~ label span {
+  color: #fff;
+}
+
+.community-button p {
+  color: #414141;
+  font-size: 12px;
+  font-weight: 300;
+}
+
+/*
+=================================================
+-----------------------------Services
+=================================================
+*/
+
+.services {
+  text-align: center;
+}
+
+.services h2 {
+  margin: 0 0 41px 0;
+  padding-top: 90px;
+}
+/*---------------------------Services - select---------------------------*/
+.services-select {
+  position: relative;
+  margin: 0 auto 51px auto;
+  width: 284px;
+}
+
+.services-select input {
+  display: none;
+}
+
+.services-select label {
+  float: left;
+  box-sizing: border-box;
+  display: inline-block;
+  background: #fff;
+  width: 50%;
+  border: solid 1px #ececec;
+  padding: 8px 0;
+  font-family: roboto, sans-serif;
+  font-size: 12px;
+  text-align: left;
+}
+
+.services-select label:hover {
+  cursor: pointer;
+}
+
+.services-select label[for$="business"] {
+  border-radius: 16px 0 0 16px;
+  padding-left: 21px;
+}
+
+.services-select label[for$="community"] {
+  border-left: none; /* #question Not sure about this way */
+  border-radius: 0 16px 16px 0;
+  padding-left: 17px;
+}
+
+.services-select input:checked + label {
+  background: #5db442;
+  color: #fff;
+}
+
+.services-select--or {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  margin-top: -10px;
+  left: 50%;
+  margin-left: -10px;
+  width: 20px;
+  height: 20px;
+  background: #4ca368;
+  border-radius: 50%;
+  line-height: 20px;
+  color: #fff;
+  font-family: roboto, sans-serif;
+  font-size: 10px;
+}
+/*---------------------------Services - packages---------------------------*/
+.services-wrapper {
+  margin: 0 auto 100px auto;
+}
+
+.services-packages {
+  position: relative;
+  display: inline-block;
+  width: 270px;
+  border: solid 1px #ececec;
+  text-align: center;
+  margin-left: -4px; /* wierd space fix */
+  box-sizing: border-box;
+}
+
+.services-wrapper .services-packages:first-child {
+  margin: 0 -4px 0 0; /* wierd space fix */
+}
+
+.services-wrapper .services-packages:nth-child(2) {
+  margin: 0 45px; /* #question Defenitly strange solution, but it`s fast and easy*/
+}
+
+.services-packages::before {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  width: 25%;
+  height: 2px;
+  background: #777;
+  top: 0;
+  left: 50%;
+  margin-left: -12.5%;
+}
+
+.services-packages:hover::before {
+  background: #5db442;
+}
+
+.services-packages > p:first-child {
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 14px;
+  margin: 24px 0 20px 0;
+}
+
+.services-packages--price {
+  position: relative;
+  display: inline-block;
+  height: 90px;
+  width: 90px;
+  background: #fff;
+  border-radius: 50%;
+  border: solid 1px #5db442;
+  box-shadow: 0 0 0 3px #ececec;
+  text-align: center;
+  line-height: 90px;
+  margin: 4px 0 21px 0;
+}
+
+.services-packages--price::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -135px;
+  width: 270px;
+  height: 1px;
+  background: #ececec;
+  z-index: -1;
+}
+
+.services-packages--price--wrapper {
+  position: relative;
+  display: inline-block; /* #question What is the best way of vertical align in this case*/
+  vertical-align: middle;
+}
+
+.services-packages--price p {
+  margin: 0;
+  line-height: 1.2;
+}
+
+.services-packages--price p:first-child {
+  font-size: 23px;
+  font-weight: 500;
+}
+
+.services-packages--price p:last-child {
+  font-size: 10px;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.service-packages--condition p {
+  font-weight: 500;
+  font-size: 12px;
+  color: #777;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.service-packages--condition span {
+  margin-right: 10px;
+}
+
+.service-packages--condition p:nth-child(2n+1) span {
+  color: #5db442;
+}
+
+.service-packages--condition p:nth-child(2n) span {
+  color: #f00;
+}
+
+.services-packages button {
+  color: #000;
+  font-size: 10px;
+  text-transform: uppercase;
+  line-height: 1.2;
+  margin: 17px 0 36px 0;
+  padding: 9px 35px;
+  border-radius: 16px;
+  border: solid 1px #ececec;
+  background: #fff;
+  transition: .3s;
+}
+
+.services-packages button:hover {
+  cursor: pointer;
+  color: #fff;
+  background: #5db442;
+}
+
+/*
+=================================================
+-----------------------------Features
+=================================================
+*/
+
+.features {
+  background: #fafafa;
+  background-image: url("../image/signup-bg.png");
+  padding-bottom: 68px;
+}
+
+.features h2 {
+  margin: 90px 100px 45px;
+}
+
+.features-single {
+  background: #fff;
+  text-align: center;
+  width: 22.5%;
+  padding: 39px 15px 0;
+  margin: 0 15px 30px 15px;
+  box-sizing: border-box;
+  transition: background .3s, color .3s;
+  box-shadow: 0 0 10px 0 #dbdbdb;
+}
+
+.features-single span {
+  color: #5db442;
+  font-size: 58px;
+  border-bottom: solid 2px #ececec;
+  padding: 0 10px 16px;
+}
+
+
+.features-single p:nth-child(2) {
+  color: #333333;
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.features-single p:last-child {
+  color: #898989;
+  font-size: 12px;
+  font-weight: 300;
+  margin: 33px 0 55px 0;
+  line-height: 1.8;
+}
+
+.features-single:hover {
+  background: #5db442;
+}
+
+.features-single:hover span {
+  color: #fff;
+  border-bottom: solid 2px #ececec;
+}
+
+.features-single:hover p:nth-child(2) {
+  color: #fff;
+}
+
+.features-single:hover p:last-child {
+  color: #f4faf2;
+}
+
+/*
+=================================================
+-----------------------------Footer
+=================================================
+*/
+
+footer {
+  background: #efefef;
+  padding-top: 48px;
+}
+
+footer p {
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.footer-subscribe {
+  float: left;
+  width: 330px;
+}
+
+
+.footer-subscribe p:first-child {
+  margin: 16px 0 29px 0;
+}
+
+.footer-subscribe p:nth-child(2) {
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 2;
+  margin-bottom: 18px;
+}
+
+.footer-subscribe input {
+  vertical-align: bottom;
+}
+
+.footer-subscribe input[type="email"] {
+  padding: 15px 0 15px 20px;
+  width: 253px;
+  border: none;
+}
+
+.footer-subscribe button {
+  position: relative;
+  display: inline-block;
+  float: right;
+  height: 45px;
+  width: 57px;
+  border: none;
+  background: #5db442;
+  padding: 0;
+}
+
+.footer-subscribe button::before {
+  content: "";
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  top: 50%;
+  left: 50%;
+  border: solid 2px #fff;
+  border-left: none;
+  border-bottom: none;
+  transform: rotate(45deg);
+}
+
+.footer-wrapper--nav {
+  float: right;
+  height: ;
+}
+
+.footer-nav {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.footer-nav p {
+  margin-bottom: 34px;
+}
+
+.footer-nav:first-child {
+  margin-right: 120px;
+}
+
+.footer-nav:nth-child(2) {
+  margin-right: 89px;
+}
+
+.footer-nav:last-child {
+  margin-right: 61px;
+}
+
+.footer-nav li a {
+  font-weight: 300;
+  font-size: 13px;
+  letter-spacing: 1px;
+  line-height: 2.3;
+}
+
+.footer-line {
+  height: 1px;
+  background: #e1e2e3;
+  margin-top: 50px;
+}
+
+.footer-logo {
+  float: left;
+  font-family: "basic_sans_serif_7", sans-serif;
+  font-size: 20px;
+  color: #636666;
+  text-transform: uppercase;
+  margin-left: 50px;
+}
+
+.footer-line + div {
+  position: relative;
+  padding: 30px 0;
+}
+
+.footer-copyright {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  margin-top: -13px;
+}
+
+.footer-copyright p {
+  font-size: 11px;
+  margin: 0 50px 0 0;
+  text-align: right;
+  color: #777;
+}
