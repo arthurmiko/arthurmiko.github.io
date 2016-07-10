@@ -12,30 +12,7 @@ var cell = 50;
 var fieldWidth = 450;
 var fieldHeight = 450;
 
-// function drawField() {
-//   for (var x = 0; x < fieldWidth; x += cell) {
-//     var checkParityX;
-//     if ((x / cell) % 2 == 0) {
-//       checkParityX = true;
-//     } else {
-//       checkParityX = false;
-//     }
 
-//     for (var y = 0; y < fieldHeight; y += cell) {
-//       var checkParityY;
-//       if ((y / cell) % 2 == 0) {
-//         checkParityY = true;
-//       } else {
-//         checkParityY = false;
-//       }
-
-//       if (checkParityX == false && checkParityY == true || checkParityX == true && checkParityY == false) {
-//         boardContext.fillStyle = "#555";
-//         boardContext.fillRect(x, y, cell, cell);
-//       }
-//     }
-//   }
-// }
 
 function drawField() {
   boardContext.fillStyle = '#ddd';
@@ -83,7 +60,7 @@ var boardArray = createArrayBoard();
 
 var arrCoorX;
 var arrCoorY;
-var turnPlayer = 'black';
+var turnColor = 'black';
 
 boardCanvas.onclick = function(e) {
   arrCoorX = Math.floor(e.offsetX / 50);
@@ -92,14 +69,21 @@ boardCanvas.onclick = function(e) {
 }
 
 function turn(x, y) {
-  var empty = checkEmpty(boardArray, x, y, turnPlayer);
-  if (empty == true) {
-    drawCircle(x, y, turnPlayer);
-    if (turnPlayer == 'black') {
-      turnPlayer = 'white';
-    } else {
-      turnPlayer = 'black';
-    }
+  var empty = checkEmpty(boardArray, x, y);
+  var nearPoint = checkNearPoint(boardArray, x, y, turnColor);
+  if (empty == true && nearPoint == true) {
+    drawCircle(x, y, turnColor);
+    boardArray[x][y] = turnColor;
+    killStone(boardArray, x, y, turnColor);
+    changeColor();
+  }
+}
+
+function changeColor() {
+  if (turnColor == 'black') {
+    turnColor = 'white';
+  } else {
+    turnColor = 'black';
   }
 }
 
@@ -117,9 +101,94 @@ function drawCircle(x, y, color) {
   }
 }
 
-function checkEmpty(board, x, y, color) {
+function checkEmpty(board, x, y) {
   if (board[x][y] == 'empty') {
-    board[x][y] = color;
     return true;
   }
 }
+
+function checkNearPoint(board, x, y, color) {
+  if (x < 8 && board[x + 1][y] == 'empty' || x < 8 && board[x + 1][y] == color) {
+    return true;
+  } else if (x > 0 && board[x - 1][y] == 'empty' || x > 0 && board[x - 1][y] == color) {
+    return true;
+  } else if (y < 8 && board[x][y + 1] == 'empty' || y < 8 && board[x][y + 1] ==  color) {
+    return true;
+  } else if (y > 0 && board[x][y - 1] == 'empty' || y > 0 && board[x][y - 1] == color) {
+    return true;
+  }
+}
+
+function killStone(board, x, y, color) {
+  var check = false;
+  if (color == 'white') {
+    if (x < 8 && board[x + 1][y] == 'black') {
+      check = checkNearPoint(board, x + 1, y, 'black');
+      if (check != true) {
+        // board[x + 1][y] == 'empty';
+        // console.log(board)
+        console.log('x: ' + x + ' y: ' + y)
+        console.log('kill x: ' + (x + 1) + ' y: ' + (y));
+      }
+    } else if (x > 0 && board[x - 1][y] == 'black') {
+      check = checkNearPoint(board, x - 1, y, 'black');
+      if (check != true) {
+        // board[x - 1][y] == 'empty';
+        // console.log(board)
+        console.log('x: ' + x + ' y: ' + y)
+        console.log('kill x: ' + (x - 1) + ' y: ' + (y));
+      }
+    } else if (y < 8 && board[x][y + 1] == 'black') {
+      check = checkNearPoint(board, x, y + 1, 'black');
+      if (check != true) {
+        // board[x][y + 1] == 'empty';
+        // console.log(board)
+        console.log('x: ' + x + ' y: ' + y)
+        console.log('kill x: ' + (x) + ' y: ' + (y + 1));
+      }
+    } else if (y > 0 && board[x][y - 1] == 'black') {
+      check = checkNearPoint(board, x, y - 1, 'black');
+      if (check != true) {
+        // board[x ][y - 1] == 'empty';
+        // console.log(board)
+        console.log('x: ' + x + ' y: ' + y)
+        console.log('kill x: ' + (x) + ' y: ' + (y - 1));
+      }
+    }
+  } else {
+    if (x < 8 && board[x + 1][y] == 'white') {
+      check = checkNearPoint(board, x + 1, y, 'white');
+      if (check != true) {
+        // board[x + 1][y] == 'empty';
+        // console.log(board)
+        console.log('x: ' + x + ' y: ' + y)
+        console.log('kill x: ' + (x + 1) + ' y: ' + (y));
+      }
+    } else if (x > 0 && board[x - 1][y] == 'white') {
+      check = checkNearPoint(board, x - 1, y, 'white')
+      if (check != true) {
+        // board[x - 1][y] == 'empty';
+        // console.log(board)
+        console.log('x: ' + x + ' y: ' + y)
+        console.log('kill x: ' + (x - 1) + ' y: ' + (y));
+      }
+    } else if (y < 8 && board[x][y + 1] == 'white') {
+      check = checkNearPoint(board, x, y + 1, 'white');
+      if (check != true) {
+        // board[x][y + 1] == 'empty';
+        // console.log(board)
+        console.log('x: ' + x + ' y: ' + y)
+        console.log('kill x: ' + (x) + ' y: ' + (y + 1));
+      }
+    } else if (y > 0 && board[x][y - 1] == 'white') {
+      check = checkNearPoint(board, x, y - 1, 'white');
+      if (check != true) {
+        // board[x ][y - 1] == 'empty';
+        // console.log(board)
+        console.log('x: ' + x + ' y: ' + y)
+        console.log('kill x: ' + (x) + ' y: ' + (y - 1));
+      }
+    }
+  }
+}
+
