@@ -65,12 +65,12 @@ function drawField() {
 
 function drawCircle(x, y, color) {
   if (color == 'black') {
-    boardContext.fillStyle = "#000";
+    boardContext.fillStyle = "#f00";
     boardContext.beginPath();
     boardContext.arc(x * cell + cell / 2, y * cell + cell / 2, cell / 2, 0, Math.PI * 2, true);
     boardContext.fill();
   } else {
-    boardContext.fillStyle = "#fff";
+    boardContext.fillStyle = "#00f";
     boardContext.beginPath();
     boardContext.arc(x * cell + cell / 2, y * cell + cell / 2, cell / 2, 0, Math.PI * 2, true);
     boardContext.fill();
