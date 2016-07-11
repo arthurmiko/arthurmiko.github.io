@@ -327,6 +327,10 @@ Slider
   margin-top: 3px;
 }
 
+.slide-list li:last-child::before {
+  display: none;
+}
+
 .slide-button {
   position: relative;
   background: #fee940;
