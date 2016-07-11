@@ -10,8 +10,7 @@ Normalize
   box-sizing: border-box;
 }
 
-body,
-p {
+body, p, h2 {
   margin: 0;
 }
 
@@ -594,7 +593,7 @@ p.content--text-title {
   line-height: 1.6;
 }
 
-p.content-header {
+h2 {
   font-family: 'museo700regular', sans-serif;
   color: #468107;
   font-size: 30px;
@@ -614,7 +613,7 @@ p.content-header {
   padding-left: 23px;
 }
 
-.about .content-header {
+.about h2 {
   margin-left: 1px;
 }
 
@@ -630,7 +629,7 @@ p.content-header {
   padding-left: 35px;
 }
 
-.services .content-header {
+.services h2 {
   margin-left: -10px;
 }
 
@@ -668,7 +667,7 @@ p.content-header {
   padding-left: 37px;
 }
 
-.news .content-header {
+.news h2 {
   margin-left: -3px;
 }
 
