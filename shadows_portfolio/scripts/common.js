@@ -9,8 +9,8 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-var nextSlide = document.querySelector('.js_next');
-var sliderTimer = setTimeout(function tick(){
-  nextSlide.click();
-  sliderTimer = setTimeout(tick, 3000);
-}, 3000);
+// var nextSlide = document.querySelector('.js_next');
+// var sliderTimer = setTimeout(function tick(){
+//   nextSlide.click();
+//   sliderTimer = setTimeout(tick, 3000);
+// }, 3000);
