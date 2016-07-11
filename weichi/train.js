@@ -1,29 +1,23 @@
 'use strict';
 
-var object1 = {
-  name: 'Vasya',
-  age: 18,
-  5: 'fixe',
-  '2 + 2': 'four'
-};
+var a = [[1, 1],[2, 2]];
+var b = [[0, 0],[3, 3]];
+var c = new Array(a.length);
 
-var object2 = {
-  name: 'Petya'
+for (var i = 0; i < c.length; i++) {
+  c[i] = new Array(a[i].length);
 }
 
-var simpleArr = [[1, 45, 76, 23],['a', 'b', 'c', 'd']];
-
-console.log(simpleArr);
-
-var arr = [[1, 2, 3],
-           [4, 5, 6],
-           [7, 8, 9]];
-
-console.log(arr);
-console.log(typeof(arr[4]));
-
-function showName(who) {
-  console.log(who.name);
+for (var i = 0; i < a.length; i++) {
+  b[i][0] = a[i][0];
+  b[i][1] = a[i][1];
+  c[i][0] = a[i][0];
+  c[i][1] = a[i][1];
 }
 
-showName(object2);
+b[0][0] = 4;
+c[0][0] = 5;
+
+console.log('a: ' + a.join('; '));
+console.log('b: ' + b.join('; '));
+console.log('c: ' + c.join('; '));
