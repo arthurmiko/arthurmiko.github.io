@@ -8,26 +8,40 @@
 <body>
   <header>
     <div class="container header-wrapper">
+      <div class="header-decor">
+        <div class="header-decor--left-corner"></div>
+        <div class="header-decor--left-corner-shadow"></div>
+        <div class="header-decor--right-corner"></div>
+        <div class="header-decor--right-corner-shadow"></div>          
+        <div class="header-decor--shadow-bottom"></div>
+      </div>
       <div class="header-nav-wrapper">
         <img class="header-logo" src="image/logo.png" alt="logo">
         <nav class="header-nav clearfix">
-          <div class="nav-button">
-            <div class="nav-button-selected"></div>
-            <div class="nav-button-shadow"></div>
-            <a href="#">Home</a>
-          </div>
-          <div class="nav-button">
-            <a href="#">Gallery</a>
-          </div>
-          <div class="nav-button">
-            <a href="#">News</a>
-          </div>
-          <div class="nav-button">
-            <a href="#">About Us</a>
-          </div>
-          <div class="nav-button">
-            <a href="#">Contact</a>
-          </div>
+          <ul>
+            <li>
+              <a class="header-nav--current" href="#">Home
+                <div class="nav-button-selected"></div>
+                <div class="nav-button-shadow"></div>
+              </a>
+            </li>
+            <li>
+              <a href="#">Gallery
+              </a>
+            </li>
+            <li>
+              <a href="#">News
+              </a>
+            </li>
+            <li>
+              <a href="#">About Us
+              </a>
+            </li>
+            <li>
+              <a href="#">Contact
+              </a>
+            </li>
+          </ul>
         </nav>
       </div>
     </div>
@@ -46,7 +60,9 @@
                 <li>Quick setup and simple interface.</li>
                 <li>Rich choice of Templates.</li>
                 <li>Try it free for 30 days.</li>
-                <li><button class="slide-button"><span>Get Started</span></button></li>
+                <li>
+                  <button class="slide-button"><span>Get Started</span></button>
+                </li>
               </ul>
             </div>
             <img src="image/phones.png" alt="phones">

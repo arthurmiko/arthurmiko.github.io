@@ -109,26 +109,116 @@ Header
 
 .header-wrapper {
   position: relative;
-  margin-top: 6px;
+  margin-top: 12px;
   background-image: url('../image/header_ribbon.png');
   background-repeat: no-repeat;
   background-position: 0 0;
 }
 
-.header-wrapper::before {
-  content: url(../image/header_left_corner.png);
-  display: inline-block;
+.header-decor--shadow-bottom {
   position: absolute;
-  left: -43px;
-  top: 7px;
+  top: 51px;
+  left: -30px;
+  width: 1020px;
+  height: 100px;
+  overflow: hidden;
+  perspective: 200px;
 }
 
-.header-wrapper::after {
-  content: url(../image/header_right_corner.png);
+.header-decor--shadow-bottom::before {
+  content: '';
   display: inline-block;
   position: absolute;
-  right: -47px;
-  top: 14px;
+  top: -51px;
+  left: 20px;
+  width: 981px;
+  height: 110px;
+  transform: rotateX(-5deg);
+  box-shadow: 0 0 25px 3px rgba(0, 0, 0, .4);
+}
+
+.header-decor--left-corner {
+  position: absolute;
+  display: inline-block;
+  background-image: url(../image/header_left_corner.png);
+  width: 19px;
+  height: 87px;
+  top: 20px;
+  left: -19px;
+}
+
+.header-decor--left-corner-shadow {
+  position: absolute;
+  left: -41px;
+  top: 0;
+  height: 90px;
+  width: 40px;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.header-decor--left-corner-shadow::before {
+  content: '';
+  position: absolute;
+  top: 24px;
+  left: 41px;
+  display: inline-block;
+  width: 20px;
+  height: 100%;
+  box-shadow: 0 0 16px 10px rgba(0, 0, 0, .5);
+}
+
+.header-decor--left-corner-shadow::after {
+  content: '';
+  position: absolute;
+  top: 41px;
+  left: 27px;
+  display: inline-block;
+  width: 20px;
+  height: 100%;
+  box-shadow: 0 0 22px 10px rgba(0, 0, 0, .5);
+}
+
+.header-decor--right-corner {
+  position: absolute;
+  display: inline-block;
+  background-image: url(../image/header_right_corner.png);
+  width: 20px;
+  height: 89px;
+  top: 20px;
+  right: -20px;
+}
+
+.header-decor--right-corner-shadow {
+  position: absolute;
+  right: -57px;
+  top: 0;
+  height: 90px;
+  width: 56px;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.header-decor--right-corner-shadow::before {
+  content: '';
+  position: absolute;
+  top: 24px;
+  right: 51px;
+  display: inline-block;
+  width: 20px;
+  height: 100%;
+  box-shadow: 0 0 16px 10px rgba(0, 0, 0, .5);
+}
+
+.header-decor--right-corner-shadow::after {
+  content: '';
+  position: absolute;
+  top: 44px;
+  right: 38px;
+  display: inline-block;
+  width: 20px;
+  height: 100%;
+  box-shadow: 0 0 25px 13px rgba(0, 0, 0, .5);
 }
 
 .header-logo {
@@ -138,7 +228,7 @@ Header
 }
 
 .header-nav-wrapper {
-  padding: 30px 0;
+  padding: 24px 0 30px 0;
 }
 
 .header-nav {
@@ -154,17 +244,37 @@ Header
   color: #585858;
 }
 
-.nav-button {
+.header-nav li {
   position: relative;
   display: inline-block;
   padding: 17px 28px 35px 28px;
   margin-top: 3px;
   text-align: center;
   perspective: 200px;
+  transition: background-image .3s;
 }
 
-.nav-button:nth-child(even) {
+.header-nav li:nth-child(even) {
   padding: 17px 17px 35px 17px;;
+}
+
+.header-nav li::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  border-radius: 5px 5px 0 0;
+  background-image: linear-gradient(to bottom, #fefefd, #fefefd 60%, #fafcf9);
+  z-index: -1;
+}
+
+.header-nav li:hover::before {
+  cursor: pointer;
+  opacity: .5;
 }
 
 .nav-button-selected {
@@ -178,7 +288,7 @@ Header
   z-index: -1;
 }
 
-.nav-button-selected ~ a {
+a.header-nav--current {
   color: #397c0f;
 }
 
@@ -227,8 +337,8 @@ Slider
   position: absolute;
   width: 100%;
   height: 395px;
-  top: 63px;
-  z-index: 1;
+  top: 78px;
+  z-index: 3;
 }
 
 .frame {
@@ -268,14 +378,14 @@ Slider
 .slide-content img {
   position: absolute;
   right: -31px;
-  bottom: 49px;
+  bottom: 64px;
   z-index: 2;
 }
 
 .slide-content-text {
   position: relative;
-  margin-top: 84px;
-  margin-left: 62px;
+  margin-top: 69px;
+  margin-left: 45px;
   z-index: 3;
 }
 
@@ -359,7 +469,7 @@ Slider
   height: 100%;
   opacity: 0;
   background-image: linear-gradient(to bottom, #a5cc48, #558338);
-  transition: opacity .3s;/* somewhy doesn`t work*/
+  transition: opacity .3s;/* somehow doesn`t work in Chrome*/
 }
 
 .slide-button:hover::after {
@@ -384,18 +494,18 @@ Slider
   position: relative;
   color: #fff;
   -webkit-filter: drop-shadow(0 0 1px #d45d13) drop-shadow(0 0 1px #d45d13) drop-shadow(0 0 1px #d45d13);
-  -o-filter: drop-shadow(0 0 1px #d45d13) drop-shadow(0 0 1px #d45d13) drop-shadow(0 0 1px #d45d13);
-  filter: drop-shadow(0 0 1px #d45d13) drop-shadow(0 0 1px #d45d13) drop-shadow(0 0 1px #d45d13);
-  -webkit-transition: filter .3s;/* somewhy doesn`t work*/
-  -o-transition: filter .3s;/* somewhy doesn`t work*/
-  transition: filter .3s;/* somewhy doesn`t work*/
+       -o-filter: drop-shadow(0 0 1px #d45d13) drop-shadow(0 0 1px #d45d13) drop-shadow(0 0 1px #d45d13);
+          filter: drop-shadow(0 0 1px #d45d13) drop-shadow(0 0 1px #d45d13) drop-shadow(0 0 1px #d45d13);
+  -webkit-transition: filter .3s;/* somehow doesn`t work*/
+       -o-transition: filter .3s;/* somehow doesn`t work*/
+          transition: filter .3s;/* somehow doesn`t work*/
   z-index: 1;
 }
 
 .slide-button:hover span {
   -webkit-filter: drop-shadow(0 0 1px #4d7c1b) drop-shadow(0 0 1px #4d7c1b) drop-shadow(0 0 1px #4d7c1b);
-  -o-filter: drop-shadow(0 0 1px #4d7c1b) drop-shadow(0 0 1px #4d7c1b) drop-shadow(0 0 1px #4d7c1b);
-  filter: drop-shadow(0 0 1px #4d7c1b) drop-shadow(0 0 1px #4d7c1b) drop-shadow(0 0 1px #4d7c1b);
+       -o-filter: drop-shadow(0 0 1px #4d7c1b) drop-shadow(0 0 1px #4d7c1b) drop-shadow(0 0 1px #4d7c1b);
+          filter: drop-shadow(0 0 1px #4d7c1b) drop-shadow(0 0 1px #4d7c1b) drop-shadow(0 0 1px #4d7c1b);
 }
 
 .spreader {
@@ -409,10 +519,6 @@ Slider
 Main content
 =================================================
 */
-
-.content {
-  /*margin-top: 246px; fix absolute position*/
-}
 
 /*Main content - header*/
 
@@ -687,10 +793,66 @@ h2 {
   position: relative;
   padding: 7px 24px;
   border: solid 1px #eab640;
-  border-bottom: #cc6a0b;
+  border-bottom: solid 1px #cc6a0b;
   border-radius: 5px;
   background: #f9e894;
   background-image: linear-gradient(to bottom, #fde337, #d27214);
+}
+
+.content-button:focus {
+  outline: none;
+}
+
+.content-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  background-image: linear-gradient(to bottom, #a5cc48, #558338);
+  transition: opacity .5s;/* somehow doesn`t work in Chrome*/
+}
+
+.content-button:hover::after {
+  opacity: 1;
+}
+
+.content-button:hover {
+  cursor: pointer;
+  border: solid 1px #78c228;
+  border-bottom: solid 1px #468107;
+}
+
+.content-button::before {
+  content: url('../image/btn_bg.png');
+  position: absolute;
+  top: -3px;
+  left: 2px;
+  z-index: 1;
+}
+
+.content-button span {
+  font-family: 'museo700regular', sans-serif;
+  font-size: 12px;
+  color: #642002;
+  position: relative;
+  -webkit-filter: drop-shadow(0 0 1px #f9e894) drop-shadow(0 0 1px #f9e894);
+       -o-filter: drop-shadow(0 0 1px #f9e894) drop-shadow(0 0 1px #f9e894);
+          filter: drop-shadow(0 0 1px #f9e894) drop-shadow(0 0 1px #f9e894);
+  -webkit-transition: filter .3s, color .3s;/* somehow doesn`t work in Chrome*/
+       -o-transition: filter .3s, color .3s;/* somehow doesn`t work in Chrome*/
+          transition: filter .3s, color .3s;/* somehow doesn`t work in Chrome*/
+  z-index: 1;
+}
+
+.content-button:hover span {
+  color: #fff;
+  -webkit-filter: drop-shadow(0 0 1px #4d7c1b) drop-shadow(0 0 1px #4d7c1b);
+       -o-filter: drop-shadow(0 0 1px #4d7c1b) drop-shadow(0 0 1px #4d7c1b);
+          filter: drop-shadow(0 0 1px #4d7c1b) drop-shadow(0 0 1px #4d7c1b);
 }
 
 .content-button::before {
@@ -698,13 +860,6 @@ h2 {
   top: -1px;
   left: 1px;
   content: url(../image/content_btn_bg.png);
-}
-
-.content-button span {
-  font-family: 'museo700regular', sans-serif;
-  font-size: 12px;
-  color: #642002;
-  filter: drop-shadow(0 0 1px #f9e894) drop-shadow(0 0 1px #f9e894);
 }
 
 .content .about .content-button {
@@ -756,6 +911,10 @@ footer a::after {
   border-right: solid 1px #72913c;
   top: 0;
   right: -10px;
+}
+
+footer a:last-child::after {
+  display: none;
 }
 
 .footer-nav {
