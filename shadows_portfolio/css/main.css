@@ -339,6 +339,7 @@ Slider
   height: 395px;
   top: 78px;
   z-index: 3;
+  pointer-events: none;
 }
 
 .frame {
@@ -453,6 +454,7 @@ Slider
   box-shadow: -3px 3px 3px 0 rgba(0, 0, 0, .3);
   background-image: linear-gradient(to bottom, #fee537, #d27113);
   transition: border .3s;
+  pointer-events: auto;
 }
 
 .slide-button:focus {
@@ -469,7 +471,7 @@ Slider
   height: 100%;
   opacity: 0;
   background-image: linear-gradient(to bottom, #a5cc48, #558338);
-  transition: opacity .3s;/* somehow doesn`t work in Chrome*/
+  transition: opacity .3s;
 }
 
 .slide-button:hover::after {
@@ -496,9 +498,9 @@ Slider
   -webkit-filter: drop-shadow(0 0 1px #d45d13) drop-shadow(0 0 1px #d45d13) drop-shadow(0 0 1px #d45d13);
        -o-filter: drop-shadow(0 0 1px #d45d13) drop-shadow(0 0 1px #d45d13) drop-shadow(0 0 1px #d45d13);
           filter: drop-shadow(0 0 1px #d45d13) drop-shadow(0 0 1px #d45d13) drop-shadow(0 0 1px #d45d13);
-  -webkit-transition: filter .3s;/* somehow doesn`t work*/
-       -o-transition: filter .3s;/* somehow doesn`t work*/
-          transition: filter .3s;/* somehow doesn`t work*/
+  -webkit-transition: filter .3s;
+       -o-transition: filter .3s;
+          transition: filter .3s;
   z-index: 1;
 }
 

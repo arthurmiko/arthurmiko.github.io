@@ -1,23 +1,16 @@
 'use strict';
 
-var a = [[1, 1],[2, 2]];
-var b = [[0, 0],[3, 3]];
-var c = new Array(a.length);
+var arr = [1, 2, 3, 4, 5, 6, 7, 8];
 
-for (var i = 0; i < c.length; i++) {
-  c[i] = new Array(a[i].length);
+function sum(board, x) {
+  if (board[x] == 2) {
+    console.log('ok');
+  } else {
+    console.log('wrong')
+  }
+  board[0] = 2;
 }
 
-for (var i = 0; i < a.length; i++) {
-  b[i][0] = a[i][0];
-  b[i][1] = a[i][1];
-  c[i][0] = a[i][0];
-  c[i][1] = a[i][1];
-}
+sum(arr, 0);
 
-b[0][0] = 4;
-c[0][0] = 5;
-
-console.log('a: ' + a.join('; '));
-console.log('b: ' + b.join('; '));
-console.log('c: ' + c.join('; '));
+console.log(arr)

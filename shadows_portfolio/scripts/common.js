@@ -1,4 +1,6 @@
-'use strict';
+// 'use strict';
+
+console.log('some')
 
 document.addEventListener('DOMContentLoaded', function () {
   var simple = document.querySelector('.js_percentage');
@@ -7,6 +9,11 @@ document.addEventListener('DOMContentLoaded', function () {
     infinite: 1,
     slideSpeed: 1000
   });
+});
+
+
+$(document).ready(function(){
+  PointerEventsPolyfill.initialize({});
 });
 
 // var nextSlide = document.querySelector('.js_next');

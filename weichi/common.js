@@ -1,5 +1,7 @@
 'use strict';
 
+(function(){
+  
 // снятие группы камней и возможно ко
 
 // intialize canvas
@@ -28,7 +30,7 @@ function createArrayBoard() {
   return arr;
 }
 
-var boardArray = createArrayBoard();
+var board = createArrayBoard();
 
 function drawField() {
   boardContext.fillStyle = '#ddd';
@@ -52,11 +54,11 @@ function drawField() {
     boardContext.stroke();
   }
 
-  for (var x = 0; x < boardArray.length; x++) {
-    for (var y = 0; y < boardArray[x].length; y++) {
-      if (boardArray[x][y] == 'white') {
+  for (var x = 0; x < board.length; x++) {
+    for (var y = 0; y < board[x].length; y++) {
+      if (board[x][y] == 'white') {
         drawCircle(x, y, 'white');
-      } else if (boardArray[x][y] == 'black') {
+      } else if (board[x][y] == 'black') {
         drawCircle(x, y, 'black');        
       }
     }
@@ -65,12 +67,12 @@ function drawField() {
 
 function drawCircle(x, y, color) {
   if (color == 'black') {
-    boardContext.fillStyle = "#f00";
+    boardContext.fillStyle = "#000";
     boardContext.beginPath();
     boardContext.arc(x * cell + cell / 2, y * cell + cell / 2, cell / 2, 0, Math.PI * 2, true);
     boardContext.fill();
   } else {
-    boardContext.fillStyle = "#00f";
+    boardContext.fillStyle = "#fff";
     boardContext.beginPath();
     boardContext.arc(x * cell + cell / 2, y * cell + cell / 2, cell / 2, 0, Math.PI * 2, true);
     boardContext.fill();
@@ -83,32 +85,33 @@ drawField();
 
 var arrCoorX;
 var arrCoorY;
-var turnColor = 'black';
+var color = 'black';
 
 boardCanvas.onclick = function(e) {
   arrCoorX = Math.floor(e.offsetX / 50);
   arrCoorY = Math.floor(e.offsetY / 50);
-  turn(arrCoorX, arrCoorY);
+  step(arrCoorX, arrCoorY);
 }
 
-function turn(x, y) {
-  var empty = checkEmpty(boardArray, x, y);
-  var nearPoint = checkNear(boardArray, x, y, turnColor);
+function step(x, y) {
+  var empty = checkEmpty(board, x, y);
+  var nearPoint = checkNear(board, x, y, color);
   if (empty == true && nearPoint == true) {
-    drawCircle(x, y, turnColor);
-    boardArray[x][y] = turnColor;
-    getGroup(x, y);
-    killStone(boardArray, x, y, turnColor);
+    drawCircle(x, y, color);
+    board[x][y] = color;
+    // getGroup(x, y);
+    getGroup([[x, y]]);
+    killStone(board, x, y, color);
     changeColor();
     drawField();
   }
 }
 
 function changeColor() {
-  if (turnColor == 'black') {
-    turnColor = 'white';
+  if (color == 'black') {
+    color = 'white';
   } else {
-    turnColor = 'black';
+    color = 'black';
   }
 }
 
@@ -119,7 +122,6 @@ function checkEmpty(board, x, y) {
 }
 
 function checkNear(board, x, y, color) {
-  var group = [];
   var nearStone = checkNearColor(board, x, y, color);
   if (checkNearEmpty(board, x, y, color) || nearStone[0]) {
     return true;
@@ -162,6 +164,55 @@ function checkNearColor(board, x, y, color) {
     stones[0] = true;
   }
   return stones;
+}
+
+function getGroup(group) {
+  var amount = group.length;
+
+  for (var k = 0; k < group.length; k++) {
+    var nearStone = checkNearColor(board, group[k][0], group[k][1], color)[1];
+
+    for (var i = 0; i < nearStone.length; i++) {
+      var elem = checkNearColor(board, nearStone[i][0], nearStone[i][1], color)[1];
+      var needToCut = [];
+
+      for (var c = 0; c < elem.length; c++) {
+        for (var j = 0; j < nearStone.length; j++) {
+          if (elem[c][0] == nearStone[j][0] && elem[c][1] == nearStone[j][1]) needToCut.push(c);
+        }
+        for (var m = 0; m < group.length; m++) {
+          if (elem[c][0] == group[m][0] && elem[c][1] == group[m][1]) needToCut.push(c);          
+        }
+      }
+
+      for (var c = needToCut.length; c > 0; c--) {
+        elem.splice(needToCut[c - 1], 1);
+      }
+
+      nearStone = nearStone.concat(elem);
+
+      needToCut = [];
+      for (var c = 0; c < nearStone.length; c++) {
+        for (var j = 0; j < group.length; j++) {
+          if (nearStone[c][0] == group[j][0] && nearStone[c][1] == group[j][1]) needToCut.push(c);
+        }
+      }
+
+      for (var c = needToCut.length; c > 0; c--) {
+        nearStone.splice(needToCut[c - 1], 1);
+      }
+
+      group = group.concat(nearStone);
+    }
+  }
+
+  if (amount != group.length) {
+    getGroup(group);
+  } else {
+    console.log('amount: ' + amount);
+    console.log('group: ' + group.join('; '));
+    return group;
+  }
 }
 
 function killStone(board, x, y, color) {
@@ -230,32 +281,4 @@ function killStoneWhite(board, x, y, color) {
   }
 }
 
-function getGroup(x, y) {
-  var nearStone = checkNearColor(boardArray, x, y, turnColor)[1];
-  var nextNearStone = [];
-
-  for (var i = 0; i < nearStone.length; i++) {
-    var elem = checkNearColor(boardArray, nearStone[i][0], nearStone[i][1], turnColor)[1];
-    var needToCut = [];
-
-    for (var c = 0; c < elem.length; c++) {
-      for (var j = 0; j < nearStone.length; j++) {
-        if (elem[c][0] == nearStone[j][0] && elem[c][1] == nearStone[j][1]) needToCut.push(c);
-      }
-
-      for (var j = 0; j < nextNearStone.length; j++) {
-        if (elem[c][0] == nextNearStone[j][0] && elem[c][1] == nextNearStone[j][1]) needToCut.push(c);
-      }
-    }
-
-    for (var c = needToCut.length; c > 0; c--) {
-      elem.splice(needToCut[c - 1], 1);
-    }
-
-    nextNearStone = nextNearStone.concat(elem);
-    console.log(nextNearStone.join('; ') + ' iteration: ' + i)
-  }
-
-  nearStone = nearStone.concat(nextNearStone);
-  console.log('nearStone length: ' + nearStone.length + '\n' + 'nearStone coords: ' + nearStone.join('; '))
-}
+})();
