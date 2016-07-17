@@ -3,23 +3,24 @@
 function checkCashRegister(price, cash, cid) {
   var change = [];
   var result;
-  var difference = cash - price;
+  var difference = (cash - price) * 1000;
   var compare = difference;
+
   var funds = 0;
 
   for (var i = 0; i < cid.length; i++) {
-    var current = funds * 1000;
-    var addendum = cid[i][1] * 1000;
-    funds = (current + addendum) / 1000;
+    cid[i][1] = cid[i][1] * 1000;
+    funds += cid[i][1];
   }
+
 
   if (funds == compare) {
     return 'Closed';
   }
 
-  while (difference >= 100 && cid[8][1] >= 100) {
-    difference -= 100;
-    cid[8][1] -= 100;
+  while (difference >= 100000 && cid[8][1] >= 100000) {
+    difference -= 100000;
+    cid[8][1] -= 100000;
     var exist = false;
     for (var i = 0; i < change.length; i++) {
       if (change[i][0] == 'ONE HUNDRED') {
@@ -28,15 +29,15 @@ function checkCashRegister(price, cash, cid) {
       }
     }
     if (exist !== false) {
-      change[exist][1] += 100;
+      change[exist][1] += 100000;
     } else {
-      change.push(['ONE HUNDRED', 100])
+      change.push(['ONE HUNDRED', 100000])
     }
   }
 
-  while (difference >= 20 && cid[7][1] >= 20) {
-    difference -= 20;
-    cid[7][1] -= 20;
+  while (difference >= 20000 && cid[7][1] >= 20000) {
+    difference -= 20000;
+    cid[7][1] -= 20000;
     var exist = false;
     for (var i = 0; i < change.length; i++) {
       if (change[i][0] == 'TWENTY') {
@@ -45,15 +46,15 @@ function checkCashRegister(price, cash, cid) {
       }
     }
     if (exist !== false) {
-      change[exist][1] += 20;
+      change[exist][1] += 20000;
     } else {
-      change.push(['TWENTY', 20])
+      change.push(['TWENTY', 20000])
     }
   }
 
-  while (difference >= 10 && cid[6][1] >= 10) {
-    difference -= 10;
-    cid[6][1] -= 10;
+  while (difference >= 10000 && cid[6][1] >= 10000) {
+    difference -= 10000;
+    cid[6][1] -= 10000;
     var exist = false;
     for (var i = 0; i < change.length; i++) {
       if (change[i][0] == 'TEN') {
@@ -62,15 +63,15 @@ function checkCashRegister(price, cash, cid) {
       }
     }
     if (exist !== false) {
-      change[exist][1] += 10;
+      change[exist][1] += 10000;
     } else {
-      change.push(['TEN', 10])
+      change.push(['TEN', 10000])
     }
   }
 
-  while (difference >= 5 && cid[5][1] >= 5) {
-    difference -= 5;
-    cid[5][1] -= 5;
+  while (difference >= 5000 && cid[5][1] >= 5000) {
+    difference -= 5000;
+    cid[5][1] -= 5000;
     var exist = false;
     for (var i = 0; i < change.length; i++) {
       if (change[i][0] == 'FIVE') {
@@ -79,15 +80,15 @@ function checkCashRegister(price, cash, cid) {
       }
     }
     if (exist !== false) {
-      change[exist][1] += 5;
+      change[exist][1] += 5000;
     } else {
-      change.push(['FIVE', 5])
+      change.push(['FIVE', 5000])
     }
   }
 
-  while (difference >= 1 && cid[4][1] >= 1) {
-    difference -= 1;
-    cid[4][1] -= 1;
+  while (difference >= 1000 && cid[4][1] >= 1000) {
+    difference -= 1000;
+    cid[4][1] -= 1000;
     var exist = false;
     for (var i = 0; i < change.length; i++) {
       if (change[i][0] == 'ONE') {
@@ -96,15 +97,15 @@ function checkCashRegister(price, cash, cid) {
       }
     }
     if (exist !== false) {
-      change[exist][1] += 1;
+      change[exist][1] += 1000;
     } else {
-      change.push(['ONE', 1])
+      change.push(['ONE', 1000])
     }
   }
 
-  while (difference >= 0.25 && cid[3][1] >= 0.25) {
-    difference -= 0.25;
-    cid[3][1] -= 0.25;
+  while (difference >= 250 && cid[3][1] >= 250) {
+    difference -= 250;
+    cid[3][1] -= 250;
     var exist = false;
     for (var i = 0; i < change.length; i++) {
       if (change[i][0] == 'QUARTER') {
@@ -113,15 +114,15 @@ function checkCashRegister(price, cash, cid) {
       }
     }
     if (exist !== false) {
-      change[exist][1] += 0.25;
+      change[exist][1] += 250;
     } else {
-      change.push(['QUARTER', 0.25])
+      change.push(['QUARTER', 250])
     }
   }
 
-  while (difference >= 0.1 && cid[2][1] >= 0.1) {
-    difference -= 0.1;
-    cid[2][1] -= 0.1;
+  while (difference >= 100 && cid[2][1] >= 100) {
+    difference -= 100;
+    cid[2][1] -= 100;
     var exist = false;
     for (var i = 0; i < change.length; i++) {
       if (change[i][0] == 'DIME') {
@@ -130,15 +131,15 @@ function checkCashRegister(price, cash, cid) {
       }
     }
     if (exist !== false) {
-      change[exist][1] += 0.1;
+      change[exist][1] += 100;
     } else {
-      change.push(['DIME', 0.1])
+      change.push(['DIME', 100])
     }
   }
 
-  while (difference >= 0.05 && cid[1][1] >= 0.05) {
-    difference -= 0.05;
-    cid[1][1] -= 0.05;
+  while (difference >= 50 && cid[1][1] >= 50) {
+    difference -= 50;
+    cid[1][1] -= 50;
     var exist = false;
     for (var i = 0; i < change.length; i++) {
       if (change[i][0] == 'NICKEL') {
@@ -147,15 +148,15 @@ function checkCashRegister(price, cash, cid) {
       }
     }
     if (exist !== false) {
-      change[exist][1] += 0.05;
+      change[exist][1] += 50;
     } else {
-      change.push(['NICKEL', 0.05])
+      change.push(['NICKEL', 50])
     }
   }
 
-  while (difference >= 0.01 && cid[0][1] >= 0.01) {
-    difference -= 0.01;
-    cid[0][1] -= 0.01;
+  while (difference >= 10 && cid[0][1] >= 10) {
+    difference -= 10;
+    cid[0][1] -= 10;
     var exist = false;
     for (var i = 0; i < change.length; i++) {
       if (change[i][0] == 'PENNY') {
@@ -164,9 +165,9 @@ function checkCashRegister(price, cash, cid) {
       }
     }
     if (exist !== false) {
-      change[exist][1] += 0.01;
+      change[exist][1] += 10;
     } else {
-      change.push(['PENNY', 0.01])
+      change.push(['PENNY', 10])
     }
   }
 
@@ -175,13 +176,20 @@ function checkCashRegister(price, cash, cid) {
     fullChange += change[i][1];
   }
 
+  for (var i = 0; i < change.length; i++) {
+    change[i][1] = change[i][1] / 1000;
+  }
+
+  for (var i = 0; i < cid.length; i++) {
+    cid[i][1] = cid[i][1] / 1000;
+  }
+
   if (fullChange == compare) {
     result = change;
   } else {
     result = 'Insufficient Funds';
   }
 
-  console.log(result)
   return result;
 }
 

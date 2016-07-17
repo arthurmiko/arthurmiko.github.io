@@ -2,10 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" />
   <title>Document</title>
   <link rel="stylesheet" href="main.css">
+  <!--[if lte IE 8]><!-->
+  <link rel="stylesheet" href="ie8.css">
+  <!--<![endif]-->
+  <!-- <script src="es5-shim.js"></script> -->
+  <!-- <script src="es5-sham.js"></script> -->
 </head>
 <body>
+  <ul contenteditable="true">
+    <li>item 1</li>
+    <li>item 2</li>
+    <li>item 3</li>
+    <li>item 4</li>
+    <li>item 5</li>
+  </ul>
+
+  <div class="gradient">
+    Gradient
+  </div>
+
+  <audio src="mir.mp3" controls>
+    <p>Ваш браузер не поддерживает аудио контент</p>
+  </audio>
 
   <script src="common.js"></script>
 </body>

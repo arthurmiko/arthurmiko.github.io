@@ -1,3 +1,9 @@
 .black {
   background: #000;
 }
+
+.gradient {
+  height: 300px;
+  background: #777;
+  background-image: linear-gradient(to bottom, #000, #fff);
+}
