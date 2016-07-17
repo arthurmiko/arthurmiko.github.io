@@ -98,6 +98,22 @@ function step(x, y) {
   var nearPoint = checkNear(board, x, y, color);
   if (empty == true && nearPoint == true) {
     drawCircle(x, y, color);
+  if (color == 'black'){
+    var black = {};
+    black.arrCoorX = [arrCoorX]
+    black.arrCoorY = [arrCoorY]
+    console.log('black X: ' + black.arrCoorX);
+    console.log('black Y: ' + black.arrCoorY);
+
+  }else if(color == 'white'){
+    var white = {};
+    white.arrCoorX = [arrCoorX]
+    white.arrCoorY = [arrCoorY]
+    console.log('white X: ' + white.arrCoorX);
+    console.log('white Y: ' + white.arrCoorY);
+
+  }
+
     board[x][y] = color;
     // getGroup(x, y);
     getGroup([[x, y]]);
