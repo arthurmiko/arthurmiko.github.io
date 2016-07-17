@@ -298,3 +298,4 @@ function killStoneWhite(board, x, y, color) {
 }
 
 })();
+
