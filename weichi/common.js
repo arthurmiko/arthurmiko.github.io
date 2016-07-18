@@ -1,8 +1,6 @@
 'use strict';
 
 (function(){
-  
-// снятие группы камней и возможно ко
 
 // intialize canvas
 
@@ -93,26 +91,57 @@ boardCanvas.onclick = function(e) {
   step(arrCoorX, arrCoorY);
 }
 
+var ko = {
+  color: 'empty',
+  coordX: 0,
+  coordY: 0,
+  state: false,
+  lag: 1
+}
+
+function checkKo(x, y, color, lag) {
+  if (ko.coordX == x && ko.coordY == y && ko.color == color && lag > 1) {
+    return true;
+  }
+}
+
+function fillKo(state, color, x, y, lag) {
+  ko.state = state;
+  ko.color = color;
+  ko.coordX = x;
+  ko.coordY = y;
+  ko.lag = lag;
+}
+
 function step(x, y) {
   var empty = checkEmpty(board, x, y);
-  var nearPoint = checkNear(board, x, y, color);
-  if (empty == true && nearPoint == true) {
-    drawCircle(x, y, color);
+  var checkedKo = checkKo(x, y, color, ko.lag);
+  if (checkedKo) return;
+
+  if (empty) {
     board[x][y] = color;
-    // getGroup(x, y);
-    getGroup([[x, y]]);
-    killStone(board, x, y, color);
+    var currentGroup = getGroup([[x, y]], color);
+    var currentGroupAlive = checkGroup(currentGroup);
+    var killed = kill(board, x, y, color);
+    board[x][y] = 'empty';
+  }
+
+  if (empty == true && currentGroupAlive == true || killed) {
+    board[x][y] = color;
+    kill(board, x, y, color);
     changeColor();
     drawField();
+
+    if (ko.lag > 1) {
+      fillKo(false, 'empty', 0, 0, 0);
+    }
+
+    ko.lag += 1;
   }
 }
 
 function changeColor() {
-  if (color == 'black') {
-    color = 'white';
-  } else {
-    color = 'black';
-  }
+  color == 'black' ? color = 'white' : color = 'black';
 }
 
 function checkEmpty(board, x, y) {
@@ -130,7 +159,7 @@ function checkNear(board, x, y, color) {
 
 function checkNearEmpty(board, x, y, color) {
   var nearEmpty;
-  if (x < 8 && board[x + 1][y] == 'empty') {    
+  if (x < 8 && board[x + 1][y] == 'empty') {
     nearEmpty = true;
   }
   if (x > 0 && board[x - 1][y] == 'empty') {
@@ -166,8 +195,9 @@ function checkNearColor(board, x, y, color) {
   return stones;
 }
 
-function getGroup(group) {
+function getGroup(group, color) {
   var amount = group.length;
+  var outGroup;
 
   for (var k = 0; k < group.length; k++) {
     var nearStone = checkNearColor(board, group[k][0], group[k][1], color)[1];
@@ -181,7 +211,7 @@ function getGroup(group) {
           if (elem[c][0] == nearStone[j][0] && elem[c][1] == nearStone[j][1]) needToCut.push(c);
         }
         for (var m = 0; m < group.length; m++) {
-          if (elem[c][0] == group[m][0] && elem[c][1] == group[m][1]) needToCut.push(c);          
+          if (elem[c][0] == group[m][0] && elem[c][1] == group[m][1]) needToCut.push(c);
         }
       }
 
@@ -207,78 +237,156 @@ function getGroup(group) {
   }
 
   if (amount != group.length) {
-    getGroup(group);
+    outGroup = getGroup(group);
   } else {
-    console.log('amount: ' + amount);
-    console.log('group: ' + group.join('; '));
     return group;
   }
+
+  return outGroup;
 }
 
-function killStone(board, x, y, color) {
-  var check;
-  killStoneBlack(board, x, y, color);
-  killStoneWhite(board, x, y, color);
+function checkGroup(group) {
+  var alive = false;
+  group.forEach(function(item, i, arr) {
+    if (checkNearEmpty(board, item[0], item[1])) {
+      alive = true;
+    };
+  })
+  return alive;
 }
 
-function killStoneBlack(board, x, y, color) {
+function fillEmpty(group) {
+  group.forEach(function(item) {
+    board[item[0]][item[1]] = 'empty';
+  })
+}
+
+function kill(board, x, y, color) {
+  var a = killBlack(board, x, y, color);
+  var b = killWhite(board, x, y, color);
+  if (a || b) return true;
+}
+
+function checkKill (coorColor, coorGetGroup, color) {
   var check;
-  if (color == 'black') {
-    if (x < 8 && board[x + 1][y] == 'white') {
-      check = checkNear(board, x + 1, y, 'white');
-      if (check != true) {
-        board[x + 1][y] = 'empty';
+  if (coorColor == color) {
+    check = getGroup(coorGetGroup, color);
+    console.log(check.join('; '))
+    if (checkGroup(check) != true){
+      fillEmpty(check);
+      if (check.length == 1) {
+        fillKo(true, 'black', x, y + 1, 1);
       }
-    }
-    if (x > 0 && board[x - 1][y] == 'white') {
-      check = checkNear(board, x - 1, y, 'white')
-      if (check != true) {
-        board[x - 1][y] = 'empty';
-      }
-    }
-    if (y < 8 && board[x][y + 1] == 'white') {
-      check = checkNear(board, x, y + 1, 'white');
-      if (check != true) {
-        board[x][y + 1] = 'empty';
-      }
-    }
-    if (y > 0 && board[x][y - 1] == 'white') {
-      check = checkNear(board, x, y - 1, 'white');
-      if (check != true) {
-        board[x ][y - 1] = 'empty';
-      }
+      killed = true;
     }
   }
 }
 
-function killStoneWhite(board, x, y, color) {
+function killBlack(board, x, y, color) {
+  var killed = false;
+  if (color == 'black') {
+    if (x < 8) checkKill (board[x + 1][y], [[x + 1, y]], 'white');
+    if (x > 0) checkKill (board[x - 1][y], [[x - 1, y]], 'white');
+    if (y < 8) checkKill (board[x][y + 1], [[x, y + 1]], 'white');
+    if (y > 0) checkKill (board[x][y - 1], [[x, y - 1]], 'white');
+  }
+  return killed;
+}
+
+// function killBlack(board, x, y, color) {
+//   var check;
+//   var killed = false;
+//   if (color == 'black') {
+//     if (x < 8 && board[x + 1][y] == 'white') {
+//       check = getGroup([[x + 1, y]], 'white');
+//       if (checkGroup(check) != true) {
+//         fillEmpty(check);
+//         if (check.length == 1) {
+//           fillKo(true, 'white', x + 1, y, 1);
+//         }
+//         killed = true;
+//       }
+//     }
+//     if (x > 0 && board[x - 1][y] == 'white') {
+//       check = getGroup([[x - 1, y]], 'white');
+//       if (checkGroup(check) != true) {
+//         fillEmpty(check);
+//         if (check.length == 1) {
+//           fillKo(true, 'white', x - 1, y, 1);
+//         }
+//         killed = true;
+//       }
+//     }
+//     if (y < 8 && board[x][y + 1] == 'white') {
+//       check = getGroup([[x, y + 1]], 'white');
+//       if (checkGroup(check) != true) {
+//         fillEmpty(check);
+//         if (check.length == 1) {
+//           fillKo(true, 'white', x, y + 1, 1);
+//         }
+//         killed = true;
+//       }
+//     }
+//     if (y > 0 && board[x][y - 1] == 'white') {
+//       check = getGroup([[x, y - 1]], 'white');
+//       if (checkGroup(check) != true) {
+//         fillEmpty(check);
+//         if (check.length == 1) {
+//           fillKo(true, 'white', x, y - 1, 1);
+//         }
+//         killed = true;
+//       }
+//     }
+//   }
+//   return killed;
+// }
+
+function killWhite(board, x, y, color) {
   var check;
+  var killed = false;
   if (color == 'white') {
     if (x < 8 && board[x + 1][y] == 'black') {
-      check = checkNear(board, x + 1, y, 'black');
-      if (check != true) {
-        board[x + 1][y] = 'empty';
+      check = getGroup([[x + 1, y]], 'black');
+      if (checkGroup(check) != true) {
+        fillEmpty(check);
+        if (check.length == 1) {
+          fillKo(true, 'black', x + 1, y, 1);
+        }
+        killed = true;
       }
     }
     if (x > 0 && board[x - 1][y] == 'black') {
-      check = checkNear(board, x - 1, y, 'black');
-      if (check != true) {
-        board[x - 1][y] = 'empty';
+      check = getGroup([[x - 1, y]], 'black');
+      if (checkGroup(check) != true) {
+        fillEmpty(check);
+        if (check.length == 1) {
+          fillKo(true, 'black', x - 1, y, 1);
+        }
+        killed = true;
       }
     }
     if (y < 8 && board[x][y + 1] == 'black') {
-      check = checkNear(board, x, y + 1, 'black');
-      if (check != true) {
-        board[x][y + 1] = 'empty';
+      check = getGroup([[x, y + 1]], 'black');
+      if (checkGroup(check) != true) {
+        fillEmpty(check);
+        if (check.length == 1) {
+          fillKo(true, 'black', x, y + 1, 1);
+        }
+        killed = true;
       }
     }
     if (y > 0 && board[x][y - 1] == 'black') {
-      check = checkNear(board, x, y - 1, 'black');
-      if (check != true) {
-        board[x][y - 1] = 'empty';
+      check = getGroup([[x, y - 1]], 'black');
+      if (checkGroup(check) != true) {
+        fillEmpty(check);
+        if (check.length == 1) {
+          fillKo(true, 'black', x, y - 1, 1);
+        }
+        killed = true;
       }
     }
   }
+  return killed;
 }
 
 })();
