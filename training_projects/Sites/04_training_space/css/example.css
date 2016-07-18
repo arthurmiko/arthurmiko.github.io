@@ -1,0 +1,24 @@
+.example {
+  width: 300px;
+  text-align: center;
+  border: 1px solid gray;
+  padding: 15px;
+  margin: 50px auto 10px auto;
+  color: red;
+}
+.wrapper {
+  text-align: center;
+}
+.show_data {
+  display: inline-block;
+  width: 100px;
+  border: 1px solid black;
+  text-align: left;
+  padding: 5px;
+}
+.button {
+  width: 100px;
+  height: 40px;
+  font-size: 1.5em;
+  text-transform: uppercase;
+}

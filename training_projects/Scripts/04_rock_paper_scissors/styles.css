@@ -1,0 +1,140 @@
+html {
+  background: white;
+}
+body {
+  background: #afa;
+  margin: 0 auto;
+  width: 300px;
+  padding: 20px 0 20px 0;
+}
+.container {
+  background: #242;
+  width: 300px;
+  height: 100%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 10px 0 5px 0;
+}
+p {
+  background: yellow;
+  width: 280px;
+  margin: 0 auto;
+}
+.imgcontainer {
+  display: block;
+  margin: 0 auto;
+  background: white;
+  height: 80px;
+  width: 280px;
+}
+.image_user {
+  display: inline-block;
+  background: black;  
+  margin: 0 5px 0 5px;
+  height: 80px;
+  width: 80px;
+  cursor: pointer;
+}
+.image_user:hover {
+  box-shadow: inset 0 0 0 10px red;
+}
+.image_selected {
+  box-shadow: inset 0 0 0 10px red;  
+}
+.image_pc {
+  display: inline-block;
+  background: black;  
+  margin: 0 5px 0 5px;
+  height: 80px;
+  width: 80px;
+}
+.rock {
+  background: url(images/001_512.jpg);
+  background-size: 100%;
+}
+.scissors {
+  background: url(images/002_512.jpg);
+  background-size: 100%;
+}
+.paper {
+  background: url(images/003_512.jpg);
+  background-size: 100%;
+}
+.comparison {
+  display: block;
+  position: relative;
+  height: 80px;
+  width: 280px;
+  margin: 0 auto;
+  background: gray;
+}
+.comparison div {
+  position: relative;
+  width: 80px;
+}
+.user_blank {
+  display: inline-block;
+  height: 80px;
+  width: 80px;
+  background: white;
+  margin: 0 5px 0 5px;
+}
+.pc_blank {
+  display: inline-block;  
+  height: 80px;
+  width: 80px;
+  background: white;
+  margin: 0 5px 0 5px;
+}
+.winner {
+  width: 280px;
+  height: 50px;  
+  font-size: 30px;
+  line-height: 50px;
+  vertical-align: middle;
+  text-align: center;
+  margin: 0 auto;
+}
+.winner_user:before {
+  content: 'Победил игрок!';
+  display: inline-block;
+  width: 280px;
+  height: 50px;
+  background: green;
+}
+.winner_pc:before {
+  content: 'Победил соперник!';
+  display: inline-block;
+  width: 280px;
+  height: 50px;
+  background: red;
+}
+.winner_draw:before {  
+  content: 'Ничья';
+  display: inline-block;
+  width: 280px;
+  height: 50px;
+  background: gray;
+}
+.stats {
+  display: inline-block;
+  width: 280px;
+}
+.stats p {
+  text-align: left;
+  background: green;
+  padding-left: 10px;
+  width: 270px
+}
+.answer {
+  display: inline-block;
+  background: blue;
+  margin: 5px;
+  width: 100px;
+  height: 30px;
+  line-height: 30px;
+  cursor: pointer;
+}
+.answer:hover {
+  box-shadow: inset 0 0 0 5px gray;
+}

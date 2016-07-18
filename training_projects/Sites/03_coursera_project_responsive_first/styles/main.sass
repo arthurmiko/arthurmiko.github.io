@@ -1,0 +1,185 @@
+$main_color: #4517E7
+$neutral: #FAECCB
+$fire_color: #F5541B
+$air_color: #F7E7A0
+$water_color: #0A33FF
+$earth_color: #519D15
+
+*
+	margin: 0
+	padding: 0
+
+*,
+*:before,
+*:after
+	-webkit-box-sizing: border-box
+	-moz-box-sizing: border-box
+	box-sizing: border-box
+
+.container
+	margin: 0 auto
+
+.main_head
+	background-color: $main_color
+	background-image: url("../img/main_pattern.png")
+	a
+		display: inline-block
+		width: 25%
+
+.main_link
+	display: block
+	cursor: pointer
+	transition: (1s ease)
+	svg
+		width: 95%
+.main_link:hover
+	box-shadow: inset 0 0 100px 20px rgba(0, 0, 0, .5)
+
+.main_link
+	span
+		text-transform: uppercase
+		font-size: 3em
+		color: #000
+header a
+	text-decoration: none
+
+.table_wrapper
+	display: table
+	height: 100%
+	width: 100%
+	.row_wrapper
+		display: table-row
+		.cell_wrapper
+			display: table-cell
+			text-align: center
+			vertical-align: middle
+
+.four_elem
+	.table_wrapper
+		.row_wrapper
+			.cell_wrapper
+				text-align: left
+
+.fire_link
+	background-color: $fire_color
+	background-image: url("../img/fire_pattern.png")
+.air_link
+	background-color: $air_color
+	background-image: url("../img/air_pattern.png")
+.water_link
+	background-color: $water_color
+	background-image: url("../img/water_pattern.png")
+.earth_link
+	background-color: $earth_color
+	background-image: url("../img/earth_pattern.png")
+
+.split_main
+	height: 100px
+.split_secondary
+	height: 50px
+.split_shadow
+	position: relative
+	background-color: $neutral
+	box-shadow: 0 0 15px 5px #111
+
+.wrapper
+	display: block
+.wrap_fire
+	background-color: $fire_color
+	background-image: url("../img/fire_pattern.png")
+.wrap_air
+	background-color: $air_color
+	background-image: url("../img/air_pattern.png")
+.wrap_water
+	background-color: $water_color
+	background-image: url("../img/water_pattern.png")
+.wrap_earth
+	background-color: $earth_color
+	background-image: url("../img/earth_pattern.png")
+
+.four_elem
+	background-color: rgba(255, 255, 255, .2)
+	height: 550px
+	position: relative
+
+.text_about
+	display: inline-block
+	position: absolute
+	margin-left: 150px
+	font-size: 2.5em
+	width: 65%
+	margin-top: 130px
+
+.big_logo
+	position: absolute
+	width: 20%
+	top: 15px
+	right: 15px
+
+.change_color
+	display: inline-block
+	position: absolute
+	bottom: 50px
+	right: 25px
+	width: 15%
+.change_black,
+.change_white
+	display: inline-block
+	padding: 10px
+	cursor: pointer
+
+.change_black
+	background-color: #000
+	color: #fff
+.change_white
+	background-color: #fff
+	color: #000
+
+.big_text
+	position: absolute
+	display: block
+	width: 100%
+	text-align: center
+	font-size: 5em
+	text-transform: uppercase
+	padding-top: 25px
+
+.local_menu
+	ul
+		display: inline-block
+		margin-left: 10px
+	li
+		list-style: none
+		display: block
+		width: 100px
+		height: 30px
+		margin-bottom: 5px
+	a
+		display: inline-block
+		width: 100%
+		height: 100%
+		text-decoration: none
+		color: #000
+		text-transform: uppercase
+		text-align: right
+		transition: .5s ease
+	a:hover
+		background-color: rgba(255, 255, 255, 0.5)
+	span
+		display: inline-block
+		width: 70%
+		height: 100%
+		line-height: 30px
+		text-align: center
+	li:first-child a
+		text-align: center
+		line-height: 30px
+
+.menu_icon
+	display: inline-block
+	vertical-align: top
+	width: 30%
+	height: 100%
+
+.black_white
+	color: white

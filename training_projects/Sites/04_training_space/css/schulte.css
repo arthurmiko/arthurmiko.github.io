@@ -1,0 +1,54 @@
+.shulte {
+  width: 100%;
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+  color: white;
+  font-size: 35px;
+}
+.table_head {
+  margin: 5px auto;
+  width: 300px;
+  font-size: 50px;
+}
+table {
+  margin: 0 auto 0 auto;
+  text-align: center;
+  font-size: 50px;
+  border-collapse: collapse;
+  background: #006018;
+}
+td {
+  border: 1px solid black;
+  padding: 10px;
+  width: 80px;
+  height: 80px;
+}
+td:hover {
+  background: yellow;
+  cursor: pointer;
+}
+.selected {
+  background: gray;
+}
+.interface {
+  text-align: center;
+}
+.begin {
+  width: 150px;
+  height: 50px;
+  font-size: 25px;
+  background: #242;
+  display: inline-block;
+  border: none;
+  margin: 25px auto 0 auto;
+  cursor: pointer;
+}
+.timer {
+  display: inline-block;
+  margin-left: 70px;
+  width: 150px;
+  background: #575;
+  font-size: 25px;
+  font-family: monospace;
+}

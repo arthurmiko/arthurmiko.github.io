@@ -1,0 +1,8 @@
+canvas {
+  box-shadow: 0 0 10px #000;
+}
+
+.center-align {
+  text-align: center;
+  margin-top: 30px;
+}

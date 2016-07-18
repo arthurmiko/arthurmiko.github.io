@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Doctor</title>
+  <link rel="stylesheet" href="css/bootstrap-grid12.css">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:600|Roboto:500|Lato:700,400|Montserrat:400,700|Mrs+Saint+Delafield' rel='stylesheet' type='text/css'>
+</head>
+<body>
+  <header id="header">
+    <div class="header-info">
+      <div class="container">
+        <p class="hot-news clearfix"><span>Hot News !</span>  Lorem ipsum dolar set ament</p>
+        <div class="register clearfix">
+          <span class="fa fa-mobile-phone"></span>
+          <p>+99 888-755-7584</p>
+          <a href="#"><button>Register</button></a><!--
+          --><a href="#"><button>Login</button></a>
+        </div>
+      </div>    
+    </div>
+    <div class="container">
+      <div class="navigation">
+        <div class="logo">
+          <span>M</span>edical<span> +</span>
+        </div>
+        <nav class="clearfix">
+          <div>
+            <form action="GET">
+              <input type="radio" name="nav" id="nav-home" checked>
+              <a href="#"><label for="nav-home">Home</label></a>
+              <input type="radio" name="nav" id="nav-services">
+              <a href="#"><label for="nav-services">Services</label></a>
+              <input type="radio" name="nav" id="nav-about">
+              <a href="#"><label for="nav-about">About</label></a>
+              <input type="radio" name="nav" id="nav-blog">
+              <a href="#"><label for="nav-blog">Blog</label></a>
+              <input type="radio" name="nav" id="nav-pages">
+              <a href="#"><label for="nav-pages">Pages</label></a>
+            </form>
+            <button>Make appointment</button>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <section class="wrap-slider">
+    <div class="slider js_percentage">
+        <div class="frame js_frame">
+            <ul class="slides js_slides">
+                <li class="js_slide">
+                  <div class="container-fluid doctor-slide doctor-1">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-md-6 doctor-typo">
+                          <p>We Provide</p>
+                          <p>Medical Services</p>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim aliquam quaerat voluptatem.</p>
+                          <a href="#">Read More</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="js_slide">
+                  <div class="container-fluid doctor-slide doctor-2">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-md-6 doctor-typo">
+                          <p>We Provide</p>
+                          <p>Medical Services</p>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim aliquam quaerat voluptatem.</p>
+                          <a href="#">Read More</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="js_slide">
+                  <div class="container-fluid doctor-slide doctor-3">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-md-6 doctor-typo">
+                          <p>We Provide</p>
+                          <p>Medical Services</p>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim aliquam quaerat voluptatem.</p>
+                          <a href="#">Read More</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+            </ul>
+        </div>
+        <button class="js_prev prev">prev</button>
+        <button class="js_next next">next</button>
+    </div>
+  </section>
+  <section class="appointment">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 spec-squares">
+            <form action="#" name="select-specialist">
+              <input type="radio" id="spec-drug" name="specialist">
+              <label for="spec-drug">Medicine & Drug Store</label>
+              <input type="radio" id="spec-dental" name="specialist">
+              <label for="spec-dental">Dental Surgery operation</label>
+              <input type="radio" id="spec-special" name="specialist">
+              <label for="spec-special">Special Health Care</label>
+              <input type="radio" id="spec-operation" name="specialist">
+              <label for="spec-operation">Operation Section</label>
+              <input type="radio" id="spec-surgery" name="specialist">
+              <label for="spec-surgery">Surgery</label>
+              <input type="radio" id="spec-check" name="specialist">
+              <label for="spec-check">Special Check up</label>
+            </form>
+          </div>
+          <div class="col-md-4">
+            <form action="#" name="appointment">
+              <div class="make-appointment">
+                <p>Make An Appointment</p>
+                <p>Fill form & Send me</p>
+                <select id="appointment-country" name="country" class="turnintodropdown">
+                  <option>Select your country</option>
+                  <option>New-York</option>
+                  <option>Moscow</option>
+                  <option>Kiev</option>
+                </select>
+                <select id="appointment-service" name="service" class="turnintodropdown">
+                  <option>Choose Services</option>
+                  <option>New-York</option>
+                  <option>Moscow</option>
+                  <option>Kiev</option>
+                </select>
+                <select id="appointment-doctor" name="doctor" class="turnintodropdown">
+                  <option>Select Doctor</option>
+                  <option>New-York</option>
+                  <option>Moscow</option>
+                  <option>Kiev</option>
+                </select>
+                <input type="date">
+                <input type="time">
+                <p>All Fields With an Are Required ***</p>
+                <button type="submit">Submit You Requirements</button>
+                <div class="blank">
+                  Select service
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+  </section>
+  <section id="id_projects" class="projects">
+    <h2><span>Health</span> Care Projects</h2>
+    <div class="projects-controls">
+      <form action="">
+        <input type="radio" id="all" name="projects-button" checked>
+        <label class="filter" for="all" data-filter="all">All</label>
+        <input type="radio" id=".category-1" name="projects-button">
+        <label class="filter" for=".category-1" data-filter=".category-1">Projects</label>
+        <input type="radio" id=".category-2" name="projects-button">
+        <label class="filter" for=".category-2" data-filter=".category-2">Healthcare</label>
+        <input type="radio" id=".category-3" name="projects-button">
+        <label class="filter" for=".category-3" data-filter=".category-3">Operations</label>
+        <input type="radio" id=".category-4" name="projects-button">
+        <label class="filter" for=".category-4" data-filter=".category-4">Drugs solutions</label>
+      </form>
+    </div>
+    <div id="projects-container" class="projects-container clearfix">
+      <div class="mix category-1 projects-item" data-myorder="1">
+        <img src="images/projects/thumbnail_01.png" alt="">
+        <div class="projects-descript">
+          <span class="fa fa-anchor"></span>
+          <p>some text with underline</p>
+          <p>amount of projects</p>
+        </div>
+      </div>
+      <div class="mix category-2 projects-item" data-myorder="2">
+        <img src="images/projects/thumbnail_02.png" alt="">
+        <div class="projects-descript">
+          <span class="fa fa-anchor"></span>
+          <p>some text with underline</p>
+          <p>amount of projects</p>
+        </div>
+      </div>
+      <div class="mix category-3 projects-item" data-myorder="3">
+        <img src="images/projects/thumbnail_03.png" alt="">
+        <div class="projects-descript">
+          <span class="fa fa-anchor"></span>
+          <p>some text with underline</p>
+          <p>amount of projects</p>
+        </div>
+      </div>
+      <div class="mix category-1 projects-item" data-myorder="4">
+        <img src="images/projects/thumbnail_04.png" alt="">
+        <div class="projects-descript">
+          <span class="fa fa-anchor"></span>
+          <p>some text with underline</p>
+          <p>amount of projects</p>
+        </div>
+      </div>
+      <div class="mix category-4 projects-item" data-myorder="5">
+        <img src="images/projects/thumbnail_05.png" alt="">
+        <div class="projects-descript">
+          <span class="fa fa-anchor"></span>
+          <p>some text with underline</p>
+          <p>amount of projects</p>
+        </div>
+      </div>
+      <div class="mix category-4 projects-item" data-myorder="6">
+        <img src="images/projects/thumbnail_06.png" alt="">
+        <div class="projects-descript">
+          <span class="fa fa-anchor"></span>
+          <p>some text with underline</p>
+          <p>amount of projects</p>
+        </div>
+      </div>
+      <div class="mix category-4 projects-item" data-myorder="7">
+        <img src="images/projects/thumbnail_07.png" alt="">
+        <div class="projects-descript">
+          <span class="fa fa-anchor"></span>
+          <p>some text with underline</p>
+          <p>amount of projects</p>
+        </div>
+      </div>
+      <div class="mix category-1 projects-item" data-myorder="8">
+        <img src="images/projects/thumbnail_08.png" alt="">
+        <div class="projects-descript">
+          <span class="fa fa-anchor"></span>
+          <p>some text with underline</p>
+          <p>amount of projects</p>
+        </div>
+      </div>
+      <div class="mix category-3 projects-item" data-myorder="9">
+        <img src="images/projects/thumbnail_09.png" alt="">
+        <div class="projects-descript">
+          <span class="fa fa-anchor"></span>
+          <p>some text with underline</p>
+          <p>amount of projects</p>
+        </div>
+      </div>
+      <div class="mix category-1 projects-item" data-myorder="10">
+        <img src="images/projects/thumbnail_10.png" alt="">
+        <div class="projects-descript">
+          <span class="fa fa-anchor"></span>
+          <p>some text with underline</p>
+          <p>amount of projects</p>
+        </div>
+      </div>
+    </div>
+    <div>
+      <a href="" class="btn">All Projects</a>
+    </div>
+  </section>
+  <section class="news">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h3>Our last news</h3>
+          <div class="news-block">
+            <div class="news-photo clearfix">
+              <img src="images/news/news.png" alt="doctors">
+            </div>
+            <div class="news-descr">
+              <h6>Medical test checkup</h6>
+              <p>Suspendisse potenti. Maecenas dapibus ac tellus sed pulvinar. Vestibulum bib volutpat accumsan non laoreet Suspendisse potenti. Maecenas dapibus ac tellus sed pulvinar. Vestibulum bib volutpat accumsan non laoreet Suspendisse potenti. Maecenas dapibus ac tellus sed pulvinar. Vestibulum bib volutpat accumsan non laoreet</p>
+            </div>
+          </div>
+          <div class="news-block">
+            <div class="news-photo clearfix">
+              <img src="images/news/news.png" alt="doctors">
+            </div>
+            <div class="news-descr">
+              <h6>Medical test checkup</h6>
+              <p>Suspendisse potenti. Maecenas dapibus ac tellus sed pulvinar. Vestibulum bib volutpat accumsan non laoreet Suspendisse potenti. Maecenas dapibus ac tellus sed pulvinar. Vestibulum bib volutpat accumsan non laoreet Suspendisse potenti. Maecenas dapibus ac tellus sed pulvinar. Vestibulum bib volutpat accumsan non laoreet</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 news-video">
+          <h3>Video introduction</h3>
+          <video controls>
+            <source src="video/beaty_of_nature.webm" type="video/webm">
+            <source src="video/small.ogv" type="video/ogg">
+            <source src="video/tree_friends.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="container">
+        <div class="row news-clients">
+          <div class="col-md-3">
+            <img src="images/clients/client_2.png" alt="client">
+          </div>
+          <div class="col-md-3">
+            <img src="images/clients/client_1.png" alt="client">
+          </div>
+          <div class="col-md-3">
+            <img src="images/clients/client_3.png" alt="client">
+          </div>
+          <div class="col-md-3">
+            <img src="images/clients/client_2.png" alt="client">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 footer-col-1">
+          <h4><span>M</span>edical<span> +</span></h4>
+          <p>This is Photoshop's vesion  of Lorem um. sProin gravida nibh vel ivelit aur aliquet. Aenean sollici his a great justo.</p>
+          <p>Jhone Smithson</p>
+          <div class="footer-social">
+            <div><span class="fa fa-facebook"></span></div>
+            <div><span class="fa fa-facebook"></span></div>
+            <div><span class="fa fa-facebook"></span></div>
+            <div><span class="fa fa-facebook"></span></div>
+            <div><span class="fa fa-facebook"></span></div>
+          </div>
+        </div>
+        <div class="col-md-3 footer-col-2">
+          <h4><span>quick</span> links</h4>
+          <ul>
+            <li>Healthcare Programe</li>
+            <li>Family Treatment</li>
+            <li>Medical Injuries</li>
+            <li>Personal Doctor</li>
+            <li>Operations</li>
+          </ul>
+        </div>
+        <div class="col-md-3 footer-col-3">
+          <h4><span>contact</span> us</h4>
+          <ul>
+            <li>
+              <span class="fa fa-anchor"></span>
+              <p>1600 Elizabeth St, Melbourne, Victo</p>              
+            </li>
+            <li>
+              <span class="fa fa-anchor"></span>
+              <a href="mailto:contact@domain.com">contact@domain.com</a>
+            </li>
+            <li>
+              <span class="fa fa-anchor"></span>
+              <p>( +99 ) 22-44-22-222</p>
+            </li>
+            <li>
+              <span class="fa fa-anchor"></span>
+              <p>( +98 ) 88-11-22-888</p>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-3 footer-col-4">
+          <h4><span>working</span> hours</h4>
+          <table>
+            <tr>
+              <td>Monday</td>
+              <td>9:00 am - 8:00 pm</td>
+            </tr>
+            <tr>
+              <td>Tuesday</td>
+              <td>9:00 am - 8:00 pm</td>
+            </tr>
+            <tr>
+              <td>Wednesday</td>
+              <td>9:00 am - 8:00 pm</td>
+            </tr>
+            <tr>
+              <td>Thursday</td>
+              <td>9:00 am - 8:00 pm</td>
+            </tr>
+            <tr>
+              <td>Friday</td>
+              <td>9:00 am - 8:00 pm</td>
+            </tr>
+            <tr>
+              <td>Saturday</td>
+              <td>9:00 am - 8:00 pm</td>
+            </tr>
+            <tr>
+              <td>Sunday</td>
+              <td>9:00 am - 8:00 pm</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <a href="#id_projects" class="footer-up"></a>
+    </div>
+  </footer>
+
+  <script src="scripts/jquery-2.2.0.js"></script>
+  <script src="scripts/jquery.mixitup.min.js"></script>
+  <script src="scripts/lucid.js"></script>
+  <script src="scripts/lory.min.js"></script>
+  <script src="scripts/taming.select.js"></script>
+  <script src="scripts/common.js"></script>
+</body>
+</html>

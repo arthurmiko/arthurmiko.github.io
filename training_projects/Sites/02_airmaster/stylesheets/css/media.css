@@ -1,0 +1,112 @@
+@media (max-width: 1191px) {
+  .services .services-block {
+    height: 826px;
+  }
+}
+
+@media (max-width: 991px) {
+  .advantages p {
+    padding: 0;
+  }
+  .advantages .row:last-child {
+    margin: 0;
+  }
+  .prevention div > p {
+    padding: 0;
+  }
+  .prevention table {
+    margin: 0;
+  }
+  .prevention table td {
+    display: block;
+    width: 100%;
+    margin-bottom: -1px;
+  }
+  .reasons .row .reason-square {
+    text-align: center;
+    height: auto;
+    padding-bottom: 10px;
+  }
+  .reasons .col-md-4:first-child .reason-square p {
+    padding: 15px 0;
+  }
+  .services .services-block {
+    height: auto;
+  }
+  .services .services-block p:nth-last-child(2) {
+    margin-bottom: 80px;
+  }
+  .services .services-block button {
+    bottom: 20px;
+  }
+  .services .services-block h2+p {
+    text-align: center;
+  }
+  .callback-form h1 {
+    text-align: center;
+  }
+  .review .review-text p:nth-child(2) {
+    text-align: center;
+  }
+  .about .stock {
+    margin: 0;
+  }
+  .about {
+    padding: 0;
+  }
+  .wrap .stock img {
+    display: block;
+    margin: 0 auto;
+    float: none;
+  }
+  .wrap .time-left {
+    width: 40px;
+  }
+  .wrap .time-left div:first-child {
+    font-size: 22px;
+  }
+  .menu-button {
+    display: block;
+    margin: 15px auto 0 auto;
+    padding: 0 0 25px 5px;
+    width: 85px;
+    height: 16px;
+  }
+  .menu-button:hover {
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .menu-button-name {
+    float: right;
+    line-height: 16px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #08cbef;
+  }
+  .icon-bar {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background-color: #fff;
+    margin-top: 4px;
+  }
+  .main-navbar .navbar-collapse .in {
+    display: block;
+  }
+  .main-navbar .navbar-collapse {
+    position: absolute;
+    background-color: #fff;
+  }
+  .main-navbar .menu li {
+    display: block;
+    width: 200px;
+    margin-top: 15px;
+    background-color: #fff;
+  }
+}
+@media (max-width: 610px) {
+  .top-block .col-xs-2 {
+    width: 100%;
+    text-align: center;
+  }
+}

@@ -1,0 +1,399 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/*
+	======================
+	Пользовательские стили
+	======================
+*/
+
+body {
+	background: #f9f9f1;
+}
+
+.container {
+	margin: 0 auto;
+	width: 1150px;
+}
+
+.primary-nav a, .logo a {
+	text-decoration: none;
+}
+
+.logo, .logo a {
+	display:inline-block;
+}
+
+.logo a {
+	width: 180px;
+	height: 60px;
+	color: white;
+	line-height: 60px;
+	background-color: #bf3a16;
+	text-align: center;
+	vertical-align: middle;	
+	margin: 30px 0 0 121px;
+	text-transform: uppercase;
+	font-size: 33px;
+}
+
+.tagline {
+	float: right;
+	font-style: italic;
+	margin: 30px 130px 0 0;
+	line-height: 60px;
+	vertical-align: middle;
+	font-size: 20px;
+}
+
+.tagline span {
+	color: #792913;
+}
+
+.primary-nav ul:before, .primary-nav ul:after {
+	content: '';
+	display: inline-block;
+	width: 119px;
+	height: 60px;
+	box-shadow: inset #e8e5d1 0 5px 0;
+	background-color: #ebe9d8;
+	vertical-align: middle;
+}
+
+.primary-nav {
+	text-align: center;
+}
+
+.primary-nav ul {
+	display: inline-block;
+}
+
+.primary-nav ul li {
+	position: relative;
+	display:inline-block;
+	margin: 2px 2px 0px 0px;
+}
+
+.primary-nav ul li:first-child {
+	margin-left: 2px;
+}
+
+.primary-nav ul li a {
+	display: inline-block;
+	text-align: center;
+	width: 180px;
+	height: 60px;
+	line-height: 60px;
+	background-color: #ebe9d8;
+	vertical-align: middle;
+	box-shadow: inset #e8e5d1 0 5px 0;
+	color: black;
+	font-weight: bold;
+	transition: 0.2s;
+}
+
+.primary-nav ul li a:hover {
+	background-color: #d4c69c;
+	box-shadow: inset #cdbc8b 0 5px 0;
+	color: white;
+}
+
+.primary-nav ul li a:hover:after {
+	content: '';
+	position: absolute;
+	left: 80px;
+	top: 60px;
+	border: 5px solid #d4c69c;
+	border-left-color: transparent;
+	border-right-color: transparent;
+	border-bottom-color: transparent;
+}
+
+/* =================================
+Clearfix
+===================================*/
+
+.clearfix:before,
+.clearfix:after {
+	content: '';
+	display: table;
+}
+
+.clearfix:after {
+	clear:both;
+}
+
+.clearfix {
+	clear:both;
+}
+
+
+/* 
+==================================
+Блок с картинкой
+==================================
+*/
+.bigpicture p {
+	display: inline-block;
+	float: left;
+	width: 320px;
+	height: 200px;
+	margin: 70px 0 0 150px;
+	font-size: 25px;
+}
+
+.tagitalic {
+	font-style: italic;
+	color: #bf3a16;
+	line-height:40px;
+}
+
+.tagbig {
+	font-size: 73px;
+	line-height: 50px;
+}
+
+.tagred {
+	color: #bf3a16;
+	margin-left: 65px;
+}
+
+.taglineheight {
+	line-height: 40px;
+	margin-left: 65px;
+}
+
+.bigpicture img {
+	float: right;
+	margin: 30px 150px 0 0;
+}
+
+/*
+==============================
+Третий блок
+==============================
+*/
+
+.thirdrow {
+	width: 1150px;
+	height: 100%;
+	background: #ebe9d8;
+	box-shadow: inset #e8e5d1 0 5px 0;
+}
+
+.row {
+	width: 910px;
+	margin: 0 auto;
+}
+
+h2 {
+	font-size: 30px;
+}
+
+h3 {
+	font-size: 20px;
+	color: #792913;
+	font-style: italic;
+	margin-bottom: 20px;
+}
+
+.row a {
+	color: #bf3a16;
+}
+
+.col-1, .col-2, .col-3 {
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;	
+	display: inline-block;
+	width: 33.33%;
+	text-align: left;
+	padding: 25px 30px 30px 0;
+	vertical-align: top;	
+}
+
+.col-1 p {
+	display: inline-block;
+	height: 114px;
+	overflow: hidden;
+}
+
+.col-1 p a {
+	text-decoration: none;
+	color: black;
+}
+
+.col-1 img {
+	float: left;
+	display:inline-block;
+	margin: 10px 10px 0 0;
+}
+
+.col-1 a {
+	display:inline-block;
+}
+
+.col-1 span {
+	display: inline-block;
+	margin-top: 20px;
+}
+
+.col-2 p:first-of-type {
+	display: inline-block;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+.col-2 p:nth-of-type(2) {
+	margin-bottom: 10px;
+}
+
+.col-3 a {
+	display: inline-block;
+	margin-bottom: 10px;
+}
+
+.col-3 a:not(:last-child):before {
+	content: '';
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	background: url(../../images/pointer.png) no-repeat 50% 50%;
+	margin-right: 5px;
+}
+
+.newsletter {
+	width: 100%;
+	height: 110px;
+	background: #bf3a16;
+	border-radius: 3px;
+	padding: 10px 0 0 20px;
+}
+
+.newsletter h2 {
+	color: #fafaf7;
+	margin-bottom: 10px;
+}
+
+.newsletter a {
+	color: #e8e4dc;
+	margin-top: 10px;
+}
+
+.newsletter input {
+	display: inline-block;
+	height: 20px;
+	background: #fafaf7;
+	border-radius: 2px;
+	border: none;
+}
+
+.newsletter button {
+	color: #fafaf7;
+	background: #f7931d;
+	width: 40px;
+	height: 22px;
+	border: none;
+	border-radius: 2px;
+	transition: 1s;
+}
+
+.newsletter button:hover {
+	background: #f7b21d;
+	color: #423b33;
+}
+
+.fourthrow {
+	width: 1150px;
+	height: 100%;
+	background: #d4c69c;
+}
+
+.col-2-1, .col-2-2, .col-2-3 {
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;	
+	display: inline-block;
+	width: 33.33%;
+	text-align: left;
+	padding: 20px 30px 30px 0;
+	vertical-align: top;
+}
+
+.fourthrow h2 {
+	display: inline-block;
+	margin-bottom: 10px;
+}
+
+.fourthrow a {
+	display: block;
+	margin-top: 10px;
+}
+
+.fourthrow a:not(:last-child):before {
+	content: '';
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	background: url(../../images/pointer.png) no-repeat 50% 50%;
+	margin-right: 5px;
+}
+
+.fourthrow a:last-child {
+	color: #5b594c;
+}
+
+footer {
+	background: white;
+	height: 75px;
+}
+
+footer p {
+	padding: 30px 0 0 150px;
+}

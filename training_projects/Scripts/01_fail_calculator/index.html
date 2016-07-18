@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="main.css">
+  <script type="text/javascript" src="main.js"></script>
+</head>
+<body>
+<form name='calculator'>
+  <table>
+    <tr>
+    <td class="inputField" colspan="3">
+    <span id="enteredNumber"></span>
+    <td>
+    </tr>
+    <tr>
+    <td class="resultField" colspan="3">
+    <span id="result"></span>
+    <td>
+    </tr>
+    <tr>
+      <td><input type="button" value="1" onclick="enteredNum.push(1); calc()"></td>
+      <td><input type="button" value="2" onclick="enteredNum.push(2); calc()"></td>
+      <td><input type="button" value="3" onclick="enteredNum.push(3); calc()"></td>
+    </tr>
+    <tr>
+      <td><input type="button" value="4" onclick="enteredNum.push(4); calc()"></td>
+      <td><input type="button" value="5" onclick="enteredNum.push(5); calc()"></td>
+      <td><input type="button" value="6" onclick="enteredNum.push(6); calc()"></td>
+    </tr>
+    <tr>
+      <td><input type="button" value="7" onclick="enteredNum.push(7); calc()"></td>
+      <td><input type="button" value="8" onclick="enteredNum.push(8); calc()"></td>
+      <td><input type="button" value="9" onclick="enteredNum.push(9); calc()"></td>
+    </tr>
+    <tr>
+      <td><input type="button" value="0" onclick="enteredNum.push(0); calc()"></td>
+      <td></td>
+      <td>
+        <input type="button" value="C" onclick="clean()">
+      </td>
+    </tr>
+    <tr>
+      <td><input type="button" value="+" onclick="enteredNum.push('+'); calc()"></td>
+      <td><input type="button" value="-" onclick="enteredNum.push('-'); calc()"></td>
+      <td><input type="button" value="=" onclick="equalTo()"></td>
+    </tr>    
+  </table>
+</form>
+</body>
+</html>

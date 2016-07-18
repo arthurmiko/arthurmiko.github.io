@@ -1,0 +1,31 @@
+body {
+  width: 960px;
+  margin: 0 auto;
+  background: #242;
+  text-align: center;
+}
+.clock {
+  height: 100px;
+  line-height: 100px;
+  vertical-align: middle;
+  font-size: 100px;
+  text-align: center;
+  margin-top: 100px;
+  background: gray;
+  font-family: monospace;
+  margin-bottom: 100px;
+}
+.ninebynine {
+  display: inline-block;
+  font-size: 100px;
+  line-height: 100px;
+  vertical-align: middle;
+  height: 100px;
+  font-family: monospace;  
+  margin-bottom: 100px;
+}
+.example {
+  display: inline-block;
+  width: 250px;
+  height: 250px;
+}

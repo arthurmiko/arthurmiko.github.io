@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   viewBox="0 0 569.59662 493.59552"
+   height="493.59552"
+   width="569.59662"
+   version="1.1"
+   id="svg3336"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="air_symbol.svg">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="640"
+     inkscape:window-height="480"
+     id="namedview3400"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="0.46388206"
+     inkscape:cx="285.15901"
+     inkscape:cy="243.58872"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg3336" />
+  <metadata
+     id="metadata3342">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs3340" />
+  <path
+     id="path3348"
+     d="M 4.1919054e-4,492.46887 C 0.97451919,489.75405 284.21952,0 284.81551,0 c 0.60609,0 283.84838,489.7819 284.78065,492.44203 0.25491,0.72737 -104.95693,1.1535 -284.79787,1.1535 -175.08572,0 -285.04604081,-0.43501 -284.79787080946,-1.12666 z M 523.32658,451.91544 C 515.86847,438.9967 488.20946,390.99258 461.86212,345.23962 l -47.90426,-83.1872 -129.15957,0.007 -129.15957,0.007 -50.05947,86.96149 c -27.532711,47.8286 -55.197851,95.82961 -61.478091,106.6687 l -11.41862,19.70744 252.102121,0 252.10212,0 -13.5602,-23.48861 z M 402.43659,243.13921 c 0,-1.16745 -116.95128,-203.117952 -117.62735,-203.117952 -0.60466,0 -116.48207,199.902342 -117.44712,202.610262 -0.24909,0.69893 44.78937,1.13434 117.33511,1.13434 64.75665,0 117.73936,-0.282 117.73936,-0.62665 z"
+     style="fill:#000000"
+     inkscape:connector-curvature="0" />
+</svg>

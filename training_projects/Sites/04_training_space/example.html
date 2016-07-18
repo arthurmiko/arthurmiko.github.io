@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Example</title>
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <link rel="stylesheet" type="text/css" href="css/example.css">
+  <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <script defer="defer" type="text/javascript" src="js/example.js"></script>
+</head>
+<body>
+  <div class="container"><!-- Warp page to bottom and make footer stick to the bottom of window -->
+    <header>
+      <a href="index.html">
+        <span class="clearfix">Training space</span>
+      </a>
+      <ul>
+         <a href="index.html"><li>Main page</li></a><!--
+       --><a href="samples.html"><li>Samples</li></a>
+     </ul>
+    </header>
+    
+    <div class="wrapper">
+      <div class="example">
+        <span class="show_data">Turn: </span>
+        <span id="turn" class="show_data">0</span><br>
+
+        <span class="show_data">Population: </span>
+        <span id="population" class="show_data">0</span><br>
+
+        <span class="show_data">Resources: </span>
+        <span id="resources" class="show_data">0</span>
+      </div>
+      <button id="begin" class="button">Run</button>
+    </div>
+
+    <div class="bottom-page-buffer"></div> <!-- Space for footer -->
+ </div>
+ <footer>
+ </footer>
+</body>
+</html>

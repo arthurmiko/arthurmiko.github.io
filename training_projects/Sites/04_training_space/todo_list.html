@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>ToDoList</title>
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+  <script defer="defer" type="text/javascript" src="js/todo_list.js"></script>
+</head>
+<body>
+  <div class="container"><!-- Warp page to bottom and make footer stick to the bottom of window -->
+    <header>
+      <a href="index.html">
+        <span class="clearfix">Training space</span>
+      </a>
+      <ul>
+         <a href="index.html"><li>Main page</li></a><!--
+      --><a href="samples.html"><li>Samples</li></a>
+      </ul>
+    </header>
+
+    <div class="todo_mainbox">
+
+      <form name="todo_input_form_name" onsubmit="sendInput(); return false">
+        <input name="todo_input_line_name" class="todo_input_line_class" type="text" placeholder="Write something nice...">
+        <input class="todo_submit_button" type="submit" value="Submit">
+      </form>
+      <div class="blue_field"></div>
+      <ul id="todo_mainlist_id" class="todo_mainlist">  
+      </ul>
+
+    </div>
+
+  <div class="bottom-page-buffer"></div> <!-- Space for footer -->
+  </div>
+  <footer>
+  </footer>
+</body>
+</html>
+

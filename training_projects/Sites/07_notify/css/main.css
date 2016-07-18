@@ -1,0 +1,406 @@
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+}
+
+@font-face {
+  font-family: "Pacifico";
+  src: url("../fonts/Pacifico.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Raleway";
+  src: url("../fonts/Raleway-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Raleway";
+  src: url("../fonts/Raleway-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+    font-family: 'texgyreheros';
+    src: url('../fonts/texgyreheros-regular-webfont.eot');
+    src: url('../fonts/texgyreheros-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/texgyreheros-regular-webfont.woff') format('woff'),
+         url('../fonts/texgyreheros-regular-webfont.ttf') format('truetype'),
+         url('../fonts/texgyreheros-regular-webfont.svg#texgyreherosregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'texgyreheros';
+    src: url('../fonts/texgyreheros-italic-webfont.eot');
+    src: url('../fonts/texgyreheros-italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/texgyreheros-italic-webfont.woff') format('woff'),
+         url('../fonts/texgyreheros-italic-webfont.ttf') format('truetype'),
+         url('../fonts/texgyreheros-italic-webfont.svg#texgyreherositalic') format('svg');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'texgyreheros';
+    src: url('../fonts/texgyreheros-bold-webfont.eot');
+    src: url('../fonts/texgyreheros-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/texgyreheros-bold-webfont.woff') format('woff'),
+         url('../fonts/texgyreheros-bold-webfont.ttf') format('truetype'),
+         url('../fonts/texgyreheros-bold-webfont.svg#texgyreherosbold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+body {
+  min-width: 1200px;
+}
+
+header hr {
+  border: solid 5px #2ecc71;
+}
+
+.container {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.hand {
+  display: inline-block;
+  margin: 150px 0 -4px 80px;
+  vertical-align: bottom;
+}
+
+.hand:before {
+  content: "";
+  display: inline-block;
+  position: relative;
+  top: -197px;
+  left: 233px;
+  width: 163px;
+  height: 243px;
+  background: url("../img/iphone.png");
+}
+
+.logo_tag {
+  display: inline-block;
+  width: 500px;
+  vertical-align: top;
+  margin-top: 200px;
+  margin-bottom: 124px;
+}
+
+.logo_tag p:first-child {
+  font-family: Pacifico, "Times New Roman", Times, serif;
+  color: #FFF;
+  font-size: 45pt;
+  margin-bottom: 35px
+}
+
+.logo_tag p:first-child span {
+  color: #2ecc71;
+}
+
+.logo_tag p:nth-child(2) {
+  display: inline-block;
+  width: 500px;
+  font-family: "texgyreheros", "Times New Roman", Times, serif;
+  font-weight: 900;
+  color: #FFF;
+  font-size: 18pt;
+  letter-spacing: .03em;
+  margin-bottom: 35px;
+}
+
+.os div {
+  display: inline-block;
+  margin-right: 4px;
+}
+
+.os>div div {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  width: 52px;
+  height: 52px;
+  background-color: rgba(100, 100, 100, .5);
+  border-radius: 50%;
+  transition: 1s;
+}
+
+.os span {
+  color: #999;
+  font-size: 32px;
+  line-height: 52px;
+  transition: 1s;
+}
+
+.os>div div:hover {
+  background-color: #2ecc71;
+  cursor: pointer;
+}
+
+.os div:hover span {
+  color: #FFF;
+}
+
+.advantages>div {
+  margin: 50px 0;
+  display: inline-block;
+  width: 33%;
+  text-align: center;
+  vertical-align: top;
+}
+
+.advantages_circles {
+  display: inline-block;
+  background-color: #2ecc71;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 30px;
+}
+
+.advantages_circles span {
+  line-height: 100px;
+  font-size: 60px;
+  color: #FFF;
+  margin-top: 2px;
+}
+
+h2 {
+  font-family: "Raleway", "Times New Roman", Times, serif;
+  font-weight: 600;
+  font-size: 22px;
+  letter-spacing: .05ex;
+}
+
+.advantages h2 {
+  margin-bottom: 15px;
+}
+
+.advantages>div p {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  width: 300px;
+}
+
+.invitation {
+  display: inline-block;
+  vertical-align: top;
+  width: 500px;
+  margin: 50px 100px 0 75px;
+}
+
+.advantages>div p:nth-child(3),
+.invitation p {
+  font-family: "texgyreheros", "Times New Roman", Times, serif;
+  font-weight: normal;
+  font-size: 16px;
+  letter-spacing: .03em;
+  color: #848484;
+  margin-bottom: 35px;
+}
+
+.invitation h2 {
+  margin-bottom: 25px;
+}
+
+.email_form input {
+  border: 1px solid #c8c8c8;
+  border-right: none;
+  border-radius: 15px 0 0 15px;
+  background-color: #FFF;
+  padding-left: 25px;
+  width: 279px;
+  height: 54px;
+  font-family: "texgyreheros", "Times New Roman", Times, serif;
+  font-size: 17px;
+  letter-spacing: .1em;
+  vertical-align: middle;
+  transition: .7s;
+}
+
+.email_form input:focus {
+  outline: none;
+  border: solid 1px #2ecc71;
+  border-right: none;
+}
+
+.email_form input:focus + button{
+  border: solid 1px #2ecc71;
+  border-left: none;
+}
+
+.email_form button {
+  border: 1px solid #c8c8c8;
+  border-left: none;
+  border-radius: 0 15px 15px 0;
+  background-color: #2ecc71;
+  height: 56px;
+  width: 142px;
+  font-family: "Raleway", "Times New Roman", Times, serif;
+  font-weight: 600;
+  font-size: 22px;
+  letter-spacing: .05ex;
+  color: #FFF;
+  cursor: pointer;
+  vertical-align: bottom;
+  transition: .7s;
+}
+
+.email_form button:focus {
+  outline: none;
+}
+
+.email_form button:hover {
+  background-color: #219150;
+}
+
+.subscribe iframe {
+  margin: 50px 0;
+}
+
+.subscribe {
+  background-color: #e3e3e3;
+}
+
+.reviews p:first-child {
+  display: block;
+  width: 1000px;
+  margin: 35px auto 10px auto;
+  font-family: "texgyroheros", "Times New Roman", Times, serif;
+  font-style: italic;
+  font-size: 24px;
+  color: #848484;
+  text-align: center;
+}
+
+.reviews h2:nth-of-type(1) {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.reviews h2:nth-of-type(2) {
+  text-align: center;
+  margin: 45px 0 15px 0;
+}
+
+.reviews p:last-of-type {
+  text-align: center;
+  font-family: "texgyroheros", "Times New Roman", Times, serif;
+  font-size: 24px;
+  letter-spacing: .01em;
+  color: #848484;
+  margin-bottom: 15px;
+}
+
+.faces {
+  width: 1152px;
+  margin: 0 auto;
+}
+
+.faces>div {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  margin-right: 1px;
+}
+
+.faces>div div {
+  transition: .3s;
+}
+
+.faces>div:last-child {
+  margin-right: 0;
+}
+
+.faces>div:first-child div {
+  background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0)) ;
+}
+
+.faces>div:last-child div {
+  background: linear-gradient(to left, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0)) ;
+}
+
+.faces>div div:hover {
+  background-color: rgba(41, 204, 113, .5);
+  cursor: pointer;
+}
+
+.faces img {
+  display: block;
+  position: relative;
+  z-index: -1;
+}
+
+.social_media {
+  width: 260px;
+  margin: 0 auto 50px auto;
+}
+
+.social_media>div {
+  display: inline-block;
+  margin-right: 6px;
+}
+
+.social_media>div div {
+  display: inline-block;
+  height: 34px;
+  width: 34px;
+  border-radius: 50%;
+  background-color: #d4d4d4;
+  text-align: center;
+  vertical-align: middle;
+  transition: .3s;
+}
+
+.social_media>div div:hover {
+  background-color: #62d995;
+  cursor: pointer;
+}
+
+.social_media>div div span {
+  line-height: 34px;
+  color: #FFF;
+  font-size: 18px;
+}
+
+footer {
+  background-color: #e3e3e3;
+}
+
+footer a {
+  text-decoration: none;
+  color: #666;
+  font-family: "texgyroheros", "Times New Roman", Times, serif;
+  letter-spacing: .03em;
+}
+
+footer a:hover {
+  color: #62d995;
+}
+
+footer ul {
+  display: block;
+  width: 600px;
+  margin: 0 auto;
+}
+
+footer ul li {
+  display: inline-block;
+  margin: 45px 45px 45px 0;
+}
+
+footer ul li:last-child {
+  margin-right: 0px;
+}

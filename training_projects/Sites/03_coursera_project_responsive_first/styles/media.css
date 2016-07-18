@@ -1,0 +1,53 @@
+@media screen and (max-width: 540px) {
+  .main_link {
+    width: auto;
+    margin-bottom: -4px;
+  }
+  .main_link svg {
+    height: 50%;
+  }
+  .main_link span {
+    font-size: 2em;
+  }
+  .main_head a {
+    display: block;
+    width: auto;
+  }
+  .four_elem .table_wrapper .row_wrapper .cell_wrapper {
+    text-align: center;
+    vertical-align: bottom;
+  }
+  .local_menu ul {
+    margin: 0 0 10px 0;
+  }
+  .local_menu span {
+    display: none;
+  }
+  .local_menu li {
+    display: inline-block;
+    width: 30px;
+  }
+  .local_menu a {
+    width: 100%;
+    height: 100%;
+  }
+  .local_menu li:first-child {
+    text-align: left;
+    vertical-align: top;
+    line-height: 30px;
+    width: 50px;
+  }
+  .local_menu img {
+    width: 100%;
+  }
+  .text_about {
+    margin: 0;
+    font-size: 1.5em;
+    text-align: left;
+    width: 65%;
+    margin: 100px 0 0 25px;
+  }
+  .big_text {
+    font-size: 3.5em;
+  }
+}

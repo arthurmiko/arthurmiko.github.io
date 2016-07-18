@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <script type="text/javascript" src="jquery-2.2.0.js"></script>
+  <script defer type="text/javascript" src="main.js"></script>
+</head>
+<body>
+  <div class="container">
+    <p>Сделай свой выбор</p>
+    <div class="imgcontainer">
+    <div id="id_rock_user" class="image_user rock"></div><!--
+    --><div id="id_scissors_user" class="image_user scissors"></div><!--
+    --><div id="id_paper_user" class="image_user paper"></div>
+    </div>
+    <p>Компьютер выбирает</p>
+    <div class="imgcontainer">
+    <div id="id_rock_pc" class="image_pc rock"></div><!--
+    --><div id="id_scissors_pc" class="image_pc scissors"></div><!--
+    --><div id="id_paper_pc" class="image_pc paper"></div>
+    </div>
+    <p>Сравнение</p>
+    <div class="comparison">
+    <div id="user_choice" class="user_blank">
+    </div>
+    <div id="pc_choice" class="pc_blank">
+    </div>
+    </div>
+    <p>Результат</p>
+    <div id="winner_id" class="winner">
+    </div>
+    <p>Статистика</p>
+    <div class="stats">
+    <p>Игр сыграно: <span id="count">0</span></p>
+    <p>Выиграно: <span id="win_id">0</span></p>
+    <p>Проиграно: <span id="lose_id">0</span></p>
+    <p>Ничьих: <span id="draw_id">0</span></p>
+    <p>Процент побед: <span id="percent_id">0</span>%</p>
+    </div>
+    <p>Сыграем ещё раз?</p>
+    <div id="yes" class="answer">Да</div>
+    <div id="no" class="answer">Нет</div>
+  </div>
+</body>
+</html>
