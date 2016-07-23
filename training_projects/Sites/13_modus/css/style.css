@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,800,400italic,600italic);
+
 /*
 =================================================
 Normalize
@@ -25,3 +27,71 @@ ul {
   padding: 0;
 }
 
+/*
+=================================================
+Typography
+=================================================
+*/
+
+a, p, div, li {
+  font-family: "Open Sans", "Verdana", "Arial", "sans-serif";
+}
+
+/*
+=================================================
+Grid
+=================================================
+*/
+
+.container {
+  width: 1170px;
+  margin: 0 auto;
+}
+
+.clearfix:before,
+.clearfix:after,
+.container:before,
+.container:after,
+.row:before,
+.row:after {
+  content: " ";
+  display: table;
+}
+.clearfix:after,
+.container:after,
+.row:after {
+  clear: both;
+}
+
+.col-6, .col-3, .col-2 {
+  position: relative;
+  float: left;
+  min-height: 1px;
+  margin: 0 15px;
+}
+
+.row {
+  margin: 0 -15px;
+}
+
+.col-2 {
+  width: 170px;
+}
+
+.col-3 {
+  width: 270px;
+}
+
+/*
+=================================================
+Services
+=================================================
+*/
+
+.services {
+  background: #f3f3f3;
+}
+
+p {
+  background: #777;
+}

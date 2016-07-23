@@ -1,0 +1,21 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+div {
+  text-align: center;
+}
+
+span {
+  font-size: 48px;
+  font-family: Helvetica;
+  font-family: Verdana;
+  font-family: Georgia;
+  font-family: "Times New Roman";
+  font-family: Arial;
+  background: #777;
+}
+
+.container {
+  background: #ddd;
+}
