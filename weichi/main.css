@@ -1,0 +1,43 @@
+
+.first-menu ul{
+  list-style: none;
+
+}
+
+.first-menu ul::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.first-menu li {
+  float: left;
+  margin-right: 1px;
+  font-family: Verdana, Arial;
+  font-size: 20px;
+  box-shadow: 0 0 0 1px #000;
+}
+
+.first-menu li a {
+  display: block;
+  padding: 15px;
+  background: #ddd;
+  color: #777;
+  transition: .5s;
+  text-decoration: none;
+  position: relative;
+}
+
+.first-menu li a:hover {
+  background: #777;
+  color: #ddd;
+}
+
+.center-align {
+  margin-top: 100px;
+  text-align: center;
+  }
+
+canvas {
+  box-shadow: 0 0 10px #000;
+}
