@@ -1,0 +1,25 @@
+@import 'https://fonts.googleapis.com/css?family=Montserrat';
+
+p[class^="test-font"] {
+  font-size: 30px;
+}
+
+.test-font-mont {
+  font-family: "Montserrat" !important;
+}
+
+.test-font-arail {
+  font-family: "Arial" !important;
+}
+
+.test-font-tmn {
+  font-family: "Times New Roman" !important;
+}
+
+.test-font-serif {
+  font-family: serif !important;
+}
+
+.test-font-sans-serif {
+  font-family: sans-serif !important;
+}

@@ -1,0 +1,54 @@
+html, body {
+  height: 100%;
+}
+
+html, body, ul, li {
+  margin: 0;
+  padding: 0;
+}
+
+.ctrl-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.new-ctrl-panel {
+  float: left;
+}
+
+.graph-wrap {
+  margin: 0 50px 0 150px;
+  height: 70%;
+}
+
+.new-ctrl-panel ul {
+  display: inline-block;
+  width: 150px;
+  height: 700px;
+  margin-top: 20px;
+  list-style: none;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.new-ctrl-panel input {
+  display: none;
+}
+
+.new-ctrl-panel label {
+  display: inline-block;
+  width: 100%;
+  padding: 10px 20px;
+  background: #159;
+}
+
+.new-ctrl-panel .top-select {
+  display: block;
+  width: 100px;
+  margin-top: 20px;
+}
+
+.new-ctrl-panel input:checked + label {
+  background: #195;
+}

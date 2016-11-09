@@ -4,6 +4,9 @@
 
 var boardCanvas = document.getElementById('board');
 var boardContext = boardCanvas.getContext('2d');
+var passBtn = document.getElementById('btn-pass');
+
+passBtn.onclick = changeColor;
 
 var cell = 50;
 var fieldWidth = 450;
@@ -79,11 +82,11 @@ var arrCoorX;
 var arrCoorY;
 var color = 'black';
 
-// boardCanvas.onclick = function(e) {
-//   arrCoorX = Math.floor(e.offsetX / 50);
-//   arrCoorY = Math.floor(e.offsetY / 50);
-//   step(arrCoorX, arrCoorY);
-// }
+boardCanvas.onclick = function(e) {
+  arrCoorX = Math.floor(e.offsetX / 50);
+  arrCoorY = Math.floor(e.offsetY / 50);
+  step(arrCoorX, arrCoorY);
+}
 
 var ko = {
   color: 'empty',

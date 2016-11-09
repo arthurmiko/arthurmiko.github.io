@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.js"></script>
+</head>
+
+<body>
+  <div class="ctrl-panel">
+    <button onclick="auth.getToken()">auth.getToken</button>
+    <button onclick="midVK.customizeRequest('getUsersId')">wip</button>
+    <button onclick="reqUserDB()">reqUserDB</button>
+    <button onclick="testGet()">testget</button>
+    <button onclick="testGet2()">testget2</button>
+  </div>
+  <div class="new-ctrl-panel">
+    <input type="checkbox" id="select-all">
+    <label class="top-select" for="select-all" onclick='selectAll()'>Select All</label>
+    <ul id="user-list"></ul>
+  </div>
+  <div class="graph-wrap">
+    <canvas id="myChart" width="1" height="6"></canvas>
+  </div>
+  <script src="main.js"></script>
+  <script src="draft.js"></script>
+</body>
+
+</html>
