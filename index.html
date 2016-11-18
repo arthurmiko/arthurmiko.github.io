@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Miko Art</title>
+  <link rel="stylesheet" href="./main.css">
+  <script src="https://use.fontawesome.com/21eb6f394b.js"></script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <p class="logo"><a href="#">MIKOART</a></p>
+      <ul class="navmenu">
+        <li><a href="#">Home</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contacts">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+  <h1 class="tagline">Front-end Developer</h1>
+  <div id="portfolio">
+    <p class="small-tagline"><span>SOME OF MY LATEST WORK</span></p>
+    <div class="container">
+      <div class="preview">
+        <img src="./images/wooder.jpg" alt="Wooder">
+        <div class="preview-item">
+          <div class="table">
+            <div class="cell">
+              <div class="preview-item-btn preview-details">
+                <div data-modal-id="wooder">Details<span class="fa fa-address-card-o"></span></div>
+              </div>
+              <div class="preview-item-btn preview-link">
+                <a href="https://arthurmiko.github.io/training_projects/Sites/14_wooden/index.html" target="blank">Go to the site<span class="fa fa-link"></span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="preview">
+        <img src="./images/modus.jpg" alt="Modus">
+        <div class="preview-item">
+          <div class="table">
+            <div class="cell">
+              <div class="preview-item-btn preview-details">
+                <div data-modal-id="modus">Details<span class="fa fa-address-card-o"></span></div>
+              </div>
+              <div class="preview-item-btn preview-link">
+                <a href="http://www.werde.esy.es/" target="blank">Go to the site<span class="fa fa-link"></span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="preview-modal" data-modal="close">
+      <div class="preview-modal-inset">
+          <div class="modal-close"><span class="fa fa-times-circle-o" data-modal="close"></span></div>
+          <div id="wooder" class="preview-modal-item">
+            <p>Wooder</p>
+            
+            <div class="preview-item-btn preview-link">
+              <a href="http://www.werde.esy.es/" target="blank">Go to the site<span class="fa fa-long-arrow-right"></span></a>
+            </div>
+            <img src="./images/wooder.jpg" alt="Wooder">
+          </div>
+          <div id="modus" class="preview-modal-item">
+            <p>Modus Versus</p>
+            <img src="./images/modus.jpg" alt="Modus">
+          </div>
+      </div>
+    </div>
+  </div>
+  <div id="about">
+    <div class="container">
+      <p class="small-tagline"><span>ABOUT ME</span></p>
+      <div class="clearfix">
+        <img src="./images/photo.jpg" alt="photo">
+        <p>I am a junior front-end developer, with experience in creating web-sites using HTML, CSS and JavaScript. </p>
+      </div>
+      <div class="skills">
+        <ul class="good">
+          <li>Good knowledge</li>
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>JavaScript (plain JS, jQuery)</li>
+        </ul>
+        <ul class="basic">
+          <li>Basic knowledge</li>
+          <li>NodeJS</li>
+          <li>PHP</li>
+          <li>Databases (MySQL, MongoDB)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div id="contacts">
+    <p class="small-tagline"><span>CONTACTS</span></p>
+    <div class="container">
+      <div class="contacts-info">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut natus veritatis, autem optio obcaecati, omnis quaerat maiores nobis excepturi amet consequuntur eligendi ipsum facere temporibus, sequi nulla. Impedit, rem libero.</p>
+      </div>
+      <form class="main-form clearfix" method="POST" action="https://formspree.io/arthurmiko@gmail.com" target="_blank">
+        <label for="name">Your name</label>
+        <input type="text" name="name" placeholder="Your name" required>
+        <label for="email">Your email</label>
+        <input type="email" name="email" placeholder="Your email" required>
+        <label for="message">Your message</label>
+        <textarea name="message" placeholder="Your message" required></textarea>
+        <button type="submit">Send e-mail</button>
+      </form>
+    </div>
+  </div>
+  <footer>
+    <div class="container">
+      <p class="logo">MIKOART</p>
+      <div class="copyright">Made by Arthur Mischenko &copy; 2016</div>
+    </div>
+  </footer>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="./common.js"></script>
+</body>
+</html>
