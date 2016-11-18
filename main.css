@@ -255,8 +255,7 @@ header li {
 }
 
 .preview-modal-inset {
-  position: fixed;
-  width: 25%;
+  position: absolute;
   background: #fff;
   top: 50%;
   left: 50%;
@@ -267,11 +266,23 @@ header li {
   display: none;
 }
 
+.preview-modal-item img {
+  display: block;
+  height: 100%;
+  float: right;
+}
+
+.preview-modal-item p {
+  font-size: 2em;
+  margin: 30px 0;
+}
+
 .preview-modal .preview-item-btn {
   float: right;
   margin: 10px 10px 10px 0;
   width: 40%;
   font-size: 1em;
+  border: none;
 }
 
 .preview-modal .preview-item-btn a {
@@ -286,12 +297,6 @@ header li {
 
 .preview-modal .preview-item-btn span {
  top: 23%;
-}
-
-.preview-modal-item img {
-  display: block;
-  width: 100%;
-  margin-bottom: -1px;
 }
 
 #about {
