@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Miko Art</title>
   <link rel="stylesheet" href="./main.css">
   <script src="https://use.fontawesome.com/21eb6f394b.js"></script>
@@ -10,6 +11,11 @@
   <header>
     <div class="container">
       <p class="logo"><a href="#">MIKOART</a></p>
+      <div class="navmenu-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
       <ul class="navmenu">
         <li><a href="#">Home</a></li>
         <li><a href="#portfolio">Portfolio</a></li>
@@ -53,38 +59,50 @@
         </div>
       </div>
     </div>
-    <div class="preview-modal" data-modal="close">
-      <div class="preview-modal-inset">
-          <div class="modal-close"><span class="fa fa-times-circle-o" data-modal="close"></span></div>
-          <div id="wooder" class="preview-modal-item">
-            <p>Wooder</p>
-            <p>Landing-page from PSD template</p>
-            <p>Technologies</p>
-            <ul>
-              <li>HTML</li>
-              <li>CSS</li>
-              <li>JavaScript - parralax, animation, embedded YouTube player</li>
-            </ul>
-            <div class="preview-item-btn preview-link">
-              <a href="http://www.werde.esy.es/" target="blank">Go to the site<span class="fa fa-long-arrow-right"></span></a>
+    <div class="preview-modal">
+      <div id="wooder" class="preview-modal-item">
+        <div class="preview-modal-wrapper">
+          <div class="preview-modal-scroll">
+            <div class="preview-modal-description">
+              <p>Wooder</p>
+              <p>Landing-page from PSD template</p>
+              <p>Technologies</p>
+              <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript - parralax, animation, embedded YouTube player</li>
+              </ul>
+              <div class="modal-btn-close"><span class="fa fa-chevron-circle-left"></span>Back</div>
             </div>
-            <img src="./images/wooder.jpg" alt="Wooder">
           </div>
-          <div id="modus" class="preview-modal-item">
-            <p>Modus Versus</p>
-            <p>Site layout from PSD template and integrating it with WordPress</p>
-            <p>Technologies</p>
-            <ul>
-              <li>HTML</li>
-              <li>CSS</li>
-              <li>JavaScript - sliders, animation</li>
-              <li>WordPress - creating theme</li>
-            </ul>
-            <div class="preview-item-btn preview-link">
-              <a href="http://www.werde.esy.es/" target="blank">Go to the site<span class="fa fa-long-arrow-right"></span></a>
+          <div class="modal-btn-link">
+            <a href="https://arthurmiko.github.io/training_projects/Sites/14_wooden/index.html" target="blank">Go to the site<span class="fa fa-chevron-circle-right"></span></a>
+          </div>
+        </div>
+        <a href="https://arthurmiko.github.io/training_projects/Sites/14_wooden/index.html" target="blank"><img src="./images/wooder_1.jpg" alt="Wooder"></a>
+      </div>
+      <div id="modus" class="preview-modal-item">
+        <div class="preview-modal-wrapper">
+          <div class="preview-modal-scroll">
+            <div class="preview-modal-description">
+              <p>Modus Versus</p>
+              <p>Site layout from PSD template and integrating it with WordPress</p>
+              <p>Technologies</p>
+              <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript - sliders, animation</li>
+                <li>WordPress - creating theme</li>
+              </ul>
+              <div class="modal-btn-close"><span class="fa fa-chevron-circle-left"></span>Back</div>
             </div>
-            <img src="./images/modus.jpg" alt="Modus">
           </div>
+          <div class="modal-btn-link">
+            <a href="http://www.werde.esy.es/" target="blank">Go to the site<span class="fa fa-chevron-circle-right"></span></a>
+          </div>
+        </div>
+        <a href="http://www.werde.esy.es/blog/" target="blank"><img src="./images/modus_2.jpg" alt="Modus"></a>
+        <a href="http://www.werde.esy.es/" target="blank"><img src="./images/modus_1.jpg" alt="Modus"></a>
       </div>
     </div>
   </div>

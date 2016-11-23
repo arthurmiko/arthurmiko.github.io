@@ -22,16 +22,21 @@ $('.preview-item-btn div').click(function(){
   setTimeout(function(){
     $('.preview-modal').css('opacity', 1);
   }, 50);
+
+  var modal = document.querySelector('.active .preview-modal-scroll');
+  modal.style.right = modal.clientWidth - modal.offsetWidth + 'px';
 })
 
-$('.preview-modal').click(function(e){
-  if (e.target.getAttribute('data-modal') == 'close') {
-    $(this).css('opacity', 0);
-    $(this).one('transitionend', function() {
-      $('.preview-modal-inset .active')
-        .css('display', 'none')
-        .removeClass('active');
-      $(this).css('display', 'none');
-    })
-  } else { return };
+$('.modal-btn-close').click(function(e){
+  $('.preview-modal').css('opacity', 0);
+  $('.preview-modal').one('transitionend', function() {
+    $('.preview-modal .active')
+      .css('display', 'none')
+      .removeClass('active');
+    $('.preview-modal').css('display', 'none');
+  })
+})
+
+$('.navmenu-btn').click(function(){
+  $('.navmenu').toggleClass('active');
 })
