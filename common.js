@@ -59,9 +59,8 @@ $(document).keydown(function(e) {
 $(window).on("navigate", function (event, data) {
   var direction = data.state.direction;
   if (direction == 'back' && $('.preview-modal-item').hasClass('active')) {
-      hideModal();
-      return false;
-    }
+    hideModal();
+    return false;
   }
 });
 
