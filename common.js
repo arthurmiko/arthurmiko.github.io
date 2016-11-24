@@ -74,16 +74,23 @@ $('.navmenu-btn').click(function() {
 //   }
 // });
 
+// var unloadEvent = function (e) {
+//     if($('.preview-modal-item').hasClass('active')) {
+//       hideModal();
+//       return false;
+//     } else {
+//       return false;
+//     }
+// };
+// window.addEventListener("beforeunload", unloadEvent);
+
 var unloadEvent = function (e) {
-    if($('.preview-modal-item').hasClass('active')) {
-      hideModal();
-      return false;
+    var confirmationMessage = "Are you want to leave this page";
+    (e || window.event).returnValue = confirmationMessage; 
+    if(confirm(confirmationMessage)) {
+      alert('bye')
     } else {
-       return false;
+      return false;
     }
 };
 window.addEventListener("beforeunload", unloadEvent);
-
-setInterval(function(){
-  console.log($('.preview-modal-item').hasClass('active'))
-}, 500);
