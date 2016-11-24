@@ -75,12 +75,14 @@ $('.navmenu-btn').click(function() {
 // });
 
 var unloadEvent = function (e) {
-    var confirmationMessage = "Are you want to leave this page";
-    (e || window.event).returnValue = confirmationMessage; 
-    if(confirm(confirmationMessage)) {
-      //some JS function
+    if($('.preview-modal-item').hasClass('active')) {
+      hideModal();
     } else {
        return false;
     }
 };
 window.addEventListener("beforeunload", unloadEvent);
+
+setInterval(function(){
+  console.log($('.preview-modal-item').hasClass('active'))
+}, 500);
