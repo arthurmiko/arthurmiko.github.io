@@ -180,6 +180,15 @@ header a {
     bottom: 13px;
   }
 
+  #portfolio .preview-details,
+  #portfolio .preview-details div {
+    margin: 0;
+    padding: 0;
+    border: none;
+    width: 100%;
+    height: 100%;
+  }
+
   .preview-link {
     display: none;
   }
