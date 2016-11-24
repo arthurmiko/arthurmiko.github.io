@@ -47,12 +47,21 @@ $(document).keydown(function(e) {
   }
 });
 
-document.addEventListener('backbutton', function(){
-  if ($('.preview-modal-item').hasClass('active')) {
-    hideModal();
-   return false;
-  } else {
-    navigator.app.exitApp();
+// document.addEventListener('backbutton', function(){
+//   if ($('.preview-modal-item').hasClass('active')) {
+//     hideModal();
+//     return false;
+//   } else {
+//     navigator.app.exitApp();
+//   }
+// });
+
+$(window).on("navigate", function (event, data) {
+  var direction = data.state.direction;
+  if (direction == 'back' && $('.preview-modal-item').hasClass('active')) {
+      hideModal();
+      return false;
+    }
   }
 });
 
