@@ -48,7 +48,7 @@ $(document).keydown(function(e) {
 });
 
 document.addEventListener('backbutton', function(){
-  if (e.which == 27 && $('.preview-modal-item').hasClass('active')) {
+  if ($('.preview-modal-item').hasClass('active')) {
     hideModal();
    return false;
   } else {
