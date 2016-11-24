@@ -77,6 +77,7 @@ $('.navmenu-btn').click(function() {
 var unloadEvent = function (e) {
     if($('.preview-modal-item').hasClass('active')) {
       hideModal();
+      return false;
     } else {
        return false;
     }
