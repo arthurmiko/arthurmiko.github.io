@@ -1,21 +1,6 @@
 "use strict";
 
-var headerHeight = $('header').outerHeight();
-
-$('.navmenu').click(function(e) {
-  e.preventDefault();
-  if (e.target.tagName.toLowerCase() === 'a') {
-    var id = e.target.getAttribute('href').slice(1);
-    if (id) {
-      var top = document.getElementById(id).offsetTop;
-      window.scrollTo(0, top - headerHeight);
-    } else {
-      window.scrollTo(0, 0);
-    }
-  }
-});
-
-$('.preview-item-btn div').click(function(){
+$('.preview-item-btn div').click(function() {
   var id = this.getAttribute('data-modal-id');
   $('.preview-modal').css('display', 'block');
   $('#' + id).css('display', 'block').addClass('active')
@@ -27,7 +12,22 @@ $('.preview-item-btn div').click(function(){
   modal.style.right = modal.clientWidth - modal.offsetWidth + 'px';
 })
 
-$('.modal-btn-close').click(function(e){
+$(function() {
+  $('a[href*="#"]:not([href="#"])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html, body').animate({
+          scrollTop: target.offset().top - $('header').outerHeight()
+        }, 300);
+        return false;
+      }
+    }
+  });
+});
+
+function hideModal() {
   $('.preview-modal').css('opacity', 0);
   $('.preview-modal').one('transitionend', function() {
     $('.preview-modal .active')
@@ -35,8 +35,24 @@ $('.modal-btn-close').click(function(e){
       .removeClass('active');
     $('.preview-modal').css('display', 'none');
   })
+}
+
+$('.modal-btn-close').click(function(e) {
+  hideModal();
 })
 
-$('.navmenu-btn').click(function(){
+$(document).keydown(function(e) {
+  if (e.which == 27 && $('.preview-modal-item').hasClass('active')) {
+    hideModal();
+  }
+});
+
+$('.navmenu, .navmenu a').click(function() {
+  $('.navmenu').removeClass('active');
+  $('.navmenu-btn').removeClass('active');
+})
+
+$('.navmenu-btn').click(function() {
+  $('.navmenu-btn').toggleClass('active');
   $('.navmenu').toggleClass('active');
 })

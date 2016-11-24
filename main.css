@@ -116,9 +116,9 @@ header a {
     width: 100%;
     text-align: center;
     background: #001126;
-    padding-top: 50px;
+    padding: 50px 0 10px;
     transform: translate(0, -100%);
-    transition: transform 1s;
+    transition: transform .5s;
   }
 
   .navmenu.active {
@@ -149,6 +149,7 @@ header a {
     width: 100%;
     height: 1px;
     background: #edecf1;
+    transition: all .5s ease;
   }
 
   .navmenu-btn span:first-child {
@@ -163,6 +164,34 @@ header a {
   .navmenu-btn span:last-child {
     bottom: 0;
   }
+
+  .navmenu-btn.active span:first-child {
+    transform: rotate(-135deg);
+    top: 12px;
+  }
+
+  .navmenu-btn.active span:nth-child(2) {
+    transform: rotate(180deg);
+    opacity: 0;
+  }
+
+  .navmenu-btn.active span:last-child {
+    transform: rotate(135deg);
+    bottom: 13px;
+  }
+
+  #portfolio .preview-details,
+  #portfolio .preview-details div {
+    margin: 0;
+    padding: 0;
+    border: none;
+    width: 100%;
+    height: 100%;
+  }
+
+  .preview-link {
+    display: none;
+  }
 }
 
 @media (min-width: 768px) {
@@ -176,14 +205,21 @@ header a {
     position: static;
     float: right;
     background: none;
+    width: auto;
+    padding: 0;
+    transform: none;
   }
 
-  header li {
+  .navmenu li {
     display: inline-block;
     line-height: 64px;
-    margin-right: 20px;
+    margin: 0 20px 0 0;
     font-size: 20px;
     letter-spacing: 2px;
+  }
+
+  .navmenu a {
+    border-bottom: none;
   }
 
   .navmenu-btn {
