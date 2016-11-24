@@ -47,6 +47,15 @@ $(document).keydown(function(e) {
   }
 });
 
+document.addEventListener('backbutton', function(){
+  if (e.which == 27 && $('.preview-modal-item').hasClass('active')) {
+    hideModal();
+   return false;
+  } else {
+    navigator.app.exitApp();
+  }
+});
+
 $('.navmenu, .navmenu a').click(function() {
   $('.navmenu').removeClass('active');
   $('.navmenu-btn').removeClass('active');
