@@ -47,6 +47,10 @@ $(document).keydown(function(e) {
   }
 });
 
+$(window).keydown(function(e) {
+  alert(e.which)
+})
+
 $('.navmenu, .navmenu a').click(function() {
   $('.navmenu').removeClass('active');
   $('.navmenu-btn').removeClass('active');
@@ -84,13 +88,18 @@ $('.navmenu-btn').click(function() {
 // };
 // window.addEventListener("beforeunload", unloadEvent);
 
-var unloadEvent = function (e) {
-    var confirmationMessage = "Are you want to leave this page";
-    (e || window.event).returnValue = confirmationMessage; 
-    if(confirm(confirmationMessage)) {
-      alert('bye')
-    } else {
-      return false;
-    }
-};
-window.addEventListener("beforeunload", unloadEvent);
+// var unloadEvent = function (e) {
+//     var confirmationMessage = "Are you want to leave this page";
+//     (e || window.event).returnValue = confirmationMessage; 
+//     if(confirm(confirmationMessage)) {
+//       return false;
+//     } else {
+//       return false;
+//     }
+// };
+// window.addEventListener("beforeunload", unloadEvent);
+
+// window.onbeforeunload = function() {
+//     //Do some other stuff here..
+//     return 'You have unsaved changes!';
+// }
