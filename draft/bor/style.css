@@ -1,25 +1,19 @@
-@import 'https://fonts.googleapis.com/css?family=Montserrat';
-
-p[class^="test-font"] {
-  font-size: 30px;
+body {
+  margin: 0;
 }
 
-.test-font-mont {
-  font-family: "Montserrat" !important;
+/*.hold {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 20%;
 }
-
-.test-font-arail {
-  font-family: "Arial" !important;
-}
-
-.test-font-tmn {
-  font-family: "Times New Roman" !important;
-}
-
-.test-font-serif {
-  font-family: serif !important;
-}
-
-.test-font-sans-serif {
-  font-family: sans-serif !important;
+*/
+.img {
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 20%;
+  height: 0;
+  background-image: url('wooder_2.jpg');
+  padding-top: 32.64%; /* (img-height / img-width * container-width) */
 }

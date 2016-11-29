@@ -47,10 +47,6 @@ $(document).keydown(function(e) {
   }
 });
 
-$(window).keydown(function(e) {
-  alert(e.which)
-})
-
 $('.navmenu, .navmenu a').click(function() {
   $('.navmenu').removeClass('active');
   $('.navmenu-btn').removeClass('active');
@@ -60,46 +56,3 @@ $('.navmenu-btn').click(function() {
   $('.navmenu-btn').toggleClass('active');
   $('.navmenu').toggleClass('active');
 })
-
-// document.addEventListener('backbutton', function(){
-//   if ($('.preview-modal-item').hasClass('active')) {
-//     hideModal();
-//     return false;
-//   } else {
-//     navigator.app.exitApp();
-//   }
-// });
-
-// $(window).on("navigate", function (event, data) {
-//   var direction = data.state.direction;
-//   if (direction == 'back' && $('.preview-modal-item').hasClass('active')) {
-//     hideModal();
-//     return false;
-//   }
-// });
-
-// var unloadEvent = function (e) {
-//     if($('.preview-modal-item').hasClass('active')) {
-//       hideModal();
-//       return false;
-//     } else {
-//       return false;
-//     }
-// };
-// window.addEventListener("beforeunload", unloadEvent);
-
-// var unloadEvent = function (e) {
-//     var confirmationMessage = "Are you want to leave this page";
-//     (e || window.event).returnValue = confirmationMessage; 
-//     if(confirm(confirmationMessage)) {
-//       return false;
-//     } else {
-//       return false;
-//     }
-// };
-// window.addEventListener("beforeunload", unloadEvent);
-
-// window.onbeforeunload = function() {
-//     //Do some other stuff here..
-//     return 'You have unsaved changes!';
-// }

@@ -102,142 +102,11 @@ header a {
   width: 100%;
 }
 
-@media (max-width: 768px) {
-  .logo {
-    position: relative;
-    margin: 0 0 7px 15px;
-    font-size: 1.6em;
-    padding-top: 16px;
-    z-index: 1;
-  }
-
-  .navmenu {
-    position: absolute;
-    width: 100%;
-    text-align: center;
-    background: #001126;
-    padding: 50px 0 10px;
-    transform: translate(0, -100%);
-    transition: transform .5s;
-  }
-
-  .navmenu.active {
-    transform: translate(0, 0);
-  }
-
-  .navmenu li {
-    font-size: 2em;
-    margin-bottom: 50px;
-  }
-
-  .navmenu a {
-    border-bottom: solid 2px #fff;
-  }
-
-  .navmenu-btn {
-    position: fixed;
-    top: 12px;
-    right: 15px;
-    width: 32px;
-    height: 26px;
-    z-index: 5;
-  }
-
-  .navmenu-btn span {
-    position: absolute;
-    display: inline-block;
-    width: 100%;
-    height: 1px;
-    background: #edecf1;
-    transition: all .5s ease;
-  }
-
-  .navmenu-btn span:first-child {
-    top: 0;
-  }
-
-  .navmenu-btn span:nth-child(2) {
-    top: 50%;
-    margin-top: -1px;
-  }
-
-  .navmenu-btn span:last-child {
-    bottom: 0;
-  }
-
-  .navmenu-btn.active span:first-child {
-    transform: rotate(-135deg);
-    top: 12px;
-  }
-
-  .navmenu-btn.active span:nth-child(2) {
-    transform: rotate(180deg);
-    opacity: 0;
-  }
-
-  .navmenu-btn.active span:last-child {
-    transform: rotate(135deg);
-    bottom: 13px;
-  }
-
-  #portfolio .preview-details,
-  #portfolio .preview-details div {
-    margin: 0;
-    padding: 0;
-    border: none;
-    width: 100%;
-    height: 100%;
-  }
-
-  .preview-link {
-    display: none;
-  }
-}
-
-@media (min-width: 768px) {
-  .logo {
-    margin-left: 50px;
-    font-size: 30px;
-    padding-top: 20px;
-  }
-
-  .navmenu {
-    position: static;
-    float: right;
-    background: none;
-    width: auto;
-    padding: 0;
-    transform: none;
-  }
-
-  .navmenu li {
-    display: inline-block;
-    line-height: 64px;
-    margin: 0 20px 0 0;
-    font-size: 20px;
-    letter-spacing: 2px;
-  }
-
-  .navmenu a {
-    border-bottom: none;
-  }
-
-  .navmenu-btn {
-    display: none;
-  }
-}
-
-.tagline {
-  text-align: center;
-  padding: 270px 0 205px 0;
-  font-size: 36px;
-}
-
 #portfolio,
 #about,
 #contacts {
-  padding: 50px 0 100px 0;
-  overflow-y: hidden;
+  padding: 50px 0;
+  overflow-x: hidden;
 }
 
 #portfolio {
@@ -247,6 +116,12 @@ header a {
 
 #portfolio .small-tagline {
   margin-bottom: 20px;
+}
+
+.tagline {
+  text-align: center;
+  padding: 270px 0 205px 0;
+  font-size: 36px;
 }
 
 .small-tagline {
@@ -282,13 +157,8 @@ header a {
 .preview {
   position: relative;
   display: inline-block;
-  width: 40%;
   overflow: hidden;
   box-shadow: 0 0 10px 2px #16536e;
-}
-
-.preview:first-child {
-  margin-right: 90px;
 }
 
 .preview img {
@@ -372,7 +242,7 @@ header a {
 
 .preview-modal-item p {
   font-size: 2em;
-  padding: 20px 0;
+  padding: 10px 0;
   color: #edecf1;
 }
 
@@ -404,7 +274,7 @@ header a {
 
 .preview-modal-description {
   text-align: left;
-  margin: 3% 0 0 22%;
+  margin: 3% 0 0 12%;
 }
 
 .preview-modal-description p:first-child {
@@ -417,12 +287,13 @@ header a {
 
 div[class^="modal-btn"] {
   position: fixed;
-  bottom: 5%;
+  bottom: 3%;
   border: none;
   background: none;
   font-size: 3em;
   color: #edecf1;
   transition: color .4s;
+  text-transform: uppercase;
 }
 
 .modal-btn-link a {
@@ -453,26 +324,37 @@ div[class^="modal-btn"] {
   cursor: pointer;
 }
 
-.preview-modal-item img {
+.preview-modal-img {
+  display: block;
   position: absolute;
   top: 50%;
   right: 6%;
-  height: 70%;
+  width: 20%;
+  height: 0;
+  background-size: contain;
+  background-repeat: no-repeat;
   transform-origin: 50% 50%;
   transform: translate(0, -50%) rotateX(14deg) rotateY(-16deg) rotateZ(7deg);
   transition: all 2s ease;
 }
 
-.preview-modal-item img:hover {
+.preview-modal-img:hover {
   transform: translate(0, -50%) rotateX(16deg) rotateY(-18deg) rotateZ(9deg);
 }
 
-#wooder.preview-modal-item a:last-child img {
+#wooder .preview-modal-img {
   right: 15%;
+  background-image: url('images/wooder_1.jpg');
 }
 
-#modus.preview-modal-item a:last-child img {
+#modus.preview-modal-img:first-child {
   right: 29%;
+  background-image: url('images/modus_1.jpg');
+}
+
+#modus.preview-modal-img:last-child {
+  right: 29%;
+  background-image: url('images/modus_2.jpg');
 }
 
 #about {
@@ -493,7 +375,7 @@ div[class^="modal-btn"] {
 
 #about img {
   border: 3px solid #000;
-  width: 200px;
+  width: 25%;
   float: left;
   margin-right: 30px;
 }
@@ -503,24 +385,14 @@ div[class^="modal-btn"] {
 }
 
 #contacts {
-  height: 400px;
   background: #edecf1;
   color: #001126;
-  padding-top: 
-}
-
-.contacts-info {
-  box-sizing: border-box;
-  float: left;
-  width: 50%;
-  padding: 6px 3% 0 10%;
 }
 
 .main-form {
   box-sizing: border-box;
-  float: right;
   padding: 0 10% 0 3%;
-  width: 50%;
+  float: right;
 }
 
 .main-form label,
@@ -528,6 +400,7 @@ div[class^="modal-btn"] {
 .main-form textarea {
   display: block;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .main-form label {
@@ -580,4 +453,392 @@ footer .logo {
   margin-top: -10px;
   height: 20px;
   font-size: 0.8em;
+}
+
+/*
+===========================================================
+BEGIN MEDIA QUERIES
+===========================================================
+*/
+
+@media (max-width: 1024px) {
+  div[class^="modal-btn"] {
+    bottom: 10px;
+  }
+
+  .preview-modal-item {
+    font-size: 0.8em;
+  }
+
+  #wooder .preview-modal-img {
+    width: 20%;
+    background-image: url(images/wooder_1.jpg);
+    padding-top: 29.94%;
+  }
+
+  #modus .modus-main-img {
+    right: 25%;
+    width: 20%;
+    padding-top: 38.48%;
+    background-image: url('images/modus_1.jpg');
+  }
+
+  #modus .modus-blog-img {
+    right: 5%;
+    width: 20%;
+    padding-top: 35.98%;
+    background-image: url('images/modus_2.jpg');
+  }
+}
+
+@media (max-width: 768px) {
+  .logo {
+    position: relative;
+    margin: 0 0 7px 15px;
+    font-size: 1.6em;
+    padding-top: 16px;
+    z-index: 1;
+  }
+
+  .navmenu {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    background: #001126;
+    padding: 50px 0 10px;
+    transform: translate(0, -100%);
+    transition: transform .5s;
+  }
+
+  .navmenu.active {
+    transform: translate(0, 0);
+  }
+
+  .navmenu li {
+    font-size: 2em;
+    margin-bottom: 50px;
+  }
+
+  .navmenu a {
+    border-bottom: solid 2px #fff;
+  }
+
+  .navmenu-btn {
+    position: fixed;
+    top: 12px;
+    right: 15px;
+    width: 32px;
+    height: 26px;
+    z-index: 5;
+  }
+
+  .navmenu-btn span {
+    position: absolute;
+    display: inline-block;
+    width: 100%;
+    height: 1px;
+    background: #edecf1;
+    transition: all .5s ease;
+  }
+
+  .navmenu-btn span:first-child {
+    top: 0;
+  }
+
+  .navmenu-btn span:nth-child(2) {
+    top: 50%;
+    margin-top: -1px;
+  }
+
+  .navmenu-btn span:last-child {
+    bottom: 0;
+  }
+
+  .navmenu-btn.active span:first-child {
+    transform: rotate(-135deg);
+    top: 12px;
+  }
+
+  .navmenu-btn.active span:nth-child(2) {
+    transform: rotate(180deg);
+    opacity: 0;
+  }
+
+  .navmenu-btn.active span:last-child {
+    transform: rotate(135deg);
+    bottom: 13px;
+  }
+
+  .small-tagline span {
+    margin-bottom: 30px;
+  }
+
+  #portfolio .preview-details,
+  #portfolio .preview-details div {
+    margin: 0;
+    padding: 0;
+    border: none;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+  }
+
+  .preview-link {
+    display: none;
+  }
+
+  .preview {
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .preview:first-child {
+    margin-bottom: 40px;
+  }
+
+  .preview-modal-item {
+    font-size: 0.6em;
+  }
+
+  .preview-modal-wrapper {
+    width: 100%;
+  }
+
+  .preview-modal-description {
+    margin: 0;
+    padding: 0 10%;
+  }
+
+  .preview-modal-description p {
+    padding: 0;
+    text-align: center;
+  }
+
+  .preview-modal-description p:nth-child(3) {
+    margin: 20px 0 0 0;
+    text-align: left;
+  }
+
+
+  .preview-modal-description li {
+    margin: 0;
+  }
+
+  .preview-modal-img {
+    position: absolute;
+    bottom: 15%;
+    transform-origin: 50% 50%;
+    transform: none;
+  }
+
+  #wooder .preview-modal-img {
+    background-image: url('images/wooder.jpg');
+    width: 40%;
+    padding-top: 22.72%;
+    right: 50%;
+    transform: translate(50%, 0);
+  }
+
+  #modus .preview-modal-img {
+    width: 48%;
+    padding-top: 27.27%;
+    top: auto;
+  }
+
+  #modus .modus-main-img {
+    background-image: url('images/modus.jpg');
+    left: 1%;
+  }
+
+  #modus .modus-blog-img {
+    background-image: url('images/modus_horizontal_2.jpg');
+    right: 1%;
+  }
+
+  #about .small-tagline {
+    margin-bottom: 20px;
+  }
+
+  #about img {
+    margin: 0 20px;
+  }
+
+  .contacts-info {
+    box-sizing: border-box;
+    padding: 0 6% 8%;
+  }
+
+  .main-form {
+    padding: 0 3%;
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  .logo {
+    margin-left: 50px;
+    font-size: 30px;
+    padding-top: 20px;
+  }
+
+  .navmenu {
+    position: static;
+    float: right;
+    background: none;
+    width: auto;
+    padding: 0;
+    transform: none;
+  }
+
+  .navmenu li {
+    display: inline-block;
+    line-height: 64px;
+    margin: 0 20px 0 0;
+    font-size: 20px;
+    letter-spacing: 2px;
+  }
+
+  .navmenu a {
+    border-bottom: none;
+  }
+
+  .navmenu-btn {
+    display: none;
+  }
+
+  .preview {
+    display: inline-block;
+    width: 40%;
+  }
+
+  .preview:first-child {
+    margin: 0 40px 0 0;
+  }
+
+  .contacts-info {
+    box-sizing: border-box;
+    float: left;
+    width: 50%;
+    padding: 6px 3% 0 10%;
+  }
+
+  .main-form {
+    width: 50%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .preview-modal-item {
+    font-size: 0.9em;
+  }
+
+  .preview:first-child {
+    margin: 0 90px 0 0;
+  }
+
+  #wooder .preview-modal-img {
+    width: 20%;
+    padding-top: 29.94%;
+    background-image: url(images/wooder_1.jpg);
+  }
+
+  #modus .modus-main-img {
+    right: 25%;
+    width: 20%;
+    padding-top: 38.48%;
+    background-image: url('images/modus_1.jpg');
+  }
+
+  #modus .modus-blog-img {
+    right: 5%;
+    width: 20%;
+    padding-top: 35.98%;
+    background-image: url('images/modus_2.jpg');
+  }
+}
+
+@media (min-width: 1280px) {
+  #wooder .preview-modal-img {
+    width: 18%;
+    padding-top: 26.94%;
+  }
+
+  #modus .modus-main-img {
+    right: 25%;
+    width: 18%;
+    padding-top: 34.63%;
+    background-image: url('images/modus_1.jpg');
+  }
+
+  #modus .modus-blog-img {
+    right: 5%;
+    width: 18%;
+    padding-top: 32.38%;
+    background-image: url('images/modus_2.jpg');
+  }
+}
+
+@media (min-width: 1440px) {
+  #wooder .preview-modal-img {
+    width: 16%;
+    padding-top: 23.95%;
+  }
+
+  #modus .modus-main-img {
+    right: 25%;
+    width: 16%;
+    padding-top: 30.78%;
+    background-image: url('images/modus_1.jpg');
+  }
+
+  #modus .modus-blog-img {
+    right: 5%;
+    width: 16%;
+    padding-top: 28.79%;
+    background-image: url('images/modus_2.jpg');
+  }
+}
+
+@media (max-width: 570px) {
+  #wooder .preview-modal-img {
+    width: 60%;
+    padding-top: 34.08%;
+  }
+
+  .copyright {
+    position: static;
+    margin: 0;
+    text-align: center;
+  }
+
+  .preview:first-child {
+    margin-bottom: 30px;
+  }
+
+  .preview-modal-item {
+    font-size: 0.65em;
+  }
+}
+
+@media (max-width: 425px) {
+  #wooder .preview-modal-img {
+    width: 80%;
+    padding-top: 45.44%;
+  }
+
+  #about .small-tagline {
+    margin: 0;
+  }
+
+  #about img {
+    float: none;
+    display: block;
+    margin: 0 auto 20px auto;
+    width: 35%;
+  }
+
+  .main-form button {
+    width: 100%;
+  }
 }
