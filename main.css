@@ -14,10 +14,6 @@ body, ul, li, p {
   padding: 0;
 }
 
-li {
-  list-style: none;
-}
-
 .container {
   position: relative;
   margin: 0 auto;
@@ -253,7 +249,6 @@ header a {
 }
 
 .preview-modal-item li {
-  list-style: disc;
   margin-bottom: 20px;
 }
 
@@ -380,13 +375,78 @@ div[class^="modal-btn"] {
   margin-right: 30px;
 }
 
+.about-resume {
+  padding: 0 5%;
+}
+
 .skills {
   margin: 20px 0 0 20px;
+}
+
+.skills p {
+  font-size: 1.2em;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.skills li {
+  margin-bottom: 5px;
+}
+
+.skills ul li:first-child {
+  list-style: none;
+  margin: 0 0 10px -20px;;
+}
+
+.skills ul {
+  box-sizing: border-box;
+  width: 50%;
+  float: left;
+  padding-left: 20px;
 }
 
 #contacts {
   background: #edecf1;
   color: #001126;
+}
+
+.contacts-info p:first-child {
+  font-size: 1.4em;
+  margin: 25px 0;;
+}
+
+.contacts-info ul {
+  margin-top: 25px;
+}
+
+.contacts-info li {
+  list-style: none;
+}
+
+.contacts-info li p {
+  display: inline-block;
+  margin-top: 5px;
+  vertical-align: top;
+}
+
+.contacts-info span {
+  font-size: 2em;
+  width: 60px;
+  text-align: center;
+}
+
+.contacts-info li:first-child {
+  margin-bottom: 30px;
+}
+
+.contacts-info a {
+  color: #001126;
+  text-decoration: none;
+  transition: color .6s;
+}
+
+.contacts-info a:hover {
+  color: #16536e;
 }
 
 .main-form {
@@ -661,7 +721,7 @@ BEGIN MEDIA QUERIES
   }
 
   #about img {
-    margin: 0 20px;
+    margin: 0 10px 0 5%;
   }
 
   .contacts-info {
@@ -716,11 +776,16 @@ BEGIN MEDIA QUERIES
     margin: 0 40px 0 0;
   }
 
+  .about-resume {
+    line-height: 1.7;
+    word-spacing: 1px;
+  }
+
   .contacts-info {
     box-sizing: border-box;
     float: left;
     width: 50%;
-    padding: 6px 3% 0 10%;
+    padding: 6px 3% 0 0;
   }
 
   .main-form {
@@ -777,6 +842,10 @@ BEGIN MEDIA QUERIES
     padding-top: 32.38%;
     background-image: url('images/modus_2.jpg');
   }
+
+  .contacts-info {
+    padding: 6px 3% 0 10%;
+  }
 }
 
 @media (min-width: 1440px) {
@@ -801,6 +870,13 @@ BEGIN MEDIA QUERIES
 }
 
 @media (max-width: 570px) {
+  .skills ul {
+    float: none;
+    width: auto;
+    display: inline-block;
+    margin: 0 0 30px 8%;
+  }
+
   #wooder .preview-modal-img {
     width: 60%;
     padding-top: 34.08%;
