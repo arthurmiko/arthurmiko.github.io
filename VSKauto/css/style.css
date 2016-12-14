@@ -588,6 +588,22 @@ body.canvas-menu.mini-navbar nav.navbar-static-side {
 .top-navigation .navbar-nav .open .dropdown-menu .dropdown-header {
   padding: 10px 15px 10px 20px;
 }
+/*WEBUI CUSTOM POPOVER*/
+.popover-block {
+  display: none;
+}
+.popover-block h4 {
+  text-align: center;
+}
+.webui-popover .webui-popover-content {
+  overflow: visible;
+}
+.webui-popover.in {
+  padding-bottom: 15px;
+}
+#add-auto-form {
+  width: 100%;
+}
 @media (max-width: 768px) {
   .top-navigation .navbar-header {
     display: block;
@@ -1236,6 +1252,9 @@ button.dim:active:before {
   margin: 3px 0 3px 5px;
   padding: 3px 20px 3px 5px;
   position: relative;
+}
+.chosen-single:hover {
+  cursor: pointer;
 }
 /* Tags Input Plugin */
 .bootstrap-tagsinput {
@@ -1924,6 +1943,9 @@ div.dt-button-info {
   line-height: 1;
   padding: 6px 12px;
   text-align: center;
+}
+.bid .input-group {
+  padding: 0 15px;
 }
 .spinner-buttons.input-group-btn .btn-xs {
   line-height: 1.13;
@@ -2661,6 +2683,19 @@ a.forum-item-title:hover {
   }
   .forum-desc {
     float: none !important;
+  }
+  .webui-popover.in {
+    position: fixed;
+    top: 3% !important;
+    left: 3% !important;
+    right: 3%;
+  }
+  .btn.add-auto {
+    margin-top: 15px;
+    width: 100%;
+  }
+  .webui-arrow {
+    display: none !important;
   }
 }
 /* New Timeline style */
@@ -3681,6 +3716,11 @@ body.body-small .footer.fixed {
 .footable-row-detail-value {
   text-align: right;
 }
+.footable.partners tr td:last-child span {
+  line-height: 13px;
+  font-size: 1.4em;
+  padding-right: 6px;
+}
 /* PANELS */
 .panel.blank-panel {
   background: none;
@@ -4516,6 +4556,9 @@ body.modal-open .animated {
 body.mini-navbar.fixed-sidebar .profile-element,
 .block {
   display: block !important;
+}
+.profile-element img {
+  height: 48px;
 }
 body.mini-navbar.fixed-sidebar .nav-header {
   padding: 33px 25px;
@@ -8407,6 +8450,15 @@ body.md-skin {
     text-align: left;
     display: inline-block;
   }
+  .footable.breakpoint > tbody > tr > td > span.footable-toggle {
+    margin-right: -7px;
+  }
+  .footable.partners tr td:last-child span {
+      line-height: 13px;
+      font-size: 1.2em;
+      padding-right: 3px;
+  }
+
 }
 /* Only demo */
 @media (max-width: 1000px) {
