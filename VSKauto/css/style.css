@@ -2688,6 +2688,7 @@ a.forum-item-title:hover {
     position: fixed;
     top: 3% !important;
     left: 3% !important;
+    bottom: 3%;
     right: 3%;
   }
   .btn.add-auto {
