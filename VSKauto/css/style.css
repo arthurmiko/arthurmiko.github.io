@@ -3252,8 +3252,11 @@ body.tour-open .animated {
 .dropzone {
   min-height: 140px;
   border: 1px dashed #1ab394;
-  background: white;
+  background: #f8f8f8;
   padding: 20px 20px;
+}
+.dropzone .dz-preview.dz-image-preview {
+  background: #f8f8f8;
 }
 .dropzone .dz-message {
   font-size: 16px;

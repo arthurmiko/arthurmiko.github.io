@@ -21,10 +21,8 @@
     <link href="css/plugins/datapicker/datepicker3.css" rel="stylesheet">
     <link href="css/plugins/chosen/bootstrap-chosen.css" rel="stylesheet">
     <link href="css/plugins/webui-popover/jquery.webui-popover.min.css" rel="stylesheet" >
-
-    <!-- <link href="css/plugins/jasny/jasny-bootstrap.min.css" rel="stylesheet"> -->
-   <!--  <link href="css/plugins/dropzone/basic.css" rel="stylesheet">
-    <link href="css/plugins/dropzone/dropzone.css" rel="stylesheet"> -->
+    <link href="css/plugins/dropzone/basic.css" rel="stylesheet">
+    <link href="css/plugins/dropzone/dropzone.css" rel="stylesheet">
 
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
@@ -200,22 +198,18 @@
                                                 </div>
                                             </div>
                                             <div class="hr-line-dashed"></div>
-                                            <!-- <div class="form-group fileinput fileinput-new" data-provides="fileinput">
-                                                <label class="col-sm-3 col-md-2 control-label">Прикрепить фото или документ</label>
+                                            <div class="form-group"><label class="col-sm-3 col-md-2 control-label">Прикрепить фото или документ</label>
                                                 <div class="col-sm-9 col-md-4">
-                                                    <span class="btn btn-default btn-file"><span class="fileinput-new">Обзор</span><span class="fileinput-exists">Изменить</span><input type="file" name="..."></span>
-                                                    <span class="fileinput-filename"></span>
-                                                    <a href="#" class="close fileinput-exists" data-dismiss="fileinput" style="float: none">&times;</a>
+                                                    <div id="fileupload" class="dropzone"></div>
                                                 </div>
-                                            </div> -->
-                                            <!-- <div class="form-group">
-                                                <label class="col-sm-3 col-md-2 control-label">Прикрепить фото или документ</label>
-                                                <div class="dropzone" id="dropzoneForm">
-                                                    <div class="fallback">
-                                                        <input name="file" type="file" multiple />
-                                                    </div>
+                                            </div>
+                                            <div class="hr-line-dashed"></div>
+                                            <div class="form-group"><label class="col-sm-3 col-md-2 control-label">Комментарий:</label>
+                                                <div class="col-sm-9 col-md-4">
+                                                    <textarea class="form-control" name="request[comment]" rows="8"></textarea>
                                                 </div>
-                                            </div> -->
+                                            </div>
+                                            <input type="submit" class="btn btn-primary" value="Создать заявку">
                                         </form>
                                     </div>
                                 </div>
@@ -419,25 +413,13 @@
    <!-- Data picker -->
    <script src="js/plugins/datapicker/bootstrap-datepicker.js"></script>
 
+    <!-- DROPZONE -->
+    <script src="js/plugins/dropzone/dropzone.js"></script>
+
     <!-- Webui-popover -->
     <script src="js/plugins/webui-popover/jquery.webui-popover.min.js"></script>
 
-    <!-- Jasny -->
-    <!-- <script src="js/plugins/jasny/jasny-bootstrap.min.js"></script> -->
-
-    <!-- DROPZONE -->
-    <!-- <script src="js/plugins/dropzone/dropzone.js"></script> -->
-
-    <!-- CodeMirror -->
-    <!-- <script src="js/plugins/codemirror/codemirror.js"></script> -->
-    <!-- <script src="js/plugins/codemirror/mode/xml/xml.js"></script> -->
-
     <script>
-        // Dropzone.options.dropzoneForm = {
-        //     paramName: "file", // The name that will be used to transfer the file
-        //     maxFilesize: 2, // MB
-        //     dictDefaultMessage: "<strong>Drop files here or click to upload. </strong></br> (This is just a demo dropzone. Selected files are not actually uploaded.)"
-        // };
 
         $(document).ready(function(){
             $('#data_end input').val(function(){
@@ -480,20 +462,16 @@
                 }
             })
 
-            // var editor_one = CodeMirror.fromTextArea(document.getElementById("code1"), {
-            //     lineNumbers: true,
-            //     matchBrackets: true
-            // });
-
-            // var editor_two = CodeMirror.fromTextArea(document.getElementById("code2"), {
-            //     lineNumbers: true,
-            //     matchBrackets: true
-            // });
-
-            // var editor_two = CodeMirror.fromTextArea(document.getElementById("code3"), {
-            //     lineNumbers: true,
-            //     matchBrackets: true
-            // });
+            Dropzone.options.fileupload = {
+                url: "#",
+                paramName: "file",
+                maxFilesize: 2,
+                uploadMultiple: true,
+                addRemoveLinks: true,
+                acceptedFiles: '.jpg, .jpeg, .gif, .png, .pdf, .tiff, .tif, .xlsx, .xls, .doc, .docx, .djvu, .djv',
+                dictDefaultMessage: '<p>Кликните или перетащите сюда файлы для загрузки</p>',
+                dictRemoveFile: 'Отменить'
+            };
         })
     </script>
 </body>
