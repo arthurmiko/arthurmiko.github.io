@@ -1,0 +1,228 @@
+<!--
+*
+*  INSPINIA - Responsive Admin Theme
+*  version 2.6.2
+*
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Auto</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <!-- FooTable -->
+    <link href="css/plugins/footable/footable.core.css" rel="stylesheet">
+
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div id="wrapper">
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav metismenu" id="side-menu">
+                    <li class="nav-header">
+                        <div class="dropdown profile-element"> <span>
+                            <img alt="image" src="img/lider.png" />
+                             </span>
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">ЧП "Лидер"<b class="caret"></b></strong>
+                             </span></span> </a>
+                            <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                                <li><a href="profile.html">Профиль</a></li>
+                                <li class="divider"></li>
+                                <li><a href="login.html">Выйти</a></li>
+                            </ul>
+                        </div>
+                        <div class="logo-element">
+                            ВСК
+                        </div>
+                    </li>
+                    <li>
+                        <a href="index.html"><i class="fa fa-edit"></i> <span class="nav-label">Список заявок</span></a>
+                    </li>
+                    <li class="active">
+                        <a href="partners.html"><i class="fa fa-globe"></i> <span class="nav-label">Контрагенты</span></a>
+                    </li>
+                    <li>
+                        <a href="content.html"><i class="fa fa-flask"></i> <span class="nav-label">Контент страниц</span></a>
+                    </li>
+                    <li>
+                        <a href="history.html"><i class="fa fa-table"></i> <span class="nav-label">История посещений</span></a>
+                    </li>
+                </ul>
+
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="gray-bg dashbard-1">
+            <div class="row border-bottom">
+                <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                    <div class="navbar-header">
+                        <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+                    </div>
+                        <ul class="nav navbar-top-links navbar-right">
+                            <li>
+                                <span class="m-r-sm text-muted welcome-message">Добро пожаловать в административную панель.</span>
+                            </li>
+                            <li>
+                                <a href="login.html">
+                                    <i class="fa fa-sign-out"></i> Выйти
+                                </a>
+                            </li>
+                        </ul>
+
+                </nav>
+            </div>
+            <div class="row wrapper border-bottom white-bg page-heading">
+                <div class="col-lg-10">
+                    <h2>Список контрагентов</h2>
+                </div>
+                <div class="col-lg-2">
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="wrapper wrapper-content animated fadeInRight">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="ibox float-e-margins">
+                                    <div class="ibox-content">
+                                        <div class="row">
+                                            <div class="col-lg-12 m-b">
+                                                <a href="newpartner.html" class="btn btn-primary pull-right">Добавить контрагента</a>
+                                            </div>
+                                        </div>
+                                        <table class="footable table table-bordered table-centered partners" data-striping="false" data-page-size="8" data-filter="#filter">
+                                            <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Название</th>
+                                                <th data-sort-ignore="true" data-hide="phone,tablet">E-mail</th>
+                                                <th data-sort-ignore="true" data-hide="phone">Тип</th>
+                                                <th data-sort-ignore="true" data-hide="phone">Доступность</th>
+                                                <th data-sort-ignore="true" data-toggle="true">Действия</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>AdminAuction</td>
+                                                <td>auction@example.com</td>
+                                                <td>Администратор аукциона</td>
+                                                <td>Нет</td>
+                                                <td>
+                                                    <a href="/auction/admin/contragents/5/edit"><span class="fa fa-wrench" title="Редактировать"></span>
+                                                    </a>
+                                                    <a data-confirm="Вы уверены?" data-method="delete" href="/auction/admin/contragents/5" rel="nofollow"><span class="fa fa-trash" title="Удалить"></span></a>
+                                                    <a href="/auction/admin/contragents/5/billing"><span class="fa fa-usd" title="Счет"></span></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>8</td>
+                                                <td>Avocado</td>
+                                                <td>arthurmiko@gmail.com</td>
+                                                <td>Администратор аукциона</td>
+                                                <td>Да</td>
+                                                <td>
+                                                    <a href="/auction/admin/contragents/5/edit"><span class="fa fa-wrench" title="Редактировать"></span>
+                                                    </a>
+                                                    <a data-confirm="Вы уверены?" data-method="delete" href="/auction/admin/contragents/5" rel="nofollow"><span class="fa fa-trash" title="Удалить"></span></a>
+                                                    <a href="/auction/admin/contragents/5/billing"><span class="fa fa-usd" title="Счет"></span></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>6</td>
+                                                <td>AuctionUser2</td>
+                                                <td>auction_user2@example.com</td>
+                                                <td>Участник аукциона</td>
+                                                <td>Нет</td>
+                                                <td>
+                                                    <a href="/auction/admin/contragents/5/edit"><span class="fa fa-wrench" title="Редактировать"></span>
+                                                    </a>
+                                                    <a data-confirm="Вы уверены?" data-method="delete" href="/auction/admin/contragents/5" rel="nofollow"><span class="fa fa-trash" title="Удалить"></span></a>
+                                                    <a href="/auction/admin/contragents/5/billing"><span class="fa fa-usd" title="Счет"></span></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>7</td>
+                                                <td>AdminProcess</td>
+                                                <td>auction@example.com</td>
+                                                <td>Администратор аукциона</td>
+                                                <td>Нет</td>
+                                                <td>
+                                                    <a href="/auction/admin/contragents/5/edit"><span class="fa fa-wrench" title="Редактировать"></span>
+                                                    </a>
+                                                    <a data-confirm="Вы уверены?" data-method="delete" href="/auction/admin/contragents/5" rel="nofollow"><span class="fa fa-trash" title="Удалить"></span></a>
+                                                    <a href="/auction/admin/contragents/5/billing"><span class="fa fa-usd" title="Счет"></span></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>AdminAuction</td>
+                                                <td>auction_user2@example.com</td>
+                                                <td>Участник аукциона</td>
+                                                <td>Нет</td>
+                                                <td>
+                                                    <a href="/auction/admin/contragents/5/edit"><span class="fa fa-wrench" title="Редактировать"></span>
+                                                    </a>
+                                                    <a data-confirm="Вы уверены?" data-method="delete" href="/auction/admin/contragents/5" rel="nofollow"><span class="fa fa-trash" title="Удалить"></span></a>
+                                                    <a href="/auction/admin/contragents/5/billing"><span class="fa fa-usd" title="Счет"></span></a>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                            <tfoot>
+                                            <tr>
+                                                <td colspan="8">
+                                                    <ul class="pagination pull-right"></ul>
+                                                </td>
+                                            </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer">
+                    <div>
+                        &copy; 2014 ООО ЦДУ-А mail@czdu.ru
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mainly scripts -->
+    <script src="js/jquery-2.1.1.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="js/inspinia.js"></script>
+    <script src="js/plugins/pace/pace.min.js"></script>
+
+    <!-- FooTable -->
+    <script src="js/plugins/footable/footable.all.min.js"></script>
+
+    <script>
+
+        $(document).ready(function() {
+            $('.footable').footable();
+        });
+    </script>
+</body>
+</html>

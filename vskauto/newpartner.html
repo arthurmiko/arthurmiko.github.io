@@ -1,0 +1,218 @@
+<!--
+*
+*  INSPINIA - Responsive Admin Theme
+*  version 2.6.2
+*
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Auto</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="css/plugins/chosen/bootstrap-chosen.css" rel="stylesheet">
+    <link href="css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="css/plugins/jasny/jasny-bootstrap.min.css" rel="stylesheet">
+
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div id="wrapper">
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav metismenu" id="side-menu">
+                    <li class="nav-header">
+                        <div class="dropdown profile-element"> <span>
+                            <img alt="image" src="img/lider.png" />
+                             </span>
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">ЧП "Лидер"<b class="caret"></b></strong>
+                             </span></span> </a>
+                            <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                                <li><a href="profile.html">Профиль</a></li>
+                                <li class="divider"></li>
+                                <li><a href="login.html">Выйти</a></li>
+                            </ul>
+                        </div>
+                        <div class="logo-element">
+                            ВСК
+                        </div>
+                    </li>
+                    <li class="active">
+                        <a href="index.html"><i class="fa fa-edit"></i> <span class="nav-label">Список заявок</span></a>
+                    </li>
+                    <li>
+                        <a href="partners.html"><i class="fa fa-globe"></i> <span class="nav-label">Контрагенты</span></a>
+                    </li>
+                    <li>
+                        <a href="content.html"><i class="fa fa-flask"></i> <span class="nav-label">Контент страниц</span></a>
+                    </li>
+                    <li>
+                        <a href="history.html"><i class="fa fa-table"></i> <span class="nav-label">История посещений</span></a>
+                    </li>
+                </ul>
+
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="gray-bg dashbard-1">
+            <div class="row border-bottom">
+                <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                    <div class="navbar-header">
+                        <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+                    </div>
+                        <ul class="nav navbar-top-links navbar-right">
+                            <li>
+                                <span class="m-r-sm text-muted welcome-message">Добро пожаловать в административную панель.</span>
+                            </li>
+                            <li>
+                                <a href="login.html">
+                                    <i class="fa fa-sign-out"></i> Выйти
+                                </a>
+                            </li>
+                        </ul>
+
+                </nav>
+            </div>
+            <div class="row wrapper border-bottom white-bg page-heading">
+                <div class="col-lg-10">
+                    <h2>Добавить нового контрагента</h2>
+                </div>
+                <div class="col-md-4 col-lg-2">
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="wrapper wrapper-content animated fadeInRight">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="ibox float-e-margins">
+                                    <div class="ibox-content">
+                                        <form method="get" class="form-horizontal newpartner">
+                                            <div class="form-group">
+                                                <h3 class="col-sm-12 m-b">Логотип</h3>
+                                                <div class="col-sm-12">
+                                                    <div class="fileinput fileinput-new" data-provides="fileinput">
+                                                        <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+                                                            <img src="./img/default-placeholder.jpg" alt="...">
+                                                        </div>
+                                                        <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
+                                                        <div>
+                                                            <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" id="user_logo" name="user[logo]"></span>
+                                                            <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-3 col-md-4 col-lg-2 control-label" for="user_email">Электронный адрес</label>
+                                                <div class="col-sm-9 col-md-8 col-lg-4"><input type="email" placeholder="Введите электронный адрес" class="form-control required" maxlength="255" id="user_email" name="user[email]"></div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-3 col-md-4 col-lg-2 control-label">Пароль</label>
+                                                <div class="col-sm-9 col-md-8 col-lg-4"><input type="password" minlength="8" placeholder="Введите пароль (не меньше 8 символов)" class="form-control required" id="user_password" name="user[password]"></div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-3 col-md-4 col-lg-2 control-label" for="user_password_confirmation">Подтверждение пароля</label>
+                                                <div class="col-sm-9 col-md-8 col-lg-4"><input type="password" minlength="8" placeholder="Подтвердите пароль" class="form-control required" id="user_password_confirmation" name="user[password_confirmation]"></div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-3 col-md-4 col-lg-2 control-label" for="user_fields_attributes_name">Название</label>
+                                                <div class="col-sm-9 col-md-8 col-lg-4"><input type="text" class="form-control" placeholder="Укажите наименование" id="user_fields_attributes_name" name="user[fields_attributes][name]"></div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-3 col-md-4 col-lg-2 control-label" for="user_fullname">ФИО контактного лица</label>
+                                                <div class="col-sm-9 col-md-8 col-lg-4"><input type="text" class="form-control" placeholder="Укажите ФИО контактного лица" id="user_fullname" name="user[fullname]"></div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-3 col-md-4 col-lg-2 control-label" for="user_fields_attributes_address">Адрес</label>
+                                                <div class="col-sm-9 col-md-8 col-lg-4"><input type="text" class="form-control required" placeholder="Укажите адрес" id="user_fields_attributes_address" name="user[fields_attributes][address]"></div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-3 col-md-4 col-lg-2 control-label" for="user_fields_attributes_phone">Телефон</label>
+                                                <div class="col-sm-9 col-md-8 col-lg-4"><input type="text" class="form-control" data-mask="+9(999) 999-99-99" placeholder="Укажите номер телефона (в формате +7 901 012 34 56)" id="user_fields_attributes_phone" name="user[fields_attributes][phone]"></div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-3 col-md-4 col-lg-2 control-label" for="user_availability">Доступность</label>
+                                                <div class="col-sm-9 col-md-8 col-lg-4"><div class="i-checks"><input type="checkbox" value="" id="user_availability" name="user[availability]"><i></i></div></div>
+                                            </div>
+                                            <div class="form-group"><label class="col-sm-3 col-md-4 col-lg-2 control-label" for="user_role_id">Тип</label>
+                                                <div class="col-sm-9 col-md-8 col-lg-4">
+                                                    <select data-placeholder="Выберите тип" class="chosen-select" id="user_role_id" name="user[role_id]">
+                                                        <option value=""></option>
+                                                        <option value="1">Администратор аукциона</option>
+                                                        <option value="2">Участник аукциона</option>
+                                                        <option value="3">Администратор процесса</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <input type="submit" class="btn btn-primary m-r" value="Создать заявку">
+                                                <a href="#" class="btn btn-default btn-outline">Отмена</a>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer">
+                    <div>
+                        &copy; 2014 ООО ЦДУ-А mail@czdu.ru
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mainly scripts -->
+    <script src="js/jquery-2.1.1.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="js/inspinia.js"></script>
+    <script src="js/plugins/pace/pace.min.js"></script>
+
+    <!-- Chosen -->
+    <script src="js/plugins/chosen/chosen.jquery.js"></script>
+
+   <!-- Input Mask and image upload -->
+    <script src="js/plugins/jasny/jasny-bootstrap.min.js"></script>
+
+    <!-- iCheck -->
+    <script src="js/plugins/iCheck/icheck.min.js"></script>
+
+    <script>
+
+        $(document).ready(function(){
+
+            $('.chosen-select').chosen({
+                width: "100%",
+                disable_search_threshold: 16,
+                allow_single_deselect: true
+            });
+
+            $('.i-checks').iCheck({
+                checkboxClass: 'icheckbox_square-green'
+            });
+
+            $('.fileinput').fileinput();
+
+        })
+    </script>
+</body>
+</html>
