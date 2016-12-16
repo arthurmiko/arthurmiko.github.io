@@ -610,7 +610,7 @@ body.canvas-menu.mini-navbar nav.navbar-static-side {
 .newpartner .control-label {
   text-align: left;
 }
-.newpartner > div:last-child {
+.newpartner > div:last-child:not(:only-child) {
   padding-top: 30px;
 }
 @media (max-width: 768px) {
@@ -8490,7 +8490,9 @@ body.md-skin {
       font-size: 1.2em;
       padding-right: 3px;
   }
-
+  .form-success .btn {
+    white-space: normal;
+  }
 }
 /* Only demo */
 @media (max-width: 1000px) {

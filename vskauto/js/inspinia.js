@@ -176,13 +176,69 @@ $(document).ready(function () {
         submitForm: function(e) {
             e.preventDefault();
 
-            var form = $(this);
+            var form = $(this),
+                submitBtn = form.find('button[type="submit"]');
 
             if (app.validateForm(form) === false) return false;
 
+            submitBtn.attr('disabled', 'disabled');
+
+            // валидация формы добавления авто
+            // требуется добавить храние данных о пробеге, объеме двигателя и т.д. до отправки основной формы
+            // также нужно предотвратить повторное добавление уже существующего авто
             if ($(e.target).hasClass('add-auto-form')) {
                 $('.add-auto .btn').webuiPopover('hide');
+                var optionVal = $(e.target).find('#car_brand_id').val();
+                var optionText = [];
+                optionText[0] = $(e.target).find('#car_brand_id option:selected').text();
+                optionText[1] = $(e.target).find('#car_model_id option:selected').text();
+                optionText[2] = $(e.target).find('#car_year option:selected').text();
+                optionText = optionText.join(' ');
+
+                // обновление <input type="select" id="request_car_id"> в основной форме
+                $('#request_car_id').append('<option value="' + optionVal + '" selected>' + optionText + '</option>');
+                $('#request_car_id').trigger('chosen:updated');
+
+                // очистка заполненной формы добавления авто
+                $('.add-auto-form select option:selected').removeAttr('selected').trigger('chosen:updated');
+                $('.add-auto-form select').trigger('chosen:updated');
+                $('.add-auto-form .form-group').removeClass('has-success');
+                $('.add-auto-form input[type="number"]').val('');
+
+                submitBtn.removeAttr('disabled');
+                return false;
             }
+
+            var str = form.serialize();
+
+            $.ajax({
+                url: 'test.php',
+                method: 'POST',
+                data: str
+            })
+            .done(function(msg){
+                if (msg !== 'OK') { //убрать когда всё будет уже работать "!"===================================
+                    if (form.hasClass('newbid')) {
+                        var result = '<div class="form-success">\
+                                          <h2 class="m-b">Ваша заявка принята.</h2>\
+                                          <a href="newbid.html" class="btn btn-default">Создать новую заявку</a>\
+                                          <a href="index.html" class="btn btn-primary">Вернуться к списку заявок</a>\
+                                      </div>';
+                    } else if (form.hasClass('newpartner')) {
+                        var result = '<div class="form-success">\
+                                          <h2 class="m-b">Новый контрагент добавлен.</h2>\
+                                          <a href="newpartner.html" class="btn btn-default">Создать ещё одного контрагента</a>\
+                                          <a href="partners.html" class="btn btn-primary">Вернуться к списку контрагентов</a>\
+                                      </div>';
+                    }
+                    form.html(result);
+                } else {
+                    form.html(msg);
+                }
+            })
+            .always(function(){
+                submitBtn.removeAttr('disabled');
+            })
         },
 
         validateForm: function(form) {
