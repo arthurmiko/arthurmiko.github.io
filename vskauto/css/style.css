@@ -632,6 +632,10 @@ body.canvas-menu.mini-navbar nav.navbar-static-side {
   .menu-visible-md {
     display: block !important;
   }
+  .footable.partners tbody tr td:last-child a {
+    position: relative;
+    left: 30%;
+  }
 }
 @media (max-width: 767px) {
   .menu-visible-md {
@@ -3749,7 +3753,6 @@ body.body-small .footer.fixed {
   font-size: 1.4em;
   padding-right: 6px;
 }
-.partners.table > thead > tr > th:last-child,
 .partners.table > tbody > tr > td:last-child {
   text-align: left;
 }
