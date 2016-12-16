@@ -482,6 +482,16 @@
                 dictRemoveFile: 'Отменить'
             };
 
+            // fix chosen mobile support
+            $('.chosen-drop').on('touchstart', function(e){
+                e.stopPropagation();
+                return false;
+            })
+            $('.chosen-drop').on('touchend', function(e){
+                e.stopPropagation()
+                return false;
+            })
+
         })
     </script>
 </body>

@@ -525,7 +525,7 @@
 
     $.fn.extend({
         chosen: function(options) {
-            // disable modile check
+            // check for mobile and IE disable
             // if (!AbstractChosen.browser_is_supported()) {
             //     return this;
             // }
