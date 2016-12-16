@@ -481,7 +481,13 @@
                 addRemoveLinks: true,
                 acceptedFiles: '.jpg, .jpeg, .gif, .png, .pdf, .tiff, .tif, .xlsx, .xls, .doc, .docx, .djvu, .djv',
                 dictDefaultMessage: '<p>Кликните или перетащите сюда файлы для загрузки</p>',
-                dictRemoveFile: 'Отменить'
+                dictRemoveFile: 'Отменить',
+                accept: function(file, done) {
+                    if (file.name == "justinbieber.jpg") {
+                        done("Naha, you don't.");
+                    }
+                    else { done(); }
+                }
             };
 
         })
