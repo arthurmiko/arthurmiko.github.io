@@ -2,7 +2,7 @@
 *
 *  INSPINIA - Responsive Admin Theme
 *  version 2.6.2
-*fix 1
+*fix 2
 -->
 
 <!DOCTYPE html>
@@ -483,8 +483,14 @@
             };
 
             // fix chosen mobile support
+            $('.chosen-drop').on('click', function(e){
+                e.stopPropagation();
+                $(this).tooltip('destroy').parents('.form-group').removeClass('has-error');
+                return false;
+            })
             $('.chosen-drop').on('touchstart', function(e){
                 e.stopPropagation();
+                $(this).tooltip('destroy').parents('.form-group').removeClass('has-error');
             })
             $('.chosen-drop').on('touchend', function(e){
                 e.stopPropagation()
