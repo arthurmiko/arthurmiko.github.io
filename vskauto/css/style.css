@@ -3742,11 +3742,11 @@ body.body-small .footer.fixed {
   border-bottom: solid 1px #eaeaea;
   line-height: 1.8em
 }
-.footable-row-detail-name {
-  text-align: left;
-}
+.footable-row-detail-name,
 .footable-row-detail-value {
-  text-align: right;
+  text-align: left;
+  display: block;
+  word-break: break-all;
 }
 .footable.partners tr td:last-child span {
   line-height: 13px;
