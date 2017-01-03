@@ -59,8 +59,8 @@ var eaterRotation = true;
 function Eater() {
   // this.posX = genNum(0, ctxInfo.width * used.mul - ctxInfo.cell, 'integer');
   // this.posY = genNum(0, ctxInfo.height * used.mul - ctxInfo.cell, 'integer');
-  this.posX = ctxInfo.width * used.mul / 2;
-  this.posY = ctxInfo.height * used.mul / 2;
+  this.posX = (ctxInfo.width - eaterSize) * used.mul / 2;
+  this.posY = (ctxInfo.height - eaterSize) * used.mul / 2;
   this.size = eaterSize;
   this.move = {
     deg: genNum(-Math.PI, Math.PI, 'float'),
