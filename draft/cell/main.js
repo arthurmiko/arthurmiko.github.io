@@ -54,6 +54,7 @@ var eaterSizeMax = 30;
 var eaterSteps = 20;
 var eaterRotation = true;
 var newInCenter = true;
+var acid = false;
 
 function Eater() {
   this.size = genNum(eaterSizeMin, eaterSizeMax, 'integer');
@@ -86,7 +87,11 @@ function moveEater(eater, fix) {
     return false;
   }
 
-  ctx.fillStyle = eater.color;
+  if (acid) {
+    ctx.fillStyle = getRandomColor();
+  } else {
+    ctx.fillStyle = eater.color;
+  }
   ctx.fillRect(eater.posX, eater.posY, eater.size * used.mul, eater.size * used.mul);
 
   if (eater.steps.count > eater.steps.limit) {
@@ -230,6 +235,15 @@ $('#btnCenter').on('click', function(e){
   } else {
     $(this).removeClass('inactivated').addClass('activated').text('NEW IN CENTER');
     newInCenter = true;
+  }
+})
+$('#btnAcid').on('click', function(e){
+  if ($(this).hasClass('inactivated')) {
+    $(this).removeClass('inactivated').addClass('activated').text('ACID ON');
+    acid = true;
+  } else {
+    $(this).removeClass('activated').addClass('inactivated').text('ACID OFF');
+    acid = false;
   }
 })
 
