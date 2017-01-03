@@ -92,6 +92,13 @@ function moveEater(eater, fix) {
     eater.move.dir = Math.random() > 0.5 ? true : false;
   }
 
+  if (eater.posX < 2 || eater.posX > (ctxInfo.width - eaterSize) * used.mul - 2) {
+    eater.move.deg = -(eater.move.deg + Math.PI);
+  }
+  if (eater.posY < 2 || eater.posY > (ctxInfo.width - eaterSize) * used.mul - 2) {
+    eater.move.deg = eater.move.deg + 2 * (Math.PI - eater.move.deg);
+  }
+
   if (eaterRotation) {
     if (eater.move.dir) {
       if (eater.move.deg - used.deg < -Math.PI) {
@@ -106,13 +113,6 @@ function moveEater(eater, fix) {
         eater.move.deg += used.deg;
       }
     }
-  }
-
-  if (eater.posX < 2 || eater.posX > (ctxInfo.width - eaterSize) * used.mul - 2) {
-    eater.move.deg = -(eater.move.deg + Math.PI);
-  }
-  if (eater.posY < 2 || eater.posY > (ctxInfo.width - eaterSize) * used.mul - 2) {
-    eater.move.deg = eater.move.deg + 2 * (Math.PI - eater.move.deg);
   }
 
   eater.move.cos = Math.cos(eater.move.deg);
