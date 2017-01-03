@@ -1,0 +1,58 @@
+body {
+  background: #112;
+}
+
+.wrapper {
+  text-align: center;
+}
+
+.stats {
+  margin: 0 auto;
+  width: 500px;
+  padding: 10px;
+  text-align: left;
+  background: #fafafa;
+}
+
+.stats-nums {
+  margin-bottom: 20px;
+}
+
+.stats input {
+  width: 100%;
+}
+
+.buttons button {
+  margin-bottom: 10px;
+  width: 45%;
+}
+
+button.activated,
+button.inactivated {
+  width: 93%;
+}
+
+button.inactivated {
+  background: #173652;
+}
+button.inactivated:focus {
+  background: #173652;
+}
+button.inactivated:hover {
+  background: #173652;
+}
+
+button.activated {
+  background: #44A1F2;
+}
+button.activated:focus {
+  background: #44A1F2;
+}
+button.activated:hover {
+  background: #44A1F2;
+}
+
+#board {
+  display: block;
+  margin: 0 auto;
+}

@@ -1,19 +1,5 @@
 body {
-  margin: 0;
-}
-
-/*.hold {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  width: 20%;
-}
-*/
-.img {
-  background-size: contain;
-  background-repeat: no-repeat;
-  width: 20%;
-  height: 0;
-  background-image: url('wooder_2.jpg');
-  padding-top: 32.64%; /* (img-height / img-width * container-width) */
+  background: #001;
+  font-size: 20px;
+  color: #383;
 }

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Auto</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <!-- FooTable -->
+    <link href="css/plugins/footable/footable.core.css" rel="stylesheet">
+
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div id="wrapper">
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav metismenu" id="side-menu">
+                    <li class="nav-header">
+                        <div class="dropdown profile-element"> <span>
+                            <img alt="image" class="img-circle" src="img/profile_small.jpg" />
+                             </span>
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">Александр Буга<b class="caret"></b></strong>
+                             </span></span> </a>
+                            <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                                <li><a href="profile.html">Профиль</a></li>
+                                <li class="divider"></li>
+                                <li><a href="login.html">Выйти</a></li>
+                            </ul>
+                        </div>
+                        <div class="logo-element">
+                            ВСК
+                        </div>
+                    </li>
+                    <li>
+                        <a href="index.html"><i class="fa fa-edit"></i> <span class="nav-label">Список заявок</span></a>
+                    </li>
+                    <li>
+                        <a href="partners.html"><i class="fa fa-globe"></i> <span class="nav-label">Контрагенты</span></a>
+                    </li>
+                    <li class="active">
+                        <a href="visit_logs.html"><i class="fa fa-table"></i> <span class="nav-label">История посещений</span></a>
+                    </li>
+                    <li>
+                        <a href="content.html"><i class="fa fa-flask"></i> <span class="nav-label">Контент страниц</span></a>
+                    </li>
+                </ul>
+
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="gray-bg dashbard-1">
+            <div class="row border-bottom">
+                <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                    <div class="navbar-header">
+                        <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+                    </div>
+                        <ul class="nav navbar-top-links navbar-right">
+                            <li>
+                                <span class="m-r-sm text-muted welcome-message">Добро пожаловать в административную панель.</span>
+                            </li>
+                            <li>
+                                <a href="login.html">
+                                    <i class="fa fa-sign-out"></i> Выйти
+                                </a>
+                            </li>
+                        </ul>
+
+                </nav>
+            </div>
+            <div class="row wrapper border-bottom white-bg page-heading">
+                <div class="col-lg-10">
+                    <h2>История посещений</h2>
+                </div>
+                <div class="col-lg-2">
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="wrapper wrapper-content animated fadeInRight">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="ibox float-e-margins">
+                                    <div class="ibox-content">
+                                        <table class="footable table table-bordered" data-striping="false" data-page-size="8">
+                                            <thead>
+                                            <tr>
+                                                <th data-sort-ignore="true">Дата и время</th>
+                                                <th data-sort-ignore="true" data-hide="phone">E-mail пользователя</th>
+                                                <th data-sort-ignore="true">ID заявки</th>
+                                                <th data-sort-ignore="true" data-toggle="true">Номер убытка</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                <td>07 Dec 15:56</td>
+                                                <td>admin_process@example.com</td>
+                                                <td>12</td>
+                                                <td>114</td>
+                                                </tr>
+                                                <tr>
+                                                <td>07 Dec 15:56</td>
+                                                <td>admin_process@example.com</td>
+                                                <td>12</td>
+                                                <td>114</td>
+                                                </tr>
+                                                <tr>
+                                                <td>07 Dec 15:56</td>
+                                                <td>admin_process@example.com</td>
+                                                <td>12</td>
+                                                <td>114</td>
+                                                </tr>
+                                                <tr>
+                                                <td>07 Dec 15:55</td>
+                                                <td>admin_process@example.com</td>
+                                                <td>12</td>
+                                                <td>114</td>
+                                                </tr>
+                                                <tr>
+                                                <td>07 Dec 15:54</td>
+                                                <td>admin_process@example.com</td>
+                                                <td>12</td>
+                                                <td>114</td>
+                                                </tr>
+                                                <tr>
+                                                <td>07 Dec 15:53</td>
+                                                <td>admin_process@example.com</td>
+                                                <td>12</td>
+                                                <td>114</td>
+                                                </tr>
+                                                <tr>
+                                                <td>07 Dec 15:51</td>
+                                                <td>admin_process@example.com</td>
+                                                <td>12</td>
+                                                <td>114</td>
+                                                </tr>
+                                                <tr>
+                                                <td>07 Dec 15:47</td>
+                                                <td>admin_process@example.com</td>
+                                                <td>12</td>
+                                                <td>114</td>
+                                                </tr>
+                                                <tr>
+                                                <td>07 Dec 15:32</td>
+                                                <td>admin_process@example.com</td>
+                                                <td>11</td>
+                                                <td>113</td>
+                                                </tr>
+                                                <tr>
+                                                <td>07 Dec 15:27</td>
+                                                <td>admin_process@example.com</td>
+                                                <td>11</td>
+                                                <td>113</td>
+                                                </tr>
+                                                <tr>
+                                                <td>07 Dec 15:21</td>
+                                                <td>admin_process@example.com</td>
+                                                <td>11</td>
+                                                <td>113</td>
+                                                </tr>
+                                                <tr>
+                                                <td>07 Dec 15:20</td>
+                                                <td>admin_process@example.com</td>
+                                                <td>11</td>
+                                                <td>113</td>
+                                                </tr>
+                                                <tr>
+                                                <td>07 Dec 15:15</td>
+                                                <td>admin_process@example.com</td>
+                                                <td>11</td>
+                                                <td>113</td>
+                                                </tr>
+                                                <tr>
+                                                <td>02 Dec 15:04</td>
+                                                <td>admin_process@example.com</td>
+                                                <td>10</td>
+                                                <td>212</td>
+                                                </tr>
+                                                <tr>
+                                                <td>02 Dec 15:04</td>
+                                                <td>admin_process@example.com</td>
+                                                <td>10</td>
+                                                <td>212</td>
+                                                </tr>
+                                                <tr>
+                                                <td>02 Dec 14:59</td>
+                                                <td>admin_process@example.com</td>
+                                                <td>10</td>
+                                                <td>212</td>
+                                                </tr>
+                                                <tr>
+                                                <td>02 Dec 14:57</td>
+                                                <td>admin_process@example.com</td>
+                                                <td>10</td>
+                                                <td>212</td>
+                                                </tr>
+                                                <tr>
+                                                <td>02 Dec 14:55</td>
+                                                <td>admin_process@example.com</td>
+                                                <td>10</td>
+                                                <td>212</td>
+                                                </tr>
+                                                <tr>
+                                                <td>02 Dec 14:54</td>
+                                                <td>admin_process@example.com</td>
+                                                <td>10</td>
+                                                <td>212</td>
+                                                </tr>
+                                                <tr>
+                                                <td>02 Dec 13:10</td>
+                                                <td>admin_process@example.com</td>
+                                                <td>9</td>
+                                                <td>114</td>
+                                                </tr>
+                                                <tr>
+                                                <td>02 Dec 13:10</td>
+                                                <td>admin_process@example.com</td>
+                                                <td>8</td>
+                                                <td>113</td>
+                                                </tr>
+                                                <tr>
+                                                <td>01 Dec 15:24</td>
+                                                <td>admin_process@example.com</td>
+                                                <td>8</td>
+                                                <td>113</td>
+                                                </tr>
+                                                <tr>
+                                                <td>01 Dec 15:24</td>
+                                                <td>admin_process@example.com</td>
+                                                <td>9</td>
+                                                <td>114</td>
+                                                </tr>
+                                                <tr>
+                                                <td>29 Nov 16:58</td>
+                                                <td>admin_process@example.com</td>
+                                                <td>3</td>
+                                                <td>112</td>
+                                                </tr>
+                                            </tbody>
+                                            <tfoot>
+                                            <tr>
+                                                <td colspan="8">
+                                                    <ul class="pagination pull-right"></ul>
+                                                </td>
+                                            </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer">
+                    <div>
+                        &copy; 2014 ООО ЦДУ-А mail@czdu.ru
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mainly scripts -->
+    <script src="js/jquery-2.1.1.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="js/inspinia.js"></script>
+    <script src="js/plugins/pace/pace.min.js"></script>
+
+    <!-- FooTable -->
+    <script src="js/plugins/footable/footable.all.min.js"></script>
+
+    <script>
+
+        $(document).ready(function() {
+            $('.footable').footable();
+        });
+    </script>
+</body>
+</html>

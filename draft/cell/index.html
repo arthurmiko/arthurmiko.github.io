@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cell</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="stats">
+      <div class="row stats-nums">
+        <div class="col-md-4">
+          <p>Canvas drawed in:</p>
+          <span id="perf"></span>
+        </div>
+        <div class="col-md-4">
+          <p>Total eaters count:</p>
+          <span id="eatersCount"></span>
+        </div>
+        <div class="col-md-4">
+          <p>Added eaters:</p>
+          <span id="newEaters"></span>
+        </div>
+      </div>
+      <div class="row buttons">
+        <div class="col-md-4">
+          <button id="btnPlay" class="btn btn-primary">PLAY</button>
+          <button id="btnStop" class="btn btn-primary">STOP</button>
+          <button id="btnStep" class="btn btn-primary">STEP</button>
+          <button id="btnKill" class="btn btn-primary">KILL</button>
+          <button id="btnTurn" class="btn btn-primary activated">ROTATION ON</button>
+        </div>
+        <div class="col-md-4">
+          <label>Max eaters: <input id="maxEatersInput" type="number"></label>
+          <label>Speed min: <input id="eatersSpeedMin" type="number"></label>
+          <label>Speed max: <input id="eatersSpeedMax" type="number"></label>
+        </div>
+        <div class="col-md-4">
+          <label>Eater lifeterm: <input id="eaterLifetimeInput" type="number"></label>
+          <label>Size: <input id="eatersSize" type="number"></label>
+        </div>
+      </div>
+    </div>
+    <canvas id="board"></canvas>
+  <script src="main.js"></script>
+  <!-- <script src="snippets.js"></script> -->
+</body>
+</html>
