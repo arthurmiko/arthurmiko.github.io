@@ -22,7 +22,8 @@ var canvas = document.getElementById('board'),
     ctx = canvas.getContext('2d'),
     used = { // набор часто используемых чисел
       mul: 5,
-      deg: 0.0523599,
+      degMin: 0.0523599,
+      degMax: 0.1047198,
       dPi: 2 * Math.PI
     },
     ctxInfo = {
@@ -48,16 +49,21 @@ var maxEaters = 100;
 var eaterLifetime = 3000;
 var eaterSpeedMin = 10;
 var eaterSpeedMax = 20;
-var eaterSize = 15;
-var eaterRotation = true;
+var eaterSizeMin = 10;
+var eaterSizeMax = 30;
 var eaterSteps = 20;
+var eaterRotation = true;
+var newInCenter = true;
 
 function Eater() {
-  // this.posX = genNum(0, ctxInfo.width * used.mul - ctxInfo.cell, 'integer');
-  // this.posY = genNum(0, ctxInfo.height * used.mul - ctxInfo.cell, 'integer');
-  this.posX = (ctxInfo.width - eaterSize) * used.mul / 2;
-  this.posY = (ctxInfo.height - eaterSize) * used.mul / 2;
-  this.size = eaterSize;
+  this.size = genNum(eaterSizeMin, eaterSizeMax, 'integer');
+  if (newInCenter) {
+    this.posX = (ctxInfo.width - this.size) * used.mul / 2;
+    this.posY = (ctxInfo.height - this.size) * used.mul / 2;
+  } else {
+    this.posX = genNum(0, (ctxInfo.width - this.size) * used.mul, 'integer');
+    this.posY = genNum(0, (ctxInfo.height - this.size) * used.mul, 'integer');
+  }
   this.move = {
     deg: genNum(-Math.PI, Math.PI, 'float'),
     cos: Math.cos(this.deg),
@@ -88,27 +94,28 @@ function moveEater(eater, fix) {
     eater.move.dir = Math.random() > 0.5 ? true : false;
   }
 
-  if (eater.posX < 2 || eater.posX > (ctxInfo.width - eaterSize) * used.mul - 2) {
+  if (eater.posX < 2 || eater.posX > (ctxInfo.width - eater.size) * used.mul - 2) {
     eater.move.deg = -(eater.move.deg + Math.PI);
   }
-  if (eater.posY < 2 || eater.posY > (ctxInfo.width - eaterSize) * used.mul - 2) {
+  if (eater.posY < 2 || eater.posY > (ctxInfo.width - eater.size) * used.mul - 2) {
     eater.move.deg = eater.move.deg + 2 * (Math.PI - eater.move.deg);
   }
 
+  var rotationDeg = genNum(used.degMin, used.degMax, 'float')
   if (eaterRotation &&
-      eater.posX > 2 && eater.posX < (ctxInfo.width - eaterSize) * used.mul - 2 &&
-      eater.posY > 2 && eater.posY < (ctxInfo.width - eaterSize) * used.mul - 2) {
+      eater.posX > 2 && eater.posX < (ctxInfo.width - eater.size) * used.mul - 2 &&
+      eater.posY > 2 && eater.posY < (ctxInfo.width - eater.size) * used.mul - 2) {
     if (eater.move.dir) {
       if (eater.move.deg - used.deg < -Math.PI) {
-        eater.move.deg = eater.move.deg - used.deg + used.dPi;
+        eater.move.deg = eater.move.deg - rotationDeg + used.dPi;
       } else {
-        eater.move.deg -= used.deg;
+        eater.move.deg -= rotationDeg;
       }
     } else {
       if (eater.move.deg + used.deg > Math.PI) {
-        eater.move.deg = eater.move.deg + used.deg + used.dPi;
+        eater.move.deg = eater.move.deg + rotationDeg + used.dPi;
       } else {
-        eater.move.deg += used.deg;
+        eater.move.deg += rotationDeg;
       }
     }
   }
@@ -173,8 +180,10 @@ maxEatersInput.value = maxEaters;
 eaterLifetimeInput.value = eaterLifetime;
 eatersSpeedMin.value = eaterSpeedMin;
 eatersSpeedMax.value = eaterSpeedMax;
-eatersSize.value = eaterSize;
-eatersAngle.value = used.deg;
+eatersSizeMin.value = eaterSizeMin;
+eatersSizeMax.value = eaterSizeMax;
+eatersAngleMin.value = used.degMin;
+eatersAngleMax.value = used.degMax;
 eatersSteps.value = eaterSteps;
 
 $('#maxEatersInput').on('change', function(e){
@@ -189,11 +198,17 @@ $('#eatersSpeedMin').on('change', function(e){
 $('#eatersSpeedMax').on('change', function(e){
   eaterSpeedMax = +eatersSpeedMax.value;
 })
-$('#eatersSize').on('change', function(e){
-  eaterSize = +eatersSize.value;
+$('#eatersSizeMin').on('change', function(e){
+  eaterSizeMin = +eatersSizeMin.value;
 })
-$('#eatersAngle').on('change', function(e){
-  used.deg = +eatersAngle.value;
+$('#eatersSizeMax').on('change', function(e){
+  eaterSizeMax = +eatersSizeMax.value;
+})
+$('#eatersAngleMin').on('change', function(e){
+  used.degMin = +eatersAngleMin.value;
+})
+$('#eatersAngleMax').on('change', function(e){
+  used.degMax = +eatersAngleMax.value;
 })
 $('#eatersSteps').on('change', function(e){
   eaterSteps = +eatersSteps.value;
@@ -206,6 +221,15 @@ $('#btnTurn').on('click', function(e){
   } else {
     $(this).removeClass('inactivated').addClass('activated').text('ROTATION ON');
     eaterRotation = true;
+  }
+})
+$('#btnCenter').on('click', function(e){
+  if ($(this).hasClass('activated')) {
+    $(this).removeClass('activated').addClass('inactivated').text('NEW IN RANDOM');
+    newInCenter = false;
+  } else {
+    $(this).removeClass('inactivated').addClass('activated').text('NEW IN CENTER');
+    newInCenter = true;
   }
 })
 
