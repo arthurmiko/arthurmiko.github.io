@@ -44,16 +44,28 @@ var eaters = [];
 
 var countEaters = 0;
 
+// var drawCanvas = play();
+// var maxEaters = 100;
+// var eaterLifetime = 3000;
+// var eaterSpeedMin = 10;
+// var eaterSpeedMax = 20;
+// var eaterSizeMin = 10;
+// var eaterSizeMax = 30;
+// var eaterSteps = 20;
+// var eaterRotation = true;
+// var newInCenter = true;
+// var acid = false;
+
 var drawCanvas = play();
-var maxEaters = 100;
+var maxEaters = 10;
 var eaterLifetime = 3000;
 var eaterSpeedMin = 10;
-var eaterSpeedMax = 20;
-var eaterSizeMin = 10;
+var eaterSpeedMax = 10;
+var eaterSizeMin = 30;
 var eaterSizeMax = 30;
 var eaterSteps = 20;
-var eaterRotation = true;
-var newInCenter = true;
+var eaterRotation = false;
+var newInCenter = false;
 var acid = false;
 
 function Eater() {
@@ -78,6 +90,7 @@ function Eater() {
   this.speed = genNum(eaterSpeedMin, eaterSpeedMax, 'integer') // in px
   this.color = getRandomColor();
   this.lifetime = eaterLifetime;
+  this.collision = false;
 }
 
 function moveEater(eater, fix) {
@@ -99,11 +112,22 @@ function moveEater(eater, fix) {
     eater.move.dir = Math.random() > 0.5 ? true : false;
   }
 
-  if (eater.posX < 2 || eater.posX > (ctxInfo.width - eater.size) * used.mul - 2) {
-    eater.move.deg = -(eater.move.deg + Math.PI);
+  // попытка реализовать просчёт столкновений между отдельными кубиками - работает очень частично
+  // for (var i = 0; i < eaters.length; i++) {
+  //   if (eater.posX > eaters[i].posX && eater.posX < eaters[i].posX + eaters[i].size * used.mul &&
+  //       eater.posY > eaters[i].posY && eater.posY < eaters[i].posY + eaters[i].size * used.mul) {
+  //       eaters[i].collision = true;
+  //       console.log('collisionY: eater and eater[i]')
+  //       console.log(eater)
+  //       console.log(eaters[i])
+  //   }
+  // }
+
+  if (eater.posX < 2 || eater.posX > (ctxInfo.width - eater.size) * used.mul - 2 || eater.collision) {
+    eater.move.deg = Math.PI - eater.move.deg;
   }
-  if (eater.posY < 2 || eater.posY > (ctxInfo.width - eater.size) * used.mul - 2) {
-    eater.move.deg = eater.move.deg + 2 * (Math.PI - eater.move.deg);
+  if (eater.posY < 2 || eater.posY > (ctxInfo.width - eater.size) * used.mul - 2 || eater.collision) {
+    eater.move.deg = -eater.move.deg;
   }
 
   var rotationDeg = genNum(used.degMin, used.degMax, 'float')
@@ -134,6 +158,7 @@ function moveEater(eater, fix) {
     eater.posY += eater.move.sin * scaleFactor;
   }
 
+  eater.collision = false;
   return true;
 };
 
