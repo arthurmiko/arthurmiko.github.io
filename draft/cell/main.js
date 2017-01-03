@@ -45,16 +45,12 @@ var countEaters = 0;
 
 var drawCanvas = play();
 var maxEaters = 100;
-maxEatersInput.value = maxEaters;
 var eaterLifetime = 3000;
-eaterLifetimeInput.value = eaterLifetime;
 var eaterSpeedMin = 10;
 var eaterSpeedMax = 20;
-eatersSpeedMin.value = eaterSpeedMin;
-eatersSpeedMax.value = eaterSpeedMax;
 var eaterSize = 15;
-eatersSize.value = eaterSize;
 var eaterRotation = true;
+var eaterSteps = 20;
 
 function Eater() {
   // this.posX = genNum(0, ctxInfo.width * used.mul - ctxInfo.cell, 'integer');
@@ -70,7 +66,7 @@ function Eater() {
   };
   this.steps = {
     count: 0, // steps counter before reach limit
-    limit: 20 // limit steps in one direction
+    limit: eaterSteps // limit steps in one direction
   };
   this.speed = genNum(eaterSpeedMin, eaterSpeedMax, 'integer') // in px
   this.color = getRandomColor();
@@ -172,21 +168,37 @@ $('#btnStep').click(function(){
 $('#btnKill').click(function(){
   eaters.length = 0;
 })
+
+maxEatersInput.value = maxEaters;
+eaterLifetimeInput.value = eaterLifetime;
+eatersSpeedMin.value = eaterSpeedMin;
+eatersSpeedMax.value = eaterSpeedMax;
+eatersSize.value = eaterSize;
+eatersAngle.value = used.deg;
+eatersSteps.value = eaterSteps;
+
 $('#maxEatersInput').on('change', function(e){
-  maxEaters = maxEatersInput.value;
+  maxEaters = +maxEatersInput.value;
 })
 $('#eaterLifetimeInput').on('change', function(e){
-  eaterLifetime = eaterLifetimeInput.value;
+  eaterLifetime = +eaterLifetimeInput.value;
 })
 $('#eatersSpeedMin').on('change', function(e){
-  eaterSpeedMin = eatersSpeedMin.value;
+  eaterSpeedMin = +eatersSpeedMin.value;
 })
 $('#eatersSpeedMax').on('change', function(e){
-  eaterSpeedMax = eatersSpeedMax.value;
+  eaterSpeedMax = +eatersSpeedMax.value;
 })
 $('#eatersSize').on('change', function(e){
-  eaterSize = eatersSize.value;
+  eaterSize = +eatersSize.value;
 })
+$('#eatersAngle').on('change', function(e){
+  used.deg = +eatersAngle.value;
+})
+$('#eatersSteps').on('change', function(e){
+  eaterSteps = +eatersSteps.value;
+})
+
 $('#btnTurn').on('click', function(e){
   if ($(this).hasClass('activated')) {
     $(this).removeClass('activated').addClass('inactivated').text('ROTATION OFF');
