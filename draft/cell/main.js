@@ -99,7 +99,9 @@ function moveEater(eater, fix) {
     eater.move.deg = eater.move.deg + 2 * (Math.PI - eater.move.deg);
   }
 
-  if (eaterRotation) {
+  if (eaterRotation &&
+      eater.posX > 2 && eater.posX < (ctxInfo.width - eaterSize) * used.mul - 2 &&
+      eater.posY > 2 && eater.posY < (ctxInfo.width - eaterSize) * used.mul - 2) {
     if (eater.move.dir) {
       if (eater.move.deg - used.deg < -Math.PI) {
         eater.move.deg = eater.move.deg - used.deg + used.dPi;
