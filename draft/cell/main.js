@@ -44,27 +44,15 @@ var eaters = [];
 
 var countEaters = 0;
 
-// var drawCanvas = play();
-// var maxEaters = 100;
-// var eaterLifetime = 3000;
-// var eaterSpeedMin = 10;
-// var eaterSpeedMax = 20;
-// var eaterSizeMin = 10;
-// var eaterSizeMax = 30;
-// var eaterSteps = 20;
-// var eaterRotation = true;
-// var newInCenter = true;
-// var acid = false;
-
 var drawCanvas = play();
 var maxEaters = 10;
 var eaterLifetime = 3000;
 var eaterSpeedMin = 10;
-var eaterSpeedMax = 10;
-var eaterSizeMin = 30;
+var eaterSpeedMax = 20;
+var eaterSizeMin = 10;
 var eaterSizeMax = 30;
 var eaterSteps = 20;
-var eaterRotation = false;
+var eaterRotation = true;
 var newInCenter = false;
 var acid = false;
 
