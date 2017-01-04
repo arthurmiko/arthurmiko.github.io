@@ -12,9 +12,15 @@
    y = 0.38 * 3.89479031 = 1.480020318 шаг
 6. Плавно менять первоначальные x и y
 7. Расчёт нового шага
-*/
 
-// Нужна кнопка СТОП
+
+TODO
+
+1. Проверка пустого места перед добавлением нового eater
+2. Отскок при столкновении с другим eater по одной из осей координат
+3. Устранить залипание eater друг в друга про столкновении
+
+*/
 
 $(document).ready(function() {
 
@@ -44,27 +50,32 @@ var eaters = [];
 
 var countEaters = 0;
 
+// var drawCanvas = play();
+// var maxEaters = 10;
+// var eaterLifetime = 3000;
+// var eaterSpeedMin = 10;
+// var eaterSpeedMax = 20;
+// var eaterSizeMin = 10;
+// var eaterSizeMax = 30;
+// var eaterSteps = 20;
+// var eaterRotation = true;
+// var acid = false;
+
+// var drawCanvas;
 var drawCanvas = play();
 var maxEaters = 10;
 var eaterLifetime = 3000;
-var eaterSpeedMin = 10;
+var eaterSpeedMin = 20;
 var eaterSpeedMax = 20;
-var eaterSizeMin = 10;
-var eaterSizeMax = 30;
+var eaterSizeMin = 50;
+var eaterSizeMax = 50;
 var eaterSteps = 20;
-var eaterRotation = true;
-var newInCenter = false;
+var eaterRotation = false;
 var acid = false;
 
-function Eater() {
-  this.size = genNum(eaterSizeMin, eaterSizeMax, 'integer');
-  if (newInCenter) {
-    this.posX = (ctxInfo.width - this.size) * used.mul / 2;
-    this.posY = (ctxInfo.height - this.size) * used.mul / 2;
-  } else {
-    this.posX = genNum(0, (ctxInfo.width - this.size) * used.mul, 'integer');
-    this.posY = genNum(0, (ctxInfo.height - this.size) * used.mul, 'integer');
-  }
+function Eater(serialNum) {
+  var size = this.size = genNum(eaterSizeMin, eaterSizeMax, 'integer')
+  this.posXY = genPosXY('width', 'height', size);
   this.move = {
     deg: genNum(-Math.PI, Math.PI, 'float'),
     cos: Math.cos(this.deg),
@@ -79,6 +90,24 @@ function Eater() {
   this.color = getRandomColor();
   this.lifetime = eaterLifetime;
   this.collision = false;
+  this.serialNum = serialNum;
+}
+
+function genPosXY(width, height, size) {
+  var posXY = [];
+  posXY[0] = genNum(0, (ctxInfo[width] - size) * used.mul, 'integer');
+  posXY[1] = genNum(0, (ctxInfo[height] - size) * used.mul, 'integer');
+  console.log('posXY' + ': ' + posXY)
+  for (var i = 0; i < eaters.length; i++) {
+    if (((posXY[0] > eaters[i].posXY[0] && posXY[0] < eaters[i].posXY[0] + eaters[i].size * used.mul) ||
+         (posXY[0] + size * used.mul > eaters[i].posXY[0] && posXY[0] + size * used.mul < eaters[i].posXY[0] + eaters[i].size * used.mul)) &&
+        ((posXY[1] > eaters[i].posXY[1] && posXY[1] < eaters[i].posXY[1] + eaters[i].size * used.mul) ||
+         (posXY[1] + size * used.mul > eaters[i].posXY[1] && posXY[1] + size * used.mul < eaters[i].posXY[1] + eaters[i].size * used.mul))) {
+      console.log('recursion')
+      posXY = genPosXY(width, height, size);
+    }
+  }
+  return posXY;
 }
 
 function moveEater(eater, fix) {
@@ -93,33 +122,39 @@ function moveEater(eater, fix) {
   } else {
     ctx.fillStyle = eater.color;
   }
-  ctx.fillRect(eater.posX, eater.posY, eater.size * used.mul, eater.size * used.mul);
+  ctx.fillRect(eater.posXY[0], eater.posXY[1], eater.size * used.mul, eater.size * used.mul);
+  ctx.fillStyle = '#000';
+  ctx.font = "175px serif";
+  ctx.fillText(eater.serialNum, eater.posXY[0] + 30, eater.posXY[1] + 150);
 
   if (eater.steps.count > eater.steps.limit) {
     eater.steps.count = 0;
     eater.move.dir = Math.random() > 0.5 ? true : false;
   }
 
-  for (var i = 0; i < eaters.length; i++) {
-    if (((eater.posX > eaters[i].posX && eater.posX < eaters[i].posX + eaters[i].size * used.mul) ||
-        (eater.posX + eater.size * used.mul > eaters[i].posX && eater.posX < eaters[i].posX)) &&
-       ((eater.posY > eaters[i].posY && eater.posY < eaters[i].posY + eaters[i].size * used.mul) ||
-        (eater.posY + eater.size * used.mul > eaters[i].posY && eater.posY < eaters[i].posY))) {
-        eaters[i].collision = true;
+  // if (!eater.collision) {
+    for (var i = 0; i < eaters.length; i++) {
+      if (((eater.posXY[0] > eaters[i].posXY[0] && eater.posXY[0] < eaters[i].posXY[0] + eaters[i].size * used.mul) ||
+           (eater.posXY[0] + eater.size * used.mul > eaters[i].posXY[0] && eater.posXY[0] + eater.size * used.mul < eaters[i].posXY[0] + eaters[i].size * used.mul)) &&
+          ((eater.posXY[1] > eaters[i].posXY[1] && eater.posXY[1] < eaters[i].posXY[1] + eaters[i].size * used.mul) ||
+           (eater.posXY[1] + eater.size * used.mul > eaters[i].posXY[1] && eater.posXY[1] + eater.size * used.mul < eaters[i].posXY[1] + eaters[i].size * used.mul))) {
+            eaters[i].collision = true;
+            eater.collision = true;
+      }
     }
-  }
+  // }
 
-  if (eater.posX < 2 || eater.posX > (ctxInfo.width - eater.size) * used.mul - 2 || eater.collision) {
+  if (eater.posXY[0] < 2 || eater.posXY[0] > (ctxInfo.width - eater.size) * used.mul - 2 || eater.collision) {
     eater.move.deg = Math.PI - eater.move.deg;
   }
-  if (eater.posY < 2 || eater.posY > (ctxInfo.width - eater.size) * used.mul - 2 || eater.collision) {
+  if (eater.posXY[1] < 2 || eater.posXY[1] > (ctxInfo.width - eater.size) * used.mul - 2 || eater.collision) {
     eater.move.deg = -eater.move.deg;
   }
 
   var rotationDeg = genNum(used.degMin, used.degMax, 'float')
   if (eaterRotation &&
-      eater.posX > 2 && eater.posX < (ctxInfo.width - eater.size) * used.mul - 2 &&
-      eater.posY > 2 && eater.posY < (ctxInfo.width - eater.size) * used.mul - 2) {
+      eater.posXY[0] > 2 && eater.posXY[0] < (ctxInfo.width - eater.size) * used.mul - 2 &&
+      eater.posXY[1] > 2 && eater.posXY[1] < (ctxInfo.width - eater.size) * used.mul - 2) {
     if (eater.move.dir) {
       if (eater.move.deg - used.deg < -Math.PI) {
         eater.move.deg = eater.move.deg - rotationDeg + used.dPi;
@@ -140,8 +175,8 @@ function moveEater(eater, fix) {
   // коэфициент подобия
   var scaleFactor = eater.speed / Math.sqrt(Math.pow(eater.move.cos, 2) + Math.pow(eater.move.sin, 2));
   if (scaleFactor !== Infinity) {
-    eater.posX += eater.move.cos * scaleFactor;
-    eater.posY += eater.move.sin * scaleFactor;
+    eater.posXY[0] += eater.move.cos * scaleFactor;
+    eater.posXY[1] += eater.move.sin * scaleFactor;
   }
 
   eater.collision = false;
@@ -162,7 +197,7 @@ function step(fix) {
   ctx.fillRect(0, 0, ctxInfo.width * used.mul, ctxInfo.height * used.mul);
 
   if (eaters.length < maxEaters) {
-    eaters.push(new Eater());
+    eaters.push(new Eater(eaters.length));
     countEaters++;
   };
 
@@ -237,15 +272,6 @@ $('#btnTurn').on('click', function(e){
   } else {
     $(this).removeClass('inactivated').addClass('activated').text('ROTATION ON');
     eaterRotation = true;
-  }
-})
-$('#btnCenter').on('click', function(e){
-  if ($(this).hasClass('activated')) {
-    $(this).removeClass('activated').addClass('inactivated').text('NEW IN RANDOM');
-    newInCenter = false;
-  } else {
-    $(this).removeClass('inactivated').addClass('activated').text('NEW IN CENTER');
-    newInCenter = true;
   }
 })
 $('#btnAcid').on('click', function(e){

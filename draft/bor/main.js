@@ -1,7 +1,5 @@
 "use strict"
 
-var arr = [1, 2, 3];
-
-arr.splice(1, 1);
-
-console.log(arr);
+console.log(d)
+console.log(10 + d);
+var d = 10;

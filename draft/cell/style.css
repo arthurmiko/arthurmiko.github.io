@@ -3,12 +3,14 @@ body {
 }
 
 .wrapper {
-  text-align: center;
+  /*text-align: center;*/
 }
 
 .stats {
-  margin: 0 auto;
+  /*margin: 0 auto;*/
+  float: left;
   width: 500px;
+  height: 500px;
   padding: 10px;
   text-align: left;
   background: #fafafa;
@@ -53,6 +55,5 @@ button.activated:hover {
 }
 
 #board {
-  display: block;
-  margin: 0 auto;
+  color: #000;
 }
