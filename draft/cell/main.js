@@ -112,16 +112,14 @@ function moveEater(eater, fix) {
     eater.move.dir = Math.random() > 0.5 ? true : false;
   }
 
-  // попытка реализовать просчёт столкновений между отдельными кубиками - работает очень частично
-  // for (var i = 0; i < eaters.length; i++) {
-  //   if (eater.posX > eaters[i].posX && eater.posX < eaters[i].posX + eaters[i].size * used.mul &&
-  //       eater.posY > eaters[i].posY && eater.posY < eaters[i].posY + eaters[i].size * used.mul) {
-  //       eaters[i].collision = true;
-  //       console.log('collisionY: eater and eater[i]')
-  //       console.log(eater)
-  //       console.log(eaters[i])
-  //   }
-  // }
+  for (var i = 0; i < eaters.length; i++) {
+    if (((eater.posX > eaters[i].posX && eater.posX < eaters[i].posX + eaters[i].size * used.mul) ||
+        (eater.posX + eater.size * used.mul > eaters[i].posX && eater.posX < eaters[i].posX)) &&
+       ((eater.posY > eaters[i].posY && eater.posY < eaters[i].posY + eaters[i].size * used.mul) ||
+        (eater.posY + eater.size * used.mul > eaters[i].posY && eater.posY < eaters[i].posY))) {
+        eaters[i].collision = true;
+    }
+  }
 
   if (eater.posX < 2 || eater.posX > (ctxInfo.width - eater.size) * used.mul - 2 || eater.collision) {
     eater.move.deg = Math.PI - eater.move.deg;
