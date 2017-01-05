@@ -1,5 +1,15 @@
 "use strict"
 
-console.log(d)
-console.log(10 + d);
-var d = 10;
+var test = {
+  drone: function() {
+    return 'some text';
+  }
+}
+
+var a = foo();
+
+function foo() {
+  return test.drone();
+}
+
+console.log(a)

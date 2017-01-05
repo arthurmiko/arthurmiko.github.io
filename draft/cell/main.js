@@ -133,18 +133,18 @@ function moveEater(eater, fix) {
     eater.move.dir = Math.random() > 0.5 ? true : false;
   }
 
-  var currentEaterCenterX = (eater.posXY[0] + eater.size * used.mul) / 2;
-  var currentEaterCenterY = (eater.posXY[1] + eater.size * used.mul) / 2;
+  // var currentEaterCenterX = (eater.posXY[0] + eater.size * used.mul) / 2;
+  // var currentEaterCenterY = (eater.posXY[1] + eater.size * used.mul) / 2;
 
   for (var i = 0; i < eaters.length; i++) {
-    var checkEaterCenterX = (eaters[i].posXY[0] + eaters[i].size * used.mul) / 2;
-    var checkEaterCenterY = (eaters[i].posXY[1] + eaters[i].size * used.mul) / 2;
-    if (((Math.abs(currentEaterCenterX - checkEaterCenterX) < ((eater.size * used.mul + eaters[i].size * used.mul)) / 2) && currentEaterCenterX !== checkEaterCenterX) &&
-        ((Math.abs(currentEaterCenterY - checkEaterCenterY) < ((eater.size * used.mul + eaters[i].size * used.mul)) / 2) && currentEaterCenterY !== checkEaterCenterY)) {
-    // if (((eater.posXY[0] > eaters[i].posXY[0] && eater.posXY[0] < eaters[i].posXY[0] + eaters[i].size * used.mul) ||
-    //      (eater.posXY[0] + eater.size * used.mul > eaters[i].posXY[0] && eater.posXY[0] + eater.size * used.mul < eaters[i].posXY[0] + eaters[i].size * used.mul)) &&
-    //     ((eater.posXY[1] > eaters[i].posXY[1] && eater.posXY[1] < eaters[i].posXY[1] + eaters[i].size * used.mul) ||
-    //      (eater.posXY[1] + eater.size * used.mul > eaters[i].posXY[1] && eater.posXY[1] + eater.size * used.mul < eaters[i].posXY[1] + eaters[i].size * used.mul))) {
+    // var checkEaterCenterX = (eaters[i].posXY[0] + eaters[i].size * used.mul) / 2;
+    // var checkEaterCenterY = (eaters[i].posXY[1] + eaters[i].size * used.mul) / 2;
+    // if ((Math.abs(currentEaterCenterX - checkEaterCenterX) < ((eater.size * used.mul + eaters[i].size * used.mul) / 2)) &&
+    //     (Math.abs(currentEaterCenterY - checkEaterCenterY) < ((eater.size * used.mul + eaters[i].size * used.mul) / 2))) {
+    if (((eater.posXY[0] > eaters[i].posXY[0] && eater.posXY[0] < eaters[i].posXY[0] + eaters[i].size * used.mul) ||
+         (eater.posXY[0] + eater.size * used.mul > eaters[i].posXY[0] && eater.posXY[0] + eater.size * used.mul < eaters[i].posXY[0] + eaters[i].size * used.mul)) &&
+        ((eater.posXY[1] > eaters[i].posXY[1] && eater.posXY[1] < eaters[i].posXY[1] + eaters[i].size * used.mul) ||
+         (eater.posXY[1] + eater.size * used.mul > eaters[i].posXY[1] && eater.posXY[1] + eater.size * used.mul < eaters[i].posXY[1] + eaters[i].size * used.mul))) {
           eaters[i].collision = true;
           eater.collision = true;
     }
