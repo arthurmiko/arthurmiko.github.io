@@ -75,7 +75,8 @@ var acid = false;
 
 function Eater(serialNum) {
   var size = this.size = genNum(eaterSizeMin, eaterSizeMax, 'integer')
-  this.posXY = genPosXY('width', 'height', size);
+  var speed = this.speed = genNum(eaterSpeedMin, eaterSpeedMax, 'integer') // in px
+  this.posXY = genPosXY('width', 'height', size, speed);
   this.move = {
     deg: genNum(-Math.PI, Math.PI, 'float'),
     cos: Math.cos(this.deg),
@@ -86,14 +87,14 @@ function Eater(serialNum) {
     count: 0, // steps counter before reach limit
     limit: eaterSteps // limit steps in one direction
   };
-  this.speed = genNum(eaterSpeedMin, eaterSpeedMax, 'integer') // in px
   this.color = getRandomColor();
   this.lifetime = eaterLifetime;
   this.collision = false;
   this.serialNum = serialNum;
 }
 
-function genPosXY(width, height, size) {
+// Добавить учёт скорости в расчёты - должно устранить залипания на мелких расстояниях
+function genPosXY(width, height, size, speed) {
   var posXY = [];
   posXY[0] = genNum(0, (ctxInfo[width] - size) * used.mul, 'integer');
   posXY[1] = genNum(0, (ctxInfo[height] - size) * used.mul, 'integer');
@@ -123,38 +124,44 @@ function moveEater(eater, fix) {
     ctx.fillStyle = eater.color;
   }
   ctx.fillRect(eater.posXY[0], eater.posXY[1], eater.size * used.mul, eater.size * used.mul);
-  ctx.fillStyle = '#000';
-  ctx.font = "175px serif";
-  ctx.fillText(eater.serialNum, eater.posXY[0] + 30, eater.posXY[1] + 150);
+  // ctx.fillStyle = '#000';
+  // ctx.font = "175px serif";
+  // ctx.fillText(eater.serialNum, eater.posXY[0] + 30, eater.posXY[1] + 150);
 
   if (eater.steps.count > eater.steps.limit) {
     eater.steps.count = 0;
     eater.move.dir = Math.random() > 0.5 ? true : false;
   }
 
-  // if (!eater.collision) {
-    for (var i = 0; i < eaters.length; i++) {
-      if (((eater.posXY[0] > eaters[i].posXY[0] && eater.posXY[0] < eaters[i].posXY[0] + eaters[i].size * used.mul) ||
-           (eater.posXY[0] + eater.size * used.mul > eaters[i].posXY[0] && eater.posXY[0] + eater.size * used.mul < eaters[i].posXY[0] + eaters[i].size * used.mul)) &&
-          ((eater.posXY[1] > eaters[i].posXY[1] && eater.posXY[1] < eaters[i].posXY[1] + eaters[i].size * used.mul) ||
-           (eater.posXY[1] + eater.size * used.mul > eaters[i].posXY[1] && eater.posXY[1] + eater.size * used.mul < eaters[i].posXY[1] + eaters[i].size * used.mul))) {
-            eaters[i].collision = true;
-            eater.collision = true;
-      }
-    }
-  // }
+  var currentEaterCenterX = (eater.posXY[0] + eater.size * used.mul) / 2;
+  var currentEaterCenterY = (eater.posXY[1] + eater.size * used.mul) / 2;
 
-  if (eater.posXY[0] < 2 || eater.posXY[0] > (ctxInfo.width - eater.size) * used.mul - 2 || eater.collision) {
+  for (var i = 0; i < eaters.length; i++) {
+    var checkEaterCenterX = (eaters[i].posXY[0] + eaters[i].size * used.mul) / 2;
+    var checkEaterCenterY = (eaters[i].posXY[1] + eaters[i].size * used.mul) / 2;
+    if (((Math.abs(currentEaterCenterX - checkEaterCenterX) < ((eater.size * used.mul + eaters[i].size * used.mul)) / 2) && currentEaterCenterX !== checkEaterCenterX) &&
+        ((Math.abs(currentEaterCenterY - checkEaterCenterY) < ((eater.size * used.mul + eaters[i].size * used.mul)) / 2) && currentEaterCenterY !== checkEaterCenterY)) {
+    // if (((eater.posXY[0] > eaters[i].posXY[0] && eater.posXY[0] < eaters[i].posXY[0] + eaters[i].size * used.mul) ||
+    //      (eater.posXY[0] + eater.size * used.mul > eaters[i].posXY[0] && eater.posXY[0] + eater.size * used.mul < eaters[i].posXY[0] + eaters[i].size * used.mul)) &&
+    //     ((eater.posXY[1] > eaters[i].posXY[1] && eater.posXY[1] < eaters[i].posXY[1] + eaters[i].size * used.mul) ||
+    //      (eater.posXY[1] + eater.size * used.mul > eaters[i].posXY[1] && eater.posXY[1] + eater.size * used.mul < eaters[i].posXY[1] + eaters[i].size * used.mul))) {
+          eaters[i].collision = true;
+          eater.collision = true;
+    }
+  }
+
+  if (eater.posXY[0] < 5 || eater.posXY[0] > (ctxInfo.width - eater.size) * used.mul - 5 || eater.collision) {
     eater.move.deg = Math.PI - eater.move.deg;
   }
-  if (eater.posXY[1] < 2 || eater.posXY[1] > (ctxInfo.width - eater.size) * used.mul - 2 || eater.collision) {
+  if (eater.posXY[1] < 5 || eater.posXY[1] > (ctxInfo.width - eater.size) * used.mul - 5 || eater.collision) {
     eater.move.deg = -eater.move.deg;
   }
 
   var rotationDeg = genNum(used.degMin, used.degMax, 'float')
+  // ограничение на повороты возле стен, для предотвращения залипания
   if (eaterRotation &&
-      eater.posXY[0] > 2 && eater.posXY[0] < (ctxInfo.width - eater.size) * used.mul - 2 &&
-      eater.posXY[1] > 2 && eater.posXY[1] < (ctxInfo.width - eater.size) * used.mul - 2) {
+      eater.posXY[0] > 20 && eater.posXY[0] < (ctxInfo.width - eater.size) * used.mul - 20 &&
+      eater.posXY[1] > 20 && eater.posXY[1] < (ctxInfo.width - eater.size) * used.mul - 20) {
     if (eater.move.dir) {
       if (eater.move.deg - used.deg < -Math.PI) {
         eater.move.deg = eater.move.deg - rotationDeg + used.dPi;
