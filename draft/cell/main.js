@@ -50,27 +50,15 @@ var eaters = [];
 
 var countEaters = 0;
 
-// var drawCanvas = play();
-// var maxEaters = 10;
-// var eaterLifetime = 3000;
-// var eaterSpeedMin = 10;
-// var eaterSpeedMax = 20;
-// var eaterSizeMin = 10;
-// var eaterSizeMax = 30;
-// var eaterSteps = 20;
-// var eaterRotation = true;
-// var acid = false;
-
-// var drawCanvas;
 var drawCanvas = play();
-var maxEaters = 10;
+var maxEaters = 20;
 var eaterLifetime = 3000;
-var eaterSpeedMin = 20;
-var eaterSpeedMax = 20;
-var eaterSizeMin = 50;
+var eaterSpeedMin = 10;
+var eaterSpeedMax = 10;
+var eaterSizeMin = 25;
 var eaterSizeMax = 50;
 var eaterSteps = 20;
-var eaterRotation = false;
+var eaterRotation = true;
 var acid = false;
 
 function Eater(serialNum) {
@@ -89,7 +77,8 @@ function Eater(serialNum) {
   };
   this.color = getRandomColor();
   this.lifetime = eaterLifetime;
-  this.collision = false;
+  this.collisionX = false;
+  this.collisionY = false;
   this.serialNum = serialNum;
 }
 
@@ -98,13 +87,11 @@ function genPosXY(width, height, size, speed) {
   var posXY = [];
   posXY[0] = genNum(0, (ctxInfo[width] - size) * used.mul, 'integer');
   posXY[1] = genNum(0, (ctxInfo[height] - size) * used.mul, 'integer');
-  console.log('posXY' + ': ' + posXY)
   for (var i = 0; i < eaters.length; i++) {
     if (((posXY[0] > eaters[i].posXY[0] && posXY[0] < eaters[i].posXY[0] + eaters[i].size * used.mul) ||
          (posXY[0] + size * used.mul > eaters[i].posXY[0] && posXY[0] + size * used.mul < eaters[i].posXY[0] + eaters[i].size * used.mul)) &&
         ((posXY[1] > eaters[i].posXY[1] && posXY[1] < eaters[i].posXY[1] + eaters[i].size * used.mul) ||
          (posXY[1] + size * used.mul > eaters[i].posXY[1] && posXY[1] + size * used.mul < eaters[i].posXY[1] + eaters[i].size * used.mul))) {
-      console.log('recursion')
       posXY = genPosXY(width, height, size);
     }
   }
@@ -133,6 +120,7 @@ function moveEater(eater, fix) {
     eater.move.dir = Math.random() > 0.5 ? true : false;
   }
 
+  // перевести все рассчёты на использование центральной координаты объекта
   // var currentEaterCenterX = (eater.posXY[0] + eater.size * used.mul) / 2;
   // var currentEaterCenterY = (eater.posXY[1] + eater.size * used.mul) / 2;
 
@@ -141,19 +129,25 @@ function moveEater(eater, fix) {
     // var checkEaterCenterY = (eaters[i].posXY[1] + eaters[i].size * used.mul) / 2;
     // if ((Math.abs(currentEaterCenterX - checkEaterCenterX) < ((eater.size * used.mul + eaters[i].size * used.mul) / 2)) &&
     //     (Math.abs(currentEaterCenterY - checkEaterCenterY) < ((eater.size * used.mul + eaters[i].size * used.mul) / 2))) {
+//наиболее точная реализация столкновений на данный момент
     if (((eater.posXY[0] > eaters[i].posXY[0] && eater.posXY[0] < eaters[i].posXY[0] + eaters[i].size * used.mul) ||
          (eater.posXY[0] + eater.size * used.mul > eaters[i].posXY[0] && eater.posXY[0] + eater.size * used.mul < eaters[i].posXY[0] + eaters[i].size * used.mul)) &&
         ((eater.posXY[1] > eaters[i].posXY[1] && eater.posXY[1] < eaters[i].posXY[1] + eaters[i].size * used.mul) ||
          (eater.posXY[1] + eater.size * used.mul > eaters[i].posXY[1] && eater.posXY[1] + eater.size * used.mul < eaters[i].posXY[1] + eaters[i].size * used.mul))) {
-          eaters[i].collision = true;
-          eater.collision = true;
+      if (Math.abs(eater.posXY[0] - eaters[i].posXY[0]) > Math.abs(eater.posXY[1] - eaters[i].posXY[1])) {
+          eaters[i].collisionX = true;
+          eater.collisionX = true;
+      } else {
+          eaters[i].collisionY = true;
+          eater.collisionY = true;
+      }
     }
   }
 
-  if (eater.posXY[0] < 5 || eater.posXY[0] > (ctxInfo.width - eater.size) * used.mul - 5 || eater.collision) {
+  if (eater.posXY[0] < 5 || eater.posXY[0] > (ctxInfo.width - eater.size) * used.mul - 5 || eater.collisionX) {
     eater.move.deg = Math.PI - eater.move.deg;
   }
-  if (eater.posXY[1] < 5 || eater.posXY[1] > (ctxInfo.width - eater.size) * used.mul - 5 || eater.collision) {
+  if (eater.posXY[1] < 5 || eater.posXY[1] > (ctxInfo.width - eater.size) * used.mul - 5 || eater.collisionY) {
     eater.move.deg = -eater.move.deg;
   }
 
@@ -186,7 +180,8 @@ function moveEater(eater, fix) {
     eater.posXY[1] += eater.move.sin * scaleFactor;
   }
 
-  eater.collision = false;
+  eater.collisionX = false;
+  eater.collisionY = false;
   return true;
 };
 
