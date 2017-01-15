@@ -51,13 +51,13 @@ var eaters = [];
 var countEaters = 0;
 
 var drawCanvas = play();
-var maxEaters = 20;
+var maxEaters = 5;
 var eaterLifetime = 3000;
 var eaterSpeedMin = 10;
-var eaterSpeedMax = 10;
+var eaterSpeedMax = 20;
 var eaterSizeMin = 25;
 var eaterSizeMax = 50;
-var eaterSteps = 20;
+var eaterSteps = 50;
 var eaterRotation = true;
 var acid = false;
 

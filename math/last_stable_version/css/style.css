@@ -1,0 +1,194 @@
+/*GENERAL BEGIN*/
+
+@import url('https://fonts.googleapis.com/css?family=Play&subset=cyrillic');
+
+body {
+  background: #f3fbec;
+}
+
+body, button, input {
+  font-family: "Play", "Times New Roman", "Arial", "sans-serif", "serif";
+}
+
+body, p, ul {
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.container {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+/*GENERAL END*/
+
+/*WORKSPACE BEGIN*/
+
+.workspace {
+  position: relative;
+  font-size: 1.5em; /*24 / 16*/
+  text-align: center;
+}
+
+.conditions div {
+  margin-bottom: 20px;
+}
+
+.conditions {
+  position: absolute;
+  width: 100%;
+  background: #B2A390;
+  padding: 30px 0;
+  transition: all .4s ease;
+}
+
+.conditions p {
+  font-size: 1.333333333em; /*32 / 24*/
+  margin-bottom: 20px;
+}
+
+.conditions input {
+  display: none;
+}
+
+.conditions label {
+  background: #159;
+  padding: 10px 20px;
+  transition: all .4s ease;
+}
+
+.conditions label:hover {
+  background: #15f;
+  cursor: pointer;
+}
+
+.conditions input:checked+label {
+  background: #195;
+}
+
+.condition-difficult label {
+  padding: 0;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 50%;
+}
+
+.conditions button {
+  border: none;
+  background: #959;
+  font-size: 1.333333333em; /*32 / 24*/
+  padding: 10px 20px;
+  transition: all .4s ease;
+}
+
+.conditions button:hover {
+  cursor: pointer;
+  background: #a6d;
+}
+
+.worksheet {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  background: #B2A390;
+  display: none;
+  transition: all 1s ease;
+}
+
+.worksheet button {
+  border: none;
+  font-size: 0.9em;
+  background: #595;
+  padding: 5px 15px;
+  transition: all .4s ease;
+}
+
+.worksheet button:hover {
+  cursor: pointer;
+  color: #fefefe;
+  background: #234023;
+}
+
+.worksheet input {
+  font-size: 1em;
+  width: 200px;
+}
+
+.worksheet-equation {
+  display: inline-block;
+}
+
+.worksheet-timer,
+.worksheet-header {
+  margin-bottom: 20px;
+}
+
+.worksheet-timer span {
+  margin-right: 30px;
+}
+
+.worksheet-begin {
+  transition: all .4s ease;
+}
+
+.worksheet-stop {
+  text-align: left;
+}
+
+.pretimer {
+  position: absolute;
+  padding-left: 10px;
+}
+
+.answer-sheet {
+  position: absolute;
+  width: 100%;
+  text-align: left;
+  display: none;
+  opacity: 0;
+}
+
+.answer-right {
+  color: green;
+}
+
+.answer-wrong {
+  color: red;
+}
+
+.answer-sheet button {
+  border: none;
+  font-size: 0.9em;
+  background: #595;
+  padding: 5px 15px;
+  transition: all .4s ease;
+}
+
+.answer-sheet button:hover {
+  cursor: pointer;
+  color: #fefefe;
+  background: #234023;
+}
+
+.answer-sheet table {
+  width: 100%;
+  text-align: center;
+  margin: 30px 0;
+  border-collapse: collapse;
+}
+
+.answer-sheet table tbody tr:not(:last-child) td {
+  border-bottom: solid 1px #444;
+}
+
+.answer-sheet table tbody tr td:not(:last-child) {
+  border-right: solid 1px #444;
+}
+
+/*WORKSPACE END*/

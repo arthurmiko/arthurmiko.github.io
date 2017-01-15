@@ -1,0 +1,113 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Numbers</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="./js/index.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="workspace">
+      <!-- arthur заменил form на div и убрал из js лишние обработчики e.preventDefault() -->
+      <div class="conditions">
+        <div class="condition-operation">
+          <p>Тип упражнения</p>
+          <input type="radio" name="operation" id="operationAdd" value="add" checked>
+          <label for="operationAdd">
+            Сложение
+          </label>
+          <input type="radio" name="operation" id="operationSub" value="sub">
+          <label for="operationSub">
+            Вычитание
+          </label>
+          <input type="radio" name="operation" id="operationMul" value="mul">
+          <label for="operationMul">
+            Умножение
+          </label>
+          <input type="radio" name="operation" id="operationDiv" value="div">
+          <label for="operationDiv">
+            Деление
+          </label>
+          <input type="radio" name="operation" id="operationPer" value="per">
+          <label for="operationPer">
+            Проценты
+          </label>
+          <input type="radio" name="operation" id="operationRan" value="ran">
+          <label for="operationRan">
+            Случайно
+          </label>
+        </div>
+        <div class="condition-precision">
+          <p>Требуемая точность ответа</p>
+          <input type="radio" name="precision" id="preciseFull" value='precise' checked>
+          <label for="preciseFull">
+            Абсолютная
+          </label>
+          <input type="radio" name="precision" id="preciseLow" value='approx'>
+          <label for="preciseLow">
+            Допустима погрешность в 20%
+          </label>
+        </div>
+        <div class="condition-difficult">
+          <p>Уровень сложности</p>
+          <input type="radio" name="difficult" id="difficultFirst" value="0" checked>
+          <label for="difficultFirst">
+            I
+          </label>
+          <input type="radio" name="difficult" id="difficultSecond" value="1">
+          <label for="difficultSecond">
+            II
+          </label>
+          <input type="radio" name="difficult" id="difficultThird" value="2">
+          <label for="difficultThird">
+            III
+          </label>
+          <input type="radio" name="difficult" id="difficultFour" value="3">
+          <label for="difficultFour">
+            IV
+          </label>
+        </div>
+        <button class="conditions-start">Старт</button>
+      </div>
+      <!-- arthur заменил form на div и убрал из js лишние обработчики e.preventDefault() -->
+      <div class="worksheet">
+        <p class="worksheet-header">Сложение, второй уровень сложности, абсолютная точность</p>
+        <div class="worksheet-timer">
+          Время: <span class="maintimer">01:00</span>
+          <button type="button" class="worksheet-begin">Начать</button>
+          <span class="pretimer"></span>
+        </div>
+        <div id="equation" class="worksheet-equation">X ? Y</div><span>=</span>
+        <input id="userAnswer" type="text">
+        <button type="button" class="admit-answer" >OK</button>
+        <div class="worksheet-stop"><button type="button">Прервать</button></div>
+      </div>
+      <div class="answer-sheet">
+        <div class="answer-stats">
+          <h2>Ваши результаты</h2>
+          <ul>
+            <li>Примеров решено</li>
+            <li class="answer-stats-total">Всего:</li>
+            <li class="answer-stats-right">Правильно:</li>
+            <li class="answer-stats-wrong">Ошибочно:</li>
+            <li class="answer-stats-percent">Процент правильных:</li>
+          </ul>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>№</th>
+              <th>Выражение</th>
+              <th>Ваш ответ</th>
+              <th>Правильный ответ</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <button>Выполнить другое упражнение</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
