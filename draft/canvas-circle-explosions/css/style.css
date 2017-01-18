@@ -1,0 +1,31 @@
+body {
+  background: #000;
+}
+
+canvas {
+  background: #000;
+  display: block;
+}
+
+.control {
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: rgba(10, 10, 20, .5);
+  color: #fafafa;
+  padding: 10px;
+  height: 100%;
+}
+
+.control-wrapper {
+  position: relative;
+  text-align: right;
+  margin-bottom: 10px;
+  width: 200px;
+}
+
+.control input {
+  display: inline-block;
+  width: 30%;
+}

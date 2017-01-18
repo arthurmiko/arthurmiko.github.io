@@ -1,4 +1,5 @@
-canvas {
-  background: #fff;
+#elem {
+  background: #112;
+  height: 200px;
   display: block;
 }
