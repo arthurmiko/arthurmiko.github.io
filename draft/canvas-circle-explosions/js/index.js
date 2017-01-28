@@ -19,17 +19,13 @@ var canvas = document.createElement( 'canvas' ),
     height = canvas.height = window.innerHeight,
     avg = ( width + height ) / 8,
     blobs = [],
-    speedRange = 3,
+    speedRange = 6,
     maxCombo = 15,
     radius = 2,
     count = avg * 0.7,
     countLimit = 4,
     PI = Math.PI,
     TWOPI = PI * 2;
-
-function rand( min, max ) {
-  return Math.random() * (max - min) + min;
-}
 
 function genNum(min, max, type) {
   if (type == 'integer') {
@@ -47,22 +43,18 @@ function dist( p1, p2 ) {
 }
 
 function Blob() {
+  var self = this;
   this.radius = radius; // 2
   this.targetRadius = radius; // 2
-  this.x = rand( this.radius, width - this.radius ); // от левого до правого края - радиус
-  this.y = rand( this.radius, height - this.radius ); // от верха до низа - радиус
-  this.vx = rand( -speedRange, speedRange ); // случайное число от -3 до 3
-  this.vy = rand( -speedRange, speedRange );
-  // this.hue = 0;
+  this.x = genNum( this.radius, width - this.radius, 'float' ); // от левого до правого края - радиус
+  this.y = genNum( this.radius, height - this.radius, 'float' ); // от верха до низа - радиус
+  this.vx = genNum( -speedRange, speedRange, 'float' ); // случайное число от -3 до 3
+  this.vy = genNum( -speedRange, speedRange, 'float' );
 
-  this.color = genNum(1, 3, 'integer');
-  if (this.color == 1) {
-    this.hue = 0;
-  } else if (this.color == 2) {
-    this.hue = 120;
-  } else {
-    this.hue = 240;
-  }
+  this.hue = {
+    init: genNum(0, 359, 'integer'),
+  };
+  this.hue.final = colorDegReverse(this.hue.init)
 
   this.saturation = 0;
   this.combineCount = 1;
@@ -90,8 +82,8 @@ Blob.prototype.update = function( i ) {
       // с координатами текущей
       blob.x = this.x;
       blob.y = this.y;
-      blob.vx = rand( -speedRange, speedRange );
-      blob.vy = rand( -speedRange, speedRange );
+      blob.vx = genNum( -speedRange, speedRange, 'float' );
+      blob.vy = genNum( -speedRange, speedRange, 'float' );
       // предотвращение столкновений
       blob.immuneFlag = 50;
 
@@ -113,7 +105,6 @@ Blob.prototype.update = function( i ) {
     this.immuneFlag--;
   }
 
-
   // по умолчанию targetRadius равен raduis и здесь ничего не происходит
   this.radius += ( this.targetRadius - this.radius ) * 0.2;
 
@@ -123,31 +114,8 @@ Blob.prototype.update = function( i ) {
   }
   this.stepCount++;
 
-  if (this.hue == 0) {
-    if (this.stepDir) {
-      this.x += this.vx;
-      this.y += this.vy;
-    } else {
-      this.x -= this.vx;
-      this.y -= this.vy;
-    }
-  } else if (this.hue == 120) {
-    if (this.stepDir) {
-      this.x += this.vx;
-      this.y += this.vy;
-    } else {
-      this.x += this.vx;
-      this.y -= this.vy;
-    }
-  } else {
-    if (this.stepDir) {
-      this.x += this.vx;
-      this.y += this.vy;
-    } else {
-      this.x -= this.vx;
-      this.y += this.vy;
-    }
-  }
+  this.x += this.vx;
+  this.y += this.vy;
 
   // от 220 и до 360
   // this.hue = 200 + ( this.combineCount / maxCombo ) * 160;
@@ -177,10 +145,16 @@ Blob.prototype.checkCollisions = function() {
           // увеличиваем счётчик комбо
           this.combineCount += other.combineCount;
           // и убиваем другую частицу
+
+          this.hue = colorMix(this.hue, other.hue);
+
           other.deathFlag = 1;
         } else {
           other.targetRadius += this.radius;
           other.combineCount += this.combineCount;
+
+          other.hue = colorMix(other.hue, this.hue);
+
           this.deathFlag = 1;
         }
         // лишний break
@@ -189,6 +163,76 @@ Blob.prototype.checkCollisions = function() {
     }
   }
 };
+
+// function colorMix(hueOne, hueTwo) {
+//   console.log('init')
+//   console.log(hueOne, hueTwo)
+//   if (Math.abs(hueOne.final + hueTwo.final) < 180) {
+//     hueOne.init = ~~(hueOne.final + hueTwo.final);
+//     hueOne.final = colorDegReverse(hueOne.init);
+//   } else {
+//     hueOne.init = ~~((hueOne.init + hueTwo.init) / 2);
+//     hueOne.final = colorDegReverse(hueOne.init);
+//   };
+//   console.log('result')
+//   console.log(hueOne)
+//   return hueOne;
+// }
+
+var counter = {
+  pos: 0,
+  neg: 0,
+  mid: 0
+}
+
+var controlCounter = 0;
+
+function colorMix(hueOne, hueTwo) {
+  controlCounter++;
+  var result = {
+    init: null,
+    final: null
+  }
+  if (hueOne.final > 0 && hueTwo.final > 0) {
+    result.init = result.final = (hueOne.init + hueTwo.init) / 2;
+    counter.pos++;
+    controlCounter--;
+  } else if (hueOne.final < 0 && hueTwo.final < 0) {
+    result.init = (hueOne.init + hueTwo.init) / 2;
+    result.final = hueOne.init - 360;
+    counter.neg++;
+    controlCounter--;
+  } else {
+    var newAbsDeg;
+
+    if ((Math.abs(hueOne.final) + Math.abs(hueTwo.final)) < 180) {
+      if (hueOne.final < 0 && (Math.abs(hueOne.final) > Math.abs(hueTwo.final))) {
+        newAbsDeg = hueOne.init + ((360 - hueOne.final + hueTwo.final) / 2);
+      } else if (hueTwo.final < 0 && (Math.abs(hueOne.final) < Math.abs(hueTwo.final))) {
+        newAbsDeg = hueTwo.init + ((360 - hueTwo.final + hueOne.final) / 2);
+      }
+    } else if ((Math.abs(hueOne.final) + Math.abs(hueTwo.final)) > 180) {
+      newAbsDeg = (hueOne.init + hueTwo.init) / 2;
+    }
+
+    console.log(newAbsDeg)
+    result.init = newAbsDeg;
+    result.final = colorDegReverse(newAbsDeg);
+    counter.mid++;
+    controlCounter--;
+  }
+  // console.log(counter)
+  console.log(result)
+  return result;
+}
+
+function colorDegReverse(initHue) {
+  if (initHue > 180) {
+    return initHue - 360;
+  } else {
+    return initHue;
+  }
+}
 
 Blob.prototype.wrapBounds = function() {
   if( this.x + this.radius < 0 ) {
@@ -209,7 +253,7 @@ Blob.prototype.render = function( i ) {
   ctx.beginPath();
   ctx.arc( this.x, this.y, this.radius, 0, TWOPI );
   // ctx.fillStyle = 'hsl(' + this.hue + ', 100%, 50%)';
-  ctx.fillStyle = 'hsl(' + this.hue  + ',' + this.saturation + '%,' + '50%)';
+  ctx.fillStyle = 'hsl(' + this.hue.init  + ',' + this.saturation + '%,' + '50%)';
   ctx.fill();
 };
 
