@@ -43,13 +43,20 @@ function dist( p1, p2 ) {
 }
 
 function Blob() {
+  var self = this;
   this.radius = radius; // 2
   this.targetRadius = radius; // 2
   this.x = genNum( this.radius, width - this.radius, 'float' ); // от левого до правого края - радиус
   this.y = genNum( this.radius, height - this.radius, 'float' ); // от верха до низа - радиус
   this.vx = genNum( -speedRange, speedRange, 'float' ); // случайное число от -3 до 3
   this.vy = genNum( -speedRange, speedRange, 'float' );
-  this.hue = genNum(0, 360, 'integer');
+
+  this.hue = {
+    init: genNum(0, 359, 'integer'),
+  };
+  this.hue.final = colorDegReverse(this.hue.init)
+
+  this.saturation = 0;
   this.combineCount = 1;
   this.deathFlag = 0;
   this.stepLimit = genNum(0, 300, 'integer');
@@ -79,6 +86,7 @@ Blob.prototype.update = function( i ) {
       blob.vy = genNum( -speedRange, speedRange, 'float' );
       // предотвращение столкновений
       blob.immuneFlag = 50;
+
       blob.hue = this.hue;
       blobs.push( blob );
     }
@@ -96,15 +104,26 @@ Blob.prototype.update = function( i ) {
   if( this.immuneFlag > 0 ) {
     this.immuneFlag--;
   }
+
   // по умолчанию targetRadius равен raduis и здесь ничего не происходит
   this.radius += ( this.targetRadius - this.radius ) * 0.2;
+
   if ( this.stepCount > this.stepLimit) {
     this.stepCount = 0;
     this.stepDir = !this.stepDir;
   }
   this.stepCount++;
+
   this.x += this.vx;
   this.y += this.vy;
+
+  // от 220 и до 360
+  // this.hue = 200 + ( this.combineCount / maxCombo ) * 160;
+  this.saturation = 50 + ( this.combineCount / maxCombo ) * 100;
+  if (this.saturation > 100) {
+    this.saturation = 100;
+  }
+
   this.wrapBounds();
   this.checkCollisions();
 };
@@ -135,6 +154,7 @@ Blob.prototype.checkCollisions = function() {
           other.combineCount += this.combineCount;
 
           other.hue = colorMix(other.hue, this.hue);
+
           this.deathFlag = 1;
         }
         // лишний break
@@ -144,55 +164,75 @@ Blob.prototype.checkCollisions = function() {
   }
 };
 
-var ctrl = {
-  a: 0,
-  b: 0,
-  c: 0
+// function colorMix(hueOne, hueTwo) {
+//   console.log('init')
+//   console.log(hueOne, hueTwo)
+//   if (Math.abs(hueOne.final + hueTwo.final) < 180) {
+//     hueOne.init = ~~(hueOne.final + hueTwo.final);
+//     hueOne.final = colorDegReverse(hueOne.init);
+//   } else {
+//     hueOne.init = ~~((hueOne.init + hueTwo.init) / 2);
+//     hueOne.final = colorDegReverse(hueOne.init);
+//   };
+//   console.log('result')
+//   console.log(hueOne)
+//   return hueOne;
+// }
+
+var counter = {
+  pos: 0,
+  neg: 0,
+  mid: 0
 }
 
-function colorMix(a, b) {
-  var max = Math.max(a, b),
-      min = Math.min(a, b),
-      dif = max - min,
-      result;
+var controlCounter = 0;
 
-  if (dif < 180) {
-    result = (max + min) / 2;
-    ctrl.a++;
-  } else if (dif > 180) {
-    result = ((max - 360) + min) / 2;
-      if (result < 0) {
-        result += 360;
+function colorMix(hueOne, hueTwo) {
+  controlCounter++;
+  var result = {
+    init: null,
+    final: null
+  }
+  if (hueOne.final > 0 && hueTwo.final > 0) {
+    result.init = result.final = (hueOne.init + hueTwo.init) / 2;
+    counter.pos++;
+    controlCounter--;
+  } else if (hueOne.final < 0 && hueTwo.final < 0) {
+    result.init = (hueOne.init + hueTwo.init) / 2;
+    result.final = hueOne.init - 360;
+    counter.neg++;
+    controlCounter--;
+  } else {
+    var newAbsDeg;
+
+    if ((Math.abs(hueOne.final) + Math.abs(hueTwo.final)) < 180) {
+      if (hueOne.final < 0 && (Math.abs(hueOne.final) > Math.abs(hueTwo.final))) {
+        newAbsDeg = hueOne.init + ((360 - hueOne.final + hueTwo.final) / 2);
+      } else if (hueTwo.final < 0 && (Math.abs(hueOne.final) < Math.abs(hueTwo.final))) {
+        newAbsDeg = hueTwo.init + ((360 - hueTwo.final + hueOne.final) / 2);
       }
-    ctrl.b++;
-  } else {
-    result = (max + min) / 2;
-    ctrl.c++;
-  }
-  return ~~result;
-}
-
-var a = 0;
-var b = 0;
-var c = 0;
-
-for (var k = 0; k < 100; k++) {
-  a = b = 0;
-  for (var i = 0; i < 10000; i++) {
-    if (Math.random() < 0.5) {
-      a++
-    } else {
-      b++
+    } else if ((Math.abs(hueOne.final) + Math.abs(hueTwo.final)) > 180) {
+      newAbsDeg = (hueOne.init + hueTwo.init) / 2;
     }
+
+    console.log(newAbsDeg)
+    result.init = newAbsDeg;
+    result.final = colorDegReverse(newAbsDeg);
+    counter.mid++;
+    controlCounter--;
   }
-  if (a > b) {
-    c++
-  } else {
-    c--
-  }
+  // console.log(counter)
+  console.log(result)
+  return result;
 }
 
-console.log(c)
+function colorDegReverse(initHue) {
+  if (initHue > 180) {
+    return initHue - 360;
+  } else {
+    return initHue;
+  }
+}
 
 Blob.prototype.wrapBounds = function() {
   if( this.x + this.radius < 0 ) {
@@ -212,7 +252,8 @@ Blob.prototype.wrapBounds = function() {
 Blob.prototype.render = function( i ) {
   ctx.beginPath();
   ctx.arc( this.x, this.y, this.radius, 0, TWOPI );
-  ctx.fillStyle = 'hsl(' + this.hue + ', 100%, 50%)';
+  // ctx.fillStyle = 'hsl(' + this.hue + ', 100%, 50%)';
+  ctx.fillStyle = 'hsl(' + this.hue.init  + ',' + this.saturation + '%,' + '50%)';
   ctx.fill();
 };
 
