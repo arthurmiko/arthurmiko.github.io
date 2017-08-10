@@ -1,0 +1,38 @@
+{
+    "hash": "3b2fa7d6-216b-42da-af35-e6a2264d60a9",
+    "halfTowerWidth": 1000,
+    "deadZonePercent": 20,
+    "centerX": 2900,
+    "pixelNoise": 8,
+    "pixelSize": 10,
+    "minimumWidth": 50,
+    "maximumWidth": 150,
+    "minimumHeight": 500,
+    "maximumHeight": 1100,
+    "stepRotateDegree": 0.2,
+    "maxRotateDegree": 4,
+    "ellipseScaleFactor": 3,
+    "ellipseMinimumWidth": 80,
+    "ellipseMaximumWidth": 800,
+    "ellipseMinimumHeight": 80,
+    "ellipseMaximumHeight": 800,
+    "debugMode": true
+}
+
+переписать формирование запроса
+сделать через объект со свойствами
+
+добавить свойства для MW
+
+проверить, что изменилось в ответе
+найти код, перебирающих ответ и определить, что нужно изменить
+*** дописать пошаговые изменения если требуется
+
+добавить определение типа антенны на основании ответа
+
+---------------------------------------------------------------------------------------------------
+
+создание записи в attachments и отдельно прикрепление фото к записи
+Баги
+1. Не обновляются новые поля в записи attachments
+    - massUpdate

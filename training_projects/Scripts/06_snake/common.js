@@ -7,7 +7,7 @@ var cellMax = 10;
 var posX = 5;
 var posY = 5;
 var moveDirection = 'up';
-var speed = 100;
+var speed = 200;
 
 function randomInteger(min, max) {
     var rand = min - 0.5 + Math.random() * (max - min + 1)

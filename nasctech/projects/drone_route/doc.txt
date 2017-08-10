@@ -1,0 +1,136 @@
+Tower Audit
+
+Based on: Drones flight Automation (Tower Audit) rev.B
+Created by: AM
+
+Migration from pm.nasctech.com to srv-005.nasctech.com
+Export metadata
+    - Tower audit
+    - CL Drone route
+    - Flight path
+    - Flight path params
+    - Towers (manual fix and merge with CO Tower Equipment)
+Global script
+    - Tower Audit
+
+Convert log
+cat 2017-06-20_log_decoded.htm | sed s/\<.tr\>/\\n/g > log.txt
+
+===============================================================================
+
+Merging "CO Towers" with "CO Tower Equipment"
+    Created fields:
+        - Default Route (default_route)
+            type - reference
+            reference - CO Tower Audit
+            hidden - true
+            display field - id
+        - Flight Path params (flight_path_params)
+            type - reference
+            reference - CO Fligh Path params
+            hidden - true
+            display - tower_type
+        - Height of the building (height_of_the_building)
+            type - float -> Double)
+        - Legs distance (legs_distance)
+            type - float -> Double)
+        - ASL (m) (height_from_ground)
+            type - float -> Double)
+    Already existing fields:
+        - Latitude (center) == Latitude
+        - Longitude (center) == Longitude
+        - Tower height (m) == Height (m)
+    Need to check:
+        - Tower ID (autonumber) == Tower ID (text)
+        - Type of tower (array -> string) == Tower type (array -> string *with gs function*)
+            ATTENTION! NEED TESTING!
+            Can`t select Tower as type of equipment for test.
+            Looks like towers create from Site record
+            And in DDL values are different from CO Towers - field Type of tower
+            In CO Towers |In DDL
+            Rapole       |
+            Monopole     |Monopole
+            Roof Top     |
+            3 legged     |3 legged
+            4 legged     |4 legged
+                         |Lamp pole
+                         |Monopole tree
+                         |Guyed mast
+            and so on...
+    Created DB rule:
+        "Set Tower - Field Path params"
+            ATTENTION! Сейчас нет маппинга для параметров
+            для тех вышек, что нет в Flight Path params временно указывается Monopole
+            Также добавлен action для обновления поля flight_path_params в старых записях
+
+===============================================================================
+
+Set-up "CO Tower Audit"
+    - Fields:
+        "Tower ID" (reference)
+            change reference Towers -> Tower equipment
+            Qualifires -> Equipment type - Tower
+    - UI Rules:
+        "Coordinates"
+        "Start position"
+    - DB Rules:
+        "Copy", "Copy from" - old rules, what purpose?
+        "Coordinates of Tower"
+    - Actions:
+        "Create"
+            получаем:
+              запись вышки
+              запись flight path params
+                данные записи содержит информацию для пострения маршрута по каждому типу вышки
+              маршурт по умолчанию
+                если есть то
+                  уточняем стартовую позицую
+                  копируем точки маршрута
+                иначе
+                  получаем параметры из flight path params
+                  подсчитываем необходимое кол-во кругов
+                  создаём точки маршрута в CO flight path
+            в поле points_for_drone записываем массив точек для маршрута
+            если нет маршрута по умолчанию
+              то save + redirect
+            иначе
+              сообщаем о маршруте использованном для копирования
+              save + redirect
+
+===============================================================================
+
+CO Models:
+1. Tower Audit
+2. Tower Audit CL
+3. Flight Path
+4. Flight Path params
+5. Towers equipments
+
+===============================================================================
+
+Готово
+    CO "TA"   - Action "Drone Deploy CL"
+                Action "Start audit"
+                Action "Start alignment"
+                Action "Redo alignment"
+    CO "TACL" - Action "Submit"
+                Action "Submit and start audit"
+                Action "Submit and start alignment"
+                Action "Submit and redo alignment"
+    Убрать лишние поля координат и почистить скрипт от этих значений
+    Логирование ошибок
+    Добавить оповещения в чек-лист на изменение (клиент)
+
+Нужно сделать
+    Протестировать то, что сейчас доступно на портале
+    Добавить посадку на землю после выполнения маршрута (обсудить с Андреем?)
+
+В процессе
+
+Во время вырванивания доступны кнопки
+    Move           - id 1- перемещает дрона и сохраняет на клиенте координаты
+    Save and Start - id 2- закрывает диалог, возвращает координаты и дрон начинает облёт сверху вниз
+    Save and Home  - id 3- закрывает диалог и возвращает координаты
+    Cancel (Home)  - id 4- закрывает диалог и возвращает координаты
+
+===============================================================================
