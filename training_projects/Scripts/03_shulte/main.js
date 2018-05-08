@@ -1,38 +1,12 @@
 'use strict';
 console.log('Hello, my dear friend!');
 
-var random;
-var s = false;
+var random,
+    s = false,
+    begin,
+    passed,
+    currentNum = 1;
 
-function rand () {
-  random = Math.ceil(Math.random()*25);
-};
-
-function check () {
-  s = false;
-  for (var c = 1; c <= 25; c++) {
-    if (random == $('#cell_' + c).html()) {
-      s = false;
-      return;
-    } else {
-      s = true;
-    };
-  };
-};
-
-function fill () {
-  for (var i = 1; i <= 25; i++) {
-    rand();
-    check();
-    if (s == true) {
-      $('#cell_' + i).html(random);
-    } else {
-      i--;
-    };
-  };
-};
-
-var currentNum = 1;
 $('td').click(function () {
   if ($(this).html() == currentNum) {
     $(this).attr('class', 'selected');
@@ -50,13 +24,39 @@ $('.begin').click(function () {
   timer();
 });
 
-var begin;
+function fill () {
+  for (var i = 1; i <= 25; i++) {
+    rand();
+    check();
+    if (s == true) {
+      $('#cell_' + i).html(random);
+    } else {
+      i--;
+    };
+  };
+};
+
 function timer () {
   begin = new Date();
   setInterval(showTime, 1);
 };
 
-var passed;
+function rand () {
+  random = Math.ceil(Math.random()*25);
+};
+
+function check () {
+  s = false;
+  for (var c = 1; c <= 25; c++) {
+    if (random == $('#cell_' + c).html()) {
+      s = false;
+      return;
+    } else {
+      s = true;
+    };
+  };
+};
+
 function showTime() {
   if (currentNum != 26) {
     passed = new Date();

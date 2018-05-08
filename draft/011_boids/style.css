@@ -1,0 +1,15 @@
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+canvas {
+  display: block;
+}
+
+#controlPanel {
+  position: absolute;
+  left: 10;
+  top: 0;
+  color: white;
+}
